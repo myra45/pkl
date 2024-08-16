@@ -1,0 +1,46 @@
+@charset "UTF-8";@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+
+.logo {
+height:5rem;
+width: 5rem;
+padding-bottom: 1.5rem;
+}
+
+.second-logo{
+  height:3.4rem;
+  width:25rem;
+  margin-left: 7rem;
+  margin-top: -4.7rem;
+}
+
+.home-section {
+  filter: brightness(80%);
+  -webkit-filter: brightness(80%);
+  color: #fff!important;
+}
+
+.icon-list a{
+color: #fff !important;
+}
+
+.icon-list a:hover{
+color:black!important;
+}
+
+.gambar-badag{
+  overflow: hidden;
+}
+
+.gambar-badag img {
+  display: block;
+  transition: all 0.4s;
+}
+
+.gambar-badag img:hover {
+  transform: scale(1.1);
+}
+
