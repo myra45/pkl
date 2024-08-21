@@ -47,11 +47,20 @@ Route::prefix('admin')->group(function() {
     Route::middleware(['auth:admin','role:main_admin'])->group(function() 
     {
         Route::get('/home', [AdminHomeController::class, 'index'])->name('admin_home');
-        Route::get('/eskul/show', [AdminHomePageController::class, 'admin'])->name('admin_show');
-        Route::get('/eskul/add', [AdminHomePageController::class, 'admin_eskul'])->name('add_admin');
-        Route::post('/eskul/submit', [AdminHomePageController::class, 'admin_eskul_submit'])->name('add_admin_submit');
+
+        // Admin
+        Route::get('/show', [AdminHomePageController::class, 'admin'])->name('admin_show');
+        Route::get('/add', [AdminHomePageController::class, 'admin_eskul'])->name('add_admin');
+        Route::post('-submit', [AdminHomePageController::class, 'admin_eskul_submit'])->name('add_admin_submit');
+        // Member
+        Route::get('/member/show', [AdminHomePageController::class, 'member'])->name('member_show');
+        // Profile
         Route::get('/profile', [AdminProfileController::class, 'profile'])->name('admin_profile');
         Route::post('/profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit');
+        // Eskul
+        Route::get('/eskul/show', [AdminHomePageController::class, 'eskul'])->name('eskul_show');
+        Route::get('/eskul/add', [AdminHomePageController::class, 'eskul_add'])->name('eskul_add');
+        Route::post('/eskul/add-submit', [AdminHomePageController::class, 'eskul_add_submit'])->name('eskul_add_submit');
     });
     
     Route::middleware(['auth:admin','role:extracurricular_admin'])->group(function() 
