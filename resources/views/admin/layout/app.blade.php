@@ -29,7 +29,7 @@
                     <div class="d-flex align-items-center border-bottom title-part-padding px-0 mb-3 justify-content-between">
                         <h4 class="mb-0 fs-5">@yield('heading')</h4>
                         <div>
-                            @yield('button_section')
+                         @yield('button_section')
                         </div>
                     </div>
 
