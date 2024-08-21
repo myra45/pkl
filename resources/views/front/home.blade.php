@@ -15,7 +15,7 @@
         </div>
     </section>
     <div class="main">
-        <section class="about-section" style="padding-top: 8rem;" id="about">
+        <section class="about-section" style="padding-top: 8rem;" id="tentang">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6" style="padding: 0px;">

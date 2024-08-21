@@ -21,7 +21,7 @@
         >
       </li>
       <li class="dropdown">
-        <a class="a-color" href="#" data-toggle="dropdown"
+        <a class="a-color" href="#tentang"
           >Tentang</a
         >
       </li>
