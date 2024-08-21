@@ -36,6 +36,15 @@ class LoginController extends Controller
         return view('user.forget_password');
     }
 
+    public function forget_password_submit(Request $request) {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        
+    }
+
+
     public function logout() {
         Auth::guard('web')->logout();
         return redirect()->route('login');

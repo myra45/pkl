@@ -9,7 +9,7 @@
               @csrf
                 <div class="row">
                     <div class="col-md-9">
-                        <input type="hidden" name="extracurricular_id" value="">
+                        <input type="text" name="extracurricular_id" value="{{ $extracurricularId }}">
                         <div class="mb-3">
                             <label for="eventName" class="form-label">Nama Event</label>
                             <input type="text" class="form-control " id="eventName"
@@ -32,6 +32,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Buat Presensi</button>
+                    </div>
             </form>
         </div>
     </div>

@@ -4,6 +4,7 @@
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\PresensiController;
@@ -46,6 +47,9 @@ Route::prefix('admin')->group(function() {
     Route::middleware(['auth:admin','role:main_admin'])->group(function() 
     {
         Route::get('/home', [AdminHomeController::class, 'index'])->name('admin_home');
+        Route::get('/eskul/show', [AdminHomePageController::class, 'admin'])->name('admin_show');
+        Route::get('/eskul/add', [AdminHomePageController::class, 'admin_eskul'])->name('add_admin');
+        Route::post('/eskul/submit', [AdminHomePageController::class, 'admin_eskul_submit'])->name('add_admin_submit');
         Route::get('/profile', [AdminProfileController::class, 'profile'])->name('admin_profile');
         Route::post('/profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit');
     });
