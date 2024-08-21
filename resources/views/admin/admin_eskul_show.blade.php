@@ -1,6 +1,12 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Member Eskul')
+@section('heading', 'Admin Eskul')
+
+@section('button_section')
+
+<a href="{{ route('add_admin') }}" class="btn btn-primary">Tambah Admin Eskul</a>
+
+@endsection
 
 @section('main_content')
 <div class="section-body">
@@ -16,16 +22,22 @@
                                   <th>Name</th>
                                   <th>Email</th>
                                   <th>Nama Eskul</th>
+                                  <th>Action</th>
                               </tr>
                           </thead>
 
                           <tbody>
-                            @foreach ($user as $item )
+                            @foreach ($admin_eskul as $item )
                                   <tr>
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $item->name }}</td>
                                       <td>{{ $item->email }}</td>
-                                      <td>{{ $item->rEskul?->nama_eskul }}</td>
+                                      <td>{{ $item->rExtracurricular?->nama_eskul }}</td>
+                                      <td class="pt_10 pb_10">
+                                        <a href="" class="btn btn-primary">Edit</a>
+                                        <a href="" class="btn btn-danger"
+                                            onClick="return confirm('Are you sure?');">Delete</a>
+                                    </td>
                                   </tr>
                             @endforeach
                           </tbody>

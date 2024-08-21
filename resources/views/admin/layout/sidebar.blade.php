@@ -12,7 +12,7 @@
             </div>
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-                <ul id="sidebarnav" {{ Request::is('admin/home') || Request::is('admin/profile') || Request::is('admin/eskul/show') ? 'active' : ' ' }}>
+                <ul id="sidebarnav">
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Home</span>
@@ -34,7 +34,7 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item">
+                    <li class="sidebar-item {{ Request::is('admin/show') || Request::is('admin/member/show') ? 'active' : ' ' }}">
                         <a class="sidebar-link has-arrow" href="" aria-expanded="false">
                           <span class="d-flex">
                             <i class="ti ti-users"></i>
@@ -42,7 +42,7 @@
                           <span class="hide-menu">User Manajemen</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
-                          <li class="sidebar-item {{ Request::is('admin/eskul/show') ? 'active' : ' ' }}">
+                          <li class="sidebar-item {{ Request::is('admin/show') ? 'active' : ' ' }}">
                             <a href="{{ route('admin_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
@@ -51,7 +51,7 @@
                             </a>
                           </li>
                           <li class="sidebar-item {{ Request::is('admin/member/show') ? 'active' : ' ' }} ">
-                            <a href="{{ route('admin_profile') }}" class="sidebar-link">
+                            <a href="{{ route('member_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -70,16 +70,16 @@
                           <span class="hide-menu">Eskul Manajemen</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
-                          <li class="sidebar-item ">
-                            <a href="" class="sidebar-link">
+                          <li class="sidebar-item {{ Request::is('admin/eskul/show') ? 'active' : ' '}} ">
+                            <a href="{{ route('eskul_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
                               <span class="hide-menu">All Eskul</span>
                             </a>
                           </li>
-                          <li class="sidebar-item">
-                            <a href="" class="sidebar-link">
+                          <li class="sidebar-item {{ Request::is('admin/eskul/show') ? 'active' : ' '}}">
+                            <a href="{{ route('eskul_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>

@@ -1,10 +1,10 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Admin Eskul')
+@section('heading', 'Daftar Eskul')
 
 @section('button_section')
 
-<a href="{{ route('add_admin') }}" class="btn btn-primary">Tambah Admin Eskul</a>
+<a href="{{ route('eskul_add') }}" class="btn btn-primary">Tambah Eskul</a>
 
 @endsection
 
@@ -19,9 +19,8 @@
                           <thead>
                               <tr>
                                   <th>SL</th>
-                                  <th>Name</th>
-                                  <th>Email</th>
                                   <th>Nama Eskul</th>
+                                  <th>Action</th>
                               </tr>
                           </thead>
 
@@ -29,9 +28,12 @@
                             @foreach ($all_data as $item )
                                   <tr>
                                       <td>{{ $loop->iteration }}</td>
-                                      <td>{{ $item->name }}</td>
-                                      <td>{{ $item->email }}</td>
-                                      <td>{{ $item->rExtracurricular?->nama_eskul }}</td>
+                                      <td>{{ $item->nama_eskul }}</td>
+                                      <td class="pt_10 pb_10">
+                                        <a href="" class="btn btn-primary">Edit</a>
+                                        <a href="" class="btn btn-danger"
+                                            onClick="return confirm('Are you sure?');">Delete</a>
+                                    </td>
                                   </tr>
                             @endforeach
                           </tbody>
