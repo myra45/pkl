@@ -3,7 +3,7 @@
         <!-- Sidebar scroll-->
         <div>
             <div class="brand-logo d-flex align-items-center justify-content-between">
-                <a href="./index.html" class="text-nowrap logo-img">
+                <a href="{{ route('admin_home') }}" class="text-nowrap logo-img">
                     <img src="{{ asset('dist/images/logos/dark-logo.svg') }}" width="180" alt="" />
                 </a>
                 <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -12,8 +12,7 @@
             </div>
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-                <ul id="sidebarnav"
-                    {{ Request::is('admin/home') || Request::is('admin/profile') ? 'active' : ' ' }}>
+                <ul id="sidebarnav" {{ Request::is('admin/home') || Request::is('admin/profile') || Request::is('admin/eskul/show') ? 'active' : ' ' }}>
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Home</span>
@@ -34,6 +33,89 @@
                             <span class="hide-menu">Profile</span>
                         </a>
                     </li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="" aria-expanded="false">
+                          <span class="d-flex">
+                            <i class="ti ti-users"></i>
+                          </span>
+                          <span class="hide-menu">User Manajemen</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                          <li class="sidebar-item {{ Request::is('admin/eskul/show') ? 'active' : ' ' }}">
+                            <a href="{{ route('admin_show') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">All Admin</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item {{ Request::is('admin/member/show') ? 'active' : ' ' }} ">
+                            <a href="{{ route('admin_profile') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">All Member</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                      
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="" aria-expanded="false">
+                          <span class="d-flex">
+                            <i class="ti ti-file-text"></i>
+                          </span>
+                          <span class="hide-menu">Eskul Manajemen</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                          <li class="sidebar-item ">
+                            <a href="" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">All Eskul</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item">
+                            <a href="" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">All Event</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" href="" aria-expanded="">
+                          <span class="d-flex">
+                            <i class="ti ti-file"></i>
+                          </span>
+                          <span class="hide-menu">Konten Manajemen</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                          <li class="sidebar-item ">
+                            <a href="" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">Home Section</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item">
+                            <a href="" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">About Section</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

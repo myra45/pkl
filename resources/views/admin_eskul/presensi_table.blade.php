@@ -6,8 +6,6 @@
 <div class="section-body">
   <div class="row">
       <div class="col-12">
-          <div class="card">
-              <div class="card-body">
                 <form action="" method="POST">
                   <div class="table-responsive">
                       <table class="table table-bordered" id="example1">
@@ -53,8 +51,6 @@
                   </div>
                 </form>
               </div>
-          </div>
-      </div>
   </div>
 </div>
 
