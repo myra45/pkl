@@ -2,6 +2,10 @@
 
 @section('heading', 'Tambah Admin Eskul')
 
+@section('button_section')
+ <a href="{{ route('admin_show') }}" class="btn btn-primary">Back</a>
+@endsection
+
 @section('main_content')
     <div class="card">
         <div class="card-body">
