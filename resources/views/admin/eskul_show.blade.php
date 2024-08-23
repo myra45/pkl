@@ -4,7 +4,7 @@
 
 @section('button_section')
 
-<a href="{{ route('eskul_add') }}" class="btn btn-primary">Tambah Eskul</a>
+<a href="{{ route('eskul_add') }}" class="btn btn-primary">Add New <span class="ti ti-plus"></span></a>
 
 @endsection
 
@@ -30,8 +30,8 @@
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $item->nama_eskul }}</td>
                                       <td class="pt_10 pb_10">
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a href="" class="btn btn-danger"
+                                        <a href="{{ route('eskul_edit', $item->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('eskul_delete', $item->id) }}" class="btn btn-danger"
                                             onClick="return confirm('Are you sure?');">Delete</a>
                                     </td>
                                   </tr>

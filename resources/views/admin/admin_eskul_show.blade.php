@@ -4,7 +4,7 @@
 
 @section('button_section')
 
-<a href="{{ route('add_admin') }}" class="btn btn-primary">Tambah Admin Eskul</a>
+<a href="{{ route('add_admin') }}" class="btn btn-primary">Add New <span class="ti ti-plus"></span></a>
 
 @endsection
 
@@ -34,8 +34,8 @@
                                       <td>{{ $item->email }}</td>
                                       <td>{{ $item->rExtracurricular?->nama_eskul }}</td>
                                       <td class="pt_10 pb_10">
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a href="" class="btn btn-danger"
+                                        <a href="{{ route('admin_edit', $item->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('admin_delete', $item->id) }}" class="btn btn-danger"
                                             onClick="return confirm('Are you sure?');">Delete</a>
                                     </td>
                                   </tr>

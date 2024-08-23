@@ -34,15 +34,15 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item {{ Request::is('admin/show') || Request::is('admin/member/show') ? 'active' : ' ' }}">
-                        <a class="sidebar-link has-arrow" href="" aria-expanded="false">
+                    <li class="sidebar-item {{ Request::is('admin/*') || Request::is('admin/member/*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link has-arrow">
                           <span class="d-flex">
                             <i class="ti ti-users"></i>
                           </span>
                           <span class="hide-menu">User Manajemen</span>
                         </a>
-                        <ul aria-expanded="false" class="collapse first-level">
-                          <li class="sidebar-item {{ Request::is('admin/show') ? 'active' : ' ' }}">
+                        <ul class="collapse first-level">
+                          <li class="sidebar-item {{ Request::is('admin/*') ? 'active' : ' ' }}">
                             <a href="{{ route('admin_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
@@ -62,15 +62,15 @@
                       </li>
                       
 
-                    <li class="sidebar-item">
-                        <a class="sidebar-link has-arrow" href="" aria-expanded="false">
+                    <li class="sidebar-item {{ Request::is('admin/eskul/*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link has-arrow" aria-expanded="false">
                           <span class="d-flex">
                             <i class="ti ti-file-text"></i>
                           </span>
                           <span class="hide-menu">Eskul Manajemen</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
-                          <li class="sidebar-item {{ Request::is('admin/eskul/show') ? 'active' : ' '}} ">
+                          <li class="sidebar-item {{ Request::is('admin/eskul/*') ? 'active' : ' '}} ">
                             <a href="{{ route('eskul_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
@@ -91,7 +91,7 @@
 
 
                     <li class="sidebar-item">
-                        <a class="sidebar-link has-arrow" href="" aria-expanded="">
+                        <a class="sidebar-link has-arrow" aria-expanded="">
                           <span class="d-flex">
                             <i class="ti ti-file"></i>
                           </span>
@@ -99,7 +99,7 @@
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                           <li class="sidebar-item ">
-                            <a href="" class="sidebar-link">
+                            <a class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -107,7 +107,7 @@
                             </a>
                           </li>
                           <li class="sidebar-item">
-                            <a href="" class="sidebar-link">
+                            <a class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
