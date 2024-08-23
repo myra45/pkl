@@ -45,6 +45,11 @@ class LoginController extends Controller
     }
 
 
+    public function confirmation_code() {
+        return view('user.confirmation_code');
+    }
+
+
     public function logout() {
         Auth::guard('web')->logout();
         return redirect()->route('login');
