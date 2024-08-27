@@ -52,6 +52,7 @@ Route::prefix('admin')->group(function() {
         Route::post('/eskul/submit', [AdminHomePageController::class, 'admin_eskul_submit'])->name('add_admin_submit');
         Route::get('/profile', [AdminProfileController::class, 'profile'])->name('admin_profile');
         Route::post('/profile-submit', [AdminProfileController::class, 'profile_submit'])->name('admin_profile_submit');
+        Route::get('/home-banner', [AdminHomePageController::class, 'banner'])->name('home_banner_show');
     });
     
     Route::middleware(['auth:admin','role:extracurricular_admin'])->group(function() 
@@ -77,6 +78,8 @@ Route::prefix('admin')->group(function() {
 
     Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
+
+
 
 
 

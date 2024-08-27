@@ -49,4 +49,7 @@ class AdminHomePageController extends Controller
 
         return redirect()->back()->with('success', 'New Admin has created succesfully');
     }
+    public function banner() {
+        return view('admin.home_banner_show');      
+    }
 }
