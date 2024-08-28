@@ -21,4 +21,20 @@ class Admin extends Authenticatable
     {
         return $this->belongsTo(Eskul::class, 'eskul_id', 'id');
     }
+
+    public function eskul()
+    {
+        return $this->hasOne(Eskul::class, 'admin_id'); // 'admin_id' adalah foreign key di tabel Eskul
+    }
+
+
+    protected static function booted()
+    {
+        static::deleting(function ($admin) {
+        // Cek apakah admin memiliki data eskul terkait
+           if ($admin->eskul) {
+            $admin->eskul->delete();
+           }
+        });
+    }
 }

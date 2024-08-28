@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('tugas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('member_id'); 
-            $table->unsignedBigInteger('eskul_id'); 
+            $table->foreignId('admin_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('eskul_id')->constrained('eskuls')->onDelete('cascade');
             $table->date('tanggal');
             $table->text('judul_tugas');
             $table->text('deskripsi');
-            $table->text('status');   
+            $table->text('status');
             $table->timestamps();
         });
     }
@@ -28,6 +28,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('tugas', function (Blueprint $table) {
+            $table->dropForeign(['admin_id']);
+            $table->dropForeign(['eskul_id']);
+        });
         Schema::dropIfExists('tugas');
     }
 };

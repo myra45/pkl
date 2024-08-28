@@ -63,7 +63,7 @@
                                         <a class="text-primary fw-bold"
                                             href="{{ route('home') }}">Back to Home</a>
                                         <a class="text-primary fw-bold"
-                                            href="{{ route('forget_password') }}">Forget Password ?</a>
+                                            href="{{ route('confirmation_code') }}">Forget Password ?</a>
                                     </div>
                                     <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"
                                         style="border-radius: 0px">Log In</button>

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('eskul_id');
+            $table->foreignId('eskul_id')->constrained('eskuls')->onDelete('cascade')->nullable();
             $table->text('nama_event');
             $table->date('tanggal');
             $table->time('jam_mulai');
             $table->text('tempat');
-            $table->timestamps();    
+            $table->timestamps();
         });
     }
 
@@ -27,6 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('events', function (Blueprint $table) {
+            $table->dropForeign(['eskul_id']);
+        });
         Schema::dropIfExists('events');
     }
 };

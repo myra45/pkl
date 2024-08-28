@@ -2,6 +2,10 @@
 
 @section('heading', 'Tambah Admin Eskul')
 
+@section('button_section')
+ <a href="{{ route('admin_show') }}" class="btn btn-primary">Back</a>
+@endsection
+
 @section('main_content')
     <div class="card">
         <div class="card-body">
@@ -13,39 +17,25 @@
                         <div class="mb-3">
                           <label for="name" class="form-label">Nama</label>
                           <input type="text"
-                              class="form-control  @error('name') is-invalid @enderror"
-                              id="name" name="name" value="{{ old('name') }}" autofocus>
-                          @error('name')
-                              <div class="text-danger">{{ $message }}</div>
-                          @enderror
+                              class="form-control" id="name" name="name" value="{{ old('name') }}" autofocus>
                       </div>
                       <div class="mb-3">
                           <label for="email" class="form-label">Alamat Email</label>
                           <input type="email"
-                              class="form-control @error('email') is-invalid @enderror"
-                              id="email" name="email" value="{{ old('email') }}" autofocus>
-                          @error('email')
-                              <div class="text-danger">{{ $message }}</div>
-                          @enderror
+                              class="form-control" id="email" name="email" value="{{ old('email') }}" autofocus>
                       </div>
                       <div class="mb-3 ">
                         <label for="password" class="form-label">Password</label>
                         <input type="password"
-                            class="form-control @error('password') is-invalid @enderror"
+                            class="form-control"
                             id="password" name="password" value="{{ old('password') }}"
-                            autofocus>
-                        @error('password')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+                            >
                     </div>
                     <div class="mb-3 ">
                         <label for="retype_password" class="form-label">Retype Password</label>
                         <input type="password"
-                            class="form-control @error('retype_password') is-invalid @enderror"
+                            class="form-control"
                             id="retype_password" name="retype_password">
-                        @error('retype_password')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
                     </div>
 
                     <div class="mb-4">

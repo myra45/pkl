@@ -21,7 +21,7 @@ class SignUpController extends Controller
         // Validasi input
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => 'required|string|min:6',
             'retype_password' => 'required|same:password',
             'eskul_id' => 'required'
@@ -31,12 +31,13 @@ class SignUpController extends Controller
 
         $user = new User();
         $user->eskul_id = $request->eskul_id;
+        $user->role = $request->role;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
         
-        return redirect()->route('user_dashboard')->with('success', 'Registration successful!');
+        return redirect()->route('login')->with('success', 'Registration successful! You can Loggin now!');
     
     }
 }

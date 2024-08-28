@@ -4,87 +4,67 @@
 
 @section('main_content')
 
-<div class="owl-carousel counter-carousel owl-theme owl-loaded owl-drag">
-
-  <div class="owl-stage-outer">
-
-    <div class="owl-item cloned" style="width: 185px;">
-      <div class="item">
-          <div class="card border-0 zoom-in bg-warning-subtle shadow-none">
-              <div class="card-body">
-                  <div class="text-center">
-                      <img src="{{ asset('dist/images/products/icon-user-male.svg') }}" width="50" height="55"
-                          class="mb-3" alt="modernize-img">
-                      <p class="fw-semibold fs-3 text-warning mb-1">Presensi Member</p>
-                      <h5 class="fw-semibold text-warning mb-0"><a href="{{ route('admin_extracurricular_presensi_form') }}" class="text-warning">Buat</a></h5>
-                  </div>
-              </div>
+<div class="row">
+  <div class="col-lg-3 col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-row gap-6 align-items-center">
+          <div class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-primary">
+            <i class="ti ti-clipboard-check fs-6"></i>
           </div>
-      </div>
-  </div>
-
-  <div class="owl-item cloned" style="width: 185px; margin-left: 20px;">
-    <div class="item">
-        <div class="card border-0 zoom-in bg-success-subtle shadow-none">
-            <div class="card-body">
-                <div class="text-center">
-                    <img src="{{ asset('dist/images/products/icon-user-male.svg') }}" width="50" height="55"
-                        class="mb-3" alt="modernize-img">
-                    <p class="fw-semibold fs-3 text-success mb-1">Hadir</p>
-                    <h5 class="fw-semibold text-success mb-0">124 Orang</h5>
-                </div>
-            </div>
+          <div class="align-self-center">
+            <h4 class="card-title mb-1">Presensi</h4>
+            <p class="card-subtitle">5</p>
+          </div>
         </div>
-    </div>
-</div>
-
-<div class="owl-item cloned" style="width: 185px; margin-left: 20px;">
-  <div class="item">
-      <div class="card border-0 zoom-in bg-primary-subtle shadow-none">
-          <div class="card-body">
-              <div class="text-center">
-                <img src="{{ asset('dist/images/products/icon-user-male.svg') }}" width="50" height="55"
-                class="mb-3" alt="modernize-img">
-                  <p class="fw-semibold fs-3 text-primary mb-1">Sakit</p>
-                  <h5 class="fw-semibold text-primary mb-0">3 Orang</h5>
-              </div>
-          </div>
       </div>
-  </div>
-</div>
-
-<div class="owl-item cloned" style="width: 185px; margin-left: 20px;">
-  <div class="item">
-      <div class="card border-0 zoom-in bg-warning-subtle shadow-none">
-          <div class="card-body">
-              <div class="text-center">
-                  <img src="{{ asset('dist/images/products/icon-user-male.svg') }}" width="50" height="50"
-                      class="mb-3" alt="modernize-img">
-                  <p class="fw-semibold fs-3 text-warning mb-1">Izin</p>
-                  <h5 class="fw-semibold text-warning mb-0">4 Orang</h5>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-
-<div class="owl-item cloned" style="width: 185px; margin-left: 20px;">
-    <div class="item">
-        <div class="card border-0 zoom-in bg-danger-subtle shadow-none">
-            <div class="card-body">
-                <div class="text-center">
-                    <img src="{{ asset('dist/images/products/icon-user-male.svg') }}" width="50" height="50"
-                        class="mb-3" alt="modernize-img">
-                    <p class="fw-semibold fs-3 text-danger mb-1">Alpa</p>
-                    <h5 class="fw-semibold text-danger mb-0">6 Orang</h5>
-                </div>
-            </div>
-        </div>
     </div>
   </div>
-
-</div>
-
+  <div class="col-lg-3 col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-row gap-6 align-items-center">
+          <div class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-success">
+            <i class="ti ti-checklist fs-6"></i>
+          </div>
+          <div class="align-self-center">
+            <h4 class="card-title mb-1">Tugas</h4>
+            <p class="card-subtitle">5</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-row gap-6 align-items-center">
+          <div class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-warning">
+            <i class="ti ti-users fs-6"></i>
+          </div>
+          <div class="align-self-center">
+            <h4 class="card-title mb-1">Members</h4>
+            <p class="card-subtitle">110</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-row gap-6 align-items-center">
+          <div class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-danger">
+            <i class="ti ti-speakerphone fs-6"></i>
+          </div>
+          <div class="align-self-center">
+            <h4 class="card-title mb-1">Event</h4>
+            <p class="card-subtitle">5</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
   <div class="row">

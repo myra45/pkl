@@ -14,8 +14,26 @@ class User extends Authenticatable
 
     public function rEskul()
     {
-        return $this->belongsToMany(Eskul::class);
+        return $this->hasMany(Eskul::class, 'admin_id');
     }
+
+
+    public function Extracurricular()
+    {
+        return $this->belongsTo(Eskul::class, 'eskul_id', 'id');
+    }
+
+    public function eskul()
+    {
+        return $this->hasOne(Eskul::class, 'admin_id'); // 'admin_id' adalah foreign key di tabel Eskul
+    }
+
+    public function presensis()
+    {
+        return $this->hasMany(Presensi::class);
+    }
+    
+    protected $guarded = [];
 
 
     /**
