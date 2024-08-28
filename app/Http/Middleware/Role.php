@@ -10,13 +10,12 @@ use Illuminate\Support\Facades\Auth;
 
 class Role
 {
-    public function handle($request, Closure $next, $role)
-{
-    if (Auth::guard('admin')->check() && Auth::guard('admin')->user()->role == $role) {
-        return $next($request);
+    public function handle($request, Closure $next)
+    {
+        if (auth()->user()->role == 'Pembina Eskul') {
+            return $next($request);
+        } else {
+            return redirect()->route('admin_login')->with('error', 'Unauthorized role.');
+        }
     }
-    
-    return redirect()->route('admin_login')->with('error', 'Unauthorized access.');
-}
-
 }

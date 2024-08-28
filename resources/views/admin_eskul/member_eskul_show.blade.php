@@ -1,12 +1,6 @@
-@extends('admin.layout.app')
+@extends('admin_eskul.layout.app')
 
-@section('heading', 'Daftar Eskul')
-
-@section('button_section')
-
-    <a href="{{ route('eskul_add') }}" class="btn btn-primary">Add New <span class="ti ti-plus"></span></a>
-
-@endsection
+@section('heading', 'Member Eskul')
 
 @section('main_content')
     <div class="section-body">
@@ -19,26 +13,27 @@
                                 <thead>
                                     <tr>
                                         <th>SL</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
                                         <th>Nama Eskul</th>
-                                        <th>Nama Admin</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($all_data as $item)
+                                    @foreach ($user as $userItem)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->nama_eskul }}</td>
-                                            <td>{{ $item->rUsers?->name  }}</td>
+                                            <td>{{ $userItem->name }}</td>
+                                            <td>{{ $userItem->email }}</td>
+                                            <td>{{ $userItem->Extracurricular->nama_eskul }}</td>
                                             <td class="pt_10 pb_10">
-                                                <a href="{{ route('eskul_edit', $item->id) }}"
-                                                    class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('eskul_delete', $item->id) }}" class="btn btn-danger"
+                                                <a href="{{ route('member_delete', $userItem->id) }}" class="btn btn-danger"
                                                     onClick="return confirm('Are you sure?');">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
+
 
                                 </tbody>
                             </table>

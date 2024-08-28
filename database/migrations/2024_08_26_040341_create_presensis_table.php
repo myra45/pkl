@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('presensis', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('eskuls_id');
-            $table->unsignedBigInteger('event_id');
-            $table->date('tanggal');
-            $table->text('status');
+            $table->foreignId('eskul_id')->constrained();
+            $table->foreignId('event_id')->constrained();
+            $table->enum('status', ['Hadir', 'Izin', 'Sakit', 'Tanpa Keterangan']);
             $table->timestamps();
         });
     }
@@ -26,6 +25,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('presensis', function (Blueprint $table) {
+            $table->dropForeign(['eskul_id']);
+            $table->dropForeign(['event_id']);
+        });
         Schema::dropIfExists('presensis');
     }
 };
