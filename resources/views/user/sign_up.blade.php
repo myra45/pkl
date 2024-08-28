@@ -29,6 +29,7 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-6">
+                                            <input type="hidden" name="role" value="Member">
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Nama</label>
                                                 <input type="text"

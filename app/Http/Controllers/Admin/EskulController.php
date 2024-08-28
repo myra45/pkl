@@ -2,25 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Eskul;
+use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
+use App\Http\Controllers\Controller;
 
 class EskulController extends Controller
 {
-    
 
-    public function index() {
-        $all_data = Eskul::all();
+
+    public function index()
+    {
+        $all_data = Eskul::with('rUsers')->get();
         return view('admin.eskul_show', compact('all_data'));
     }
 
-    public function add() {
+    public function add()
+    {
         return view('admin.eskul_add');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'nama_eskul' => 'required'
         ]);
@@ -32,14 +36,16 @@ class EskulController extends Controller
         return redirect()->route('eskul_show')->with('success', 'New Extracurricular has been added!');
     }
 
-    public function edit($id) {
+    public function edit($id)
+    {
 
         $row_data = Eskul::where('id', $id)->first();
 
         return view('admin.eskul_edit', compact('row_data'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $request->validate([
             'nama_eskul' => 'required'
         ]);
@@ -51,7 +57,8 @@ class EskulController extends Controller
         return redirect()->route('eskul_show')->with('success', 'Eskul has been updated!');
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $row_data = Eskul::where('id', $id)->first();
         $row_data->delete();
 

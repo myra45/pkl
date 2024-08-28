@@ -26,7 +26,7 @@
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $item->name }}</td>
                                       <td>{{ $item->email }}</td>
-                                      <td>{{ $item->rEskul?->nama_eskul }}</td>
+                                      <td>{{ $item->Extracurricular?->nama_eskul }}</td>
                                       <td class="pt_10 pb_10">
                                         <a href="{{ route('member_delete', $item->id) }}" class="btn btn-danger"
                                             onClick="return confirm('Are you sure?');">Delete</a>

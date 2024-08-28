@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Admin
+class coba
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,6 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role == 'Admin') {
-            return $next($request);
-        } else {
-            return redirect()->route('admin_login')->with('error', 'Unauthorized role.');
-        }
+        return $next($request);
     }
 }
