@@ -1,155 +1,135 @@
 @extends('front.layout.app')
 @section('main_content')
-<section class="module bg-dark-60 blog-page-header" data-background="assets/images/blog_bg.jpg">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <h2 class="module-title font-alt">Blog Standard</h2>
-        <div class="module-subtitle font-serif">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="module">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="post">
-          <div class="post-thumbnail"><a href="#"><img src="assets/images/post-1.jpg" alt="Blog-post Thumbnail"/></a></div>
-          <div class="post-header font-alt">
-            <h2 class="post-title"><a href="#">Our trip to the Alps</a></h2>
-            <div class="post-meta">By&nbsp;<a href="#">Mark Stone</a>| 23 November | 3 Comments | <a href="#">Photography, </a><a href="#">Web Design</a>
+    <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home"
+        data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
+        <div class="titan-caption home-caption">
+            <div class="caption-content">
+                <div class="mb-30 titan-title-size-2 a-color">
+                    SMK Budi Bakti Ciwidey
+                </div>
+                <div class="mb-40 titan-title-size-3" style="text-transform: uppercase;">
+                    <span class="rotate">Berita</span>
+                </div>
             </div>
-          </div>
-          <div class="post-entry">
-            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-          </div>
-          <div class="post-more"><a class="more-link" href="#">Read more</a></div>
         </div>
-        <div class="post #">
-          <div class="post-header font-alt">
-            <h2 class="post-title"><a href="Post with text only">Mark Stone</a></h2>
-            <div class="post-meta">By&nbsp;<a href="#">| 23 November | 3 Comments | </a>Marketing, ,Web Design<a href="#">A</a><a href="#"> </a><a href="#">w</a><a href="#">o</a><a href="#">n</a><a href="#">d</a><a href="#">e</a><a href="#">r</a><a href="#">f</a><a href="#">u</a><a href="#">l</a><a href="#"> </a><a href="#">s</a><a href="#">e</a><a href="#">r</a><a href="#">e</a><a href="#">n</a><a href="#">i</a><a href="#">t</a><a href="#">y</a><a href="#"> </a><a href="#">h</a><a href="#">a</a><a href="#">s</a><a href="#"> </a><a href="#">t</a><a href="#">a</a><a href="#">k</a><a href="#">e</a><a href="#">n</a><a href="#"> </a><a href="#">p</a><a href="#">o</a><a href="#">s</a><a href="#">s</a><a href="#">e</a><a href="#">s</a><a href="#">s</a><a href="#">i</a><a href="#">o</a><a href="#">n</a><a href="#"> </a><a href="#">o</a><a href="#">f</a><a href="#"> </a><a href="#">m</a><a href="#">y</a><a href="#"> </a><a href="#">e</a><a href="#">n</a><a href="#">t</a><a href="#">i</a><a href="#">r</a><a href="#">e</a><a href="#"> </a><a href="#">s</a><a href="#">o</a><a href="#">u</a><a href="#">l</a><a href="#">,</a><a href="#"> </a><a href="#">l</a><a href="#">i</a><a href="#">k</a><a href="#">e</a><a href="#"> </a><a href="#">t</a><a href="#">h</a><a href="#">e</a><a href="#">s</a><a href="#">e</a><a href="#"> </a><a href="#">s</a><a href="#">w</a><a href="#">e</a><a href="#">e</a><a href="#">t</a><a href="#"> </a><a href="#">m</a><a href="#">o</a><a href="#">r</a><a href="#">n</a><a href="#">i</a><a href="#">n</a><a href="#">g</a><a href="#">s</a><a href="#"> </a><a href="#">o</a><a href="#">f</a><a href="#"> </a><a href="#">s</a><a href="#">p</a><a href="#">r</a><a href="#">i</a><a href="#">n</a><a href="#">g</a><a href="#"> </a><a href="#">w</a><a href="#">h</a><a href="#">i</a><a href="#">c</a><a href="#">h</a><a href="#"> </a><a href="#">I</a><a href="#"> </a><a href="#">e</a><a href="#">n</a><a href="#">j</a><a href="#">o</a><a href="#">y</a><a href="#"> </a><a href="#">w</a><a href="#">i</a><a href="#">t</a><a href="#">h</a><a href="#"> </a><a href="#">m</a><a href="#">y</a><a href="#"> </a><a href="#">w</a><a href="#">h</a><a href="#">o</a><a href="#">l</a><a href="#">e</a><a href="#"> </a><a href="#">h</a><a href="#">e</a><a href="#">a</a><a href="#">r</a><a href="#">t</a><a href="#">.</a><a href="#"> </a><a href="#">I</a><a href="#"> </a><a href="#">a</a><a href="#">m</a><a href="#"> </a><a href="#">a</a><a href="#">l</a><a href="#">o</a><a href="#">n</a><a href="#">e</a><a href="#">,</a><a href="#"> </a><a href="#">a</a><a href="#">n</a><a href="#">d</a><a href="#"> </a><a href="#">f</a><a href="#">e</a><a href="#">e</a><a href="#">l</a><a href="#"> </a><a href="#">t</a><a href="#">h</a><a href="#">e</a><a href="#"> </a><a href="#">c</a><a href="#">h</a><a href="#">a</a><a href="#">r</a><a href="#">m</a><a href="#"> </a><a href="#">o</a><a href="#">f</a><a href="#"> </a><a href="#">e</a><a href="#">x</a><a href="#">i</a><a href="#">s</a><a href="#">t</a><a href="#">e</a><a href="#">n</a><a href="#">c</a><a href="#">e</a><a href="#"> </a><a href="#">i</a><a href="#">n</a><a href="#"> </a><a href="#">t</a><a href="#">h</a><a href="#">i</a><a href="#">s</a><a href="#"> </a><a href="#">s</a><a href="#">p</a><a href="#">o</a><a href="#">t</a><a href="#">,</a><a href="#"> </a><a href="#">w</a><a href="#">h</a><a href="#">i</a><a href="#">c</a><a href="#">h</a><a href="#"> </a><a href="#">w</a><a href="#">a</a><a href="#">s</a><a href="#"> </a><a href="#">c</a><a href="#">r</a><a href="#">e</a><a href="#">a</a><a href="#">t</a><a href="#">e</a><a href="#">d</a><a href="#"> </a><a href="#">f</a><a href="#">o</a><a href="#">r</a><a href="#"> </a><a href="#">t</a><a href="#">h</a><a href="#">e</a><a href="#"> </a><a href="#">b</a><a href="#">l</a><a href="#">i</a><a href="#">s</a><a href="#">s</a><a href="#"> </a><a href="#">o</a><a href="#">f</a><a href="#"> </a><a href="#">s</a><a href="#">o</a><a href="#">u</a><a href="#">l</a><a href="#">s</a><a href="#"> </a><a href="#">l</a><a href="#">i</a><a href="#">k</a><a href="#">e</a><a href="#"> </a><a href="#">m</a><a href="#">i</a><a href="#">n</a><a href="#">e</a><a href="#">.</a>
+    </section>
+    <section class="module" style="margin-top: 200px">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="post">
+                        <div class="post-video embed-responsive embed-responsive-16by9">
+                            <img class="embed-responsive-item object-fit-cover"
+                                src="{{ asset('dist_front/assets/images/berita/berita1.jpg') }}"></img>
+                        </div>
+                        <div class="post-header font-alt">
+                            <h2 class="post-title"><a href="#">Kegiatan Perkemahan</a></h2>
+                            <div class="post-meta">By&nbsp;<a href="#">Mark Stone</a>| 23 November | 3 Comments | <a
+                                    href="#">Marketing, </a><a href="#">Web Design</a>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A ad quos, iure eaque tenetur ullam
+                            iste, tempore laudantium harum laborum voluptatem. Aliquid id cumque adipisci quas deserunt ad
+                            enim inventore iusto distinctio aliquam velit officia quaerat omnis, nihil beatae eius, numquam
+                            perferendis rerum. Nesciunt laudantium, facere delectus sapiente vitae amet a eligendi at
+                            aperiam autem aut. </p>
+                            
+                           <p> Dolorum deleniti est consectetur rem sunt, tempore modi minima voluptatem
+                            fugiat quia? Eaque ducimus atque exercitationem similique consequuntur. Cumque libero eaque
+                            incidunt fuga quam nulla fugit quod recusandae fugiat, quidem labore possimus, dignissimos alias
+                            quia impedit magni deleniti veritatis. Rerum voluptatum incidunt impedit ipsa!</p>
+                    </div>
+                    {{-- <div class="komentar">
+                        <div class="btn-group">
+                            <button class="btn btn.default"><i class="lnr lnr-thumbs-up"></i> Suka</button>
+                            <button class="btn btn.default"><i class="lnr lnr-bubble"></i> Komentar</button>
+                        </div>
+                        <div class="col-md-12">
+                            <textarea name="Komentar" class="from-control" id="Komentar-Utama" cols="40" rows="10" placeholder="komentar"></textarea>
+                        </div>
+                    </div> --}}
+                    <div class="comment" style="margin-top: -50px;">
+                        <h5 class="widget widget-title font-alt mb-3">Komentar : </h5>
+                        <div class="form-group col-md-6" style="padding-right: 0;padding-left: 0;">
+                          <input type="text" Name="" id="" class="form-control" placeholder="Nama">
+                        </div>
+                        <div class="form-group col-md-6" style="padding-right: 0;">
+                          <input type="text" Name="" id="" class="form-control" placeholder="Emaiil">
+                        </div>
+                        <div class="form-group">
+                          <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="Pesan : "></textarea>
+                        </div>
+                        <button class="btn btn-primary btn-block">Kirim</button>
+                      </div>
+                </div>
+                <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
+                    <div class="widget">
+                        <form role="form">
+                            <div class="search-box">
+                                <input class="form-control" type="text" placeholder="Mencari..." />
+                                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widget-title font-alt">Kategori Blog</h5>
+                        <ul class="icon-list" style="color: #000 !important">
+                            <li><a href="#">Paskibra</a></li>
+                            <li><a href="#">PMR</a></li>
+                            <li><a href="#">Pramuka</a></li>
+                            <li><a href="#">WJLRC</a></li>
+                            <li><a href="#">Kepal</a></li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widget-title font-alt">Postingan Populer</h5>
+                        <ul class="widget-posts">
+                            <li class="clearfix">
+                                <div class="widget-posts-image"><a href="#"><img
+                                            src="{{ asset('dist_front/assets/images/Berita-1.jpg') }}"
+                                            alt="Post Thumbnail" /></a></div>
+                                <div class="widget-posts-body">
+                                    <div class="widget-posts-title"><a href="#">Mengikuti Perlombaan</a></div>
+                                    <div class="widget-posts-meta">23 january</div>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="widget-posts-image"><a href="#"><img
+                                            src="{{ asset('dist_front/assets/images/Berita-2.jpg') }}"
+                                            alt="Post Thumbnail" /></a></div>
+                                <div class="widget-posts-body">
+                                    <div class="widget-posts-title"><a href="#">Sholat Duha Bersama</a></div>
+                                    <div class="widget-posts-meta">15 February</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widget-title font-alt">Tag</h5>
+                        <div class="tags font-serif"><a href="#" rel="tag">OSIS</a><a href="#"
+                                rel="tag">MPK</a><a href="#" rel="tag">WJLRC</a><a href="#"
+                                rel="tag">PASKIBRA</a><a href="#" rel="tag">PMR</a><a href="#"
+                                rel="tag">PRAMUKA</a><a href="#" rel="tag">KEPAL</a><a href="#"
+                                rel="tag">SENI</a><a href="#" rel="tag">VOLLY</a><a href="#"
+                                rel="tag">FUTSAL</a><a href="#" rel="tag">BULU TANGKIS</a><a href="#"
+                                rel="tag">BASKET</a><a href="#" rel="tag">IT</a></a><a href="#"
+                                rel="tag">KARATE</a><a href="#" rel="tag">SILAT</a>
+                        </div>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widget-title font-alt">Text</h5>Website ini di buat agar manajemen organisasi yang ada di
+                        sekolah dapat berubah dengan Era Digital yang sudah berubah di beberapa tahun kebelakang.
+                    </div>
+                    <div class="widget">
+                        <h5 class="widget-title font-alt">Komentar Terakhir</h5>
+                        <ul class="icon-list">
+                            <li>Muhammad Rifan Herdiansyah <a href="#">Paskibra SMK Budi Bakti Ciwidey KEREN</a></li>
+                            <li>Azlia Nur Afifah <a href="#">Ayo join WJLRC sekarang!</a></li>
+                            <li>Muhammad Abyan Ma'ruf <a href="#">Eskul kita Masyaallah</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="post-entry">
-            <p></p>
-          </div>
-          <div class="post-more"><a class="more-link" href="Post with text only">Read more</a></div>
         </div>
-        <div class="post">
-          <div class="post-quote">
-            <blockquote class="font-serif">
-              <p>&quot; The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. &quot;</p>
-              <p class="font-inc font-uppercase">- Thomas Anderson</p>
-            </blockquote>
-          </div>
-        </div>
-        <div class="post">
-          <div class="post-video embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="//www.youtube.com/embed/Jkk0VHiCnKY" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-          </div>
-          <div class="post-header font-alt">
-            <h2 class="post-title"><a href="#">Post with video</a></h2>
-            <div class="post-meta">By&nbsp;<a href="#">Mark Stone</a>| 23 November | 3 Comments | <a href="#">Marketing, </a><a href="#">Web Design</a>
-            </div>
-          </div>
-          <div class="post-entry">
-            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-          </div>
-          <div class="post-more"><a class="more-link" href="#">Read more</a></div>
-        </div>
-        <div class="post">
-          <div class="post-images-slider">
-            <ul class="slides">
-              <li><img src="assets/images/post-1.jpg" alt="Blog Slider Image"/></li>
-              <li><img src="assets/images/post-3.jpg" alt="Blog Slider Image"/></li>
-            </ul>
-          </div>
-          <div class="post-header font-alt">
-            <h2 class="post-title"><a href="#">Post with slideshow</a></h2>
-            <div class="post-meta">By&nbsp;<a href="#">Mark Stone</a>| 23 November | 3 Comments | <a href="#">Marketing, </a><a href="#">Web Design</a>
-            </div>
-          </div>
-          <div class="post-entry">
-            <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</p>
-          </div>
-          <div class="post-more"><a class="more-link" href="#">Read more</a></div>
-        </div>
-        <div class="pagination font-alt"><a href="#"><i class="fa fa-angle-left"></i></a><a class="active" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#"><i class="fa fa-angle-right"></i></a></div>
-      </div>
-      <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
-        <div class="widget">
-          <form role="form">
-            <div class="search-box">
-              <input class="form-control" type="text" placeholder="Search..."/>
-              <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-            </div>
-          </form>
-        </div>
-        <div class="widget">
-          <h5 class="widget-title font-alt">Blog Categories</h5>
-          <ul class="icon-list">
-            <li><a href="#">Photography - 7</a></li>
-            <li><a href="#">Web Design - 3</a></li>
-            <li><a href="#">Illustration - 12</a></li>
-            <li><a href="#">Marketing - 1</a></li>
-            <li><a href="#">Wordpress - 16</a></li>
-          </ul>
-        </div>
-        <div class="widget">
-          <h5 class="widget-title font-alt">Popular Posts</h5>
-          <ul class="widget-posts">
-            <li class="clearfix">
-              <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
-              <div class="widget-posts-body">
-                <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                <div class="widget-posts-meta">23 january</div>
-              </div>
-            </li>
-            <li class="clearfix">
-              <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
-              <div class="widget-posts-body">
-                <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                <div class="widget-posts-meta">15 February</div>
-              </div>
-            </li>
-            <li class="clearfix">
-              <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-3.jpg" alt="Post Thumbnail"/></a></div>
-              <div class="widget-posts-body">
-                <div class="widget-posts-title"><a href="#">Eco bag Mockup</a></div>
-                <div class="widget-posts-meta">21 February</div>
-              </div>
-            </li>
-            <li class="clearfix">
-              <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-4.jpg" alt="Post Thumbnail"/></a></div>
-              <div class="widget-posts-body">
-                <div class="widget-posts-title"><a href="#">Bottle Mockup</a></div>
-                <div class="widget-posts-meta">2 March</div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="widget">
-          <h5 class="widget-title font-alt">Tag</h5>
-          <div class="tags font-serif"><a href="#" rel="tag">Blog</a><a href="#" rel="tag">Photo</a><a href="#" rel="tag">Video</a><a href="#" rel="tag">Image</a><a href="#" rel="tag">Minimal</a><a href="#" rel="tag">Post</a><a href="#" rel="tag">Theme</a><a href="#" rel="tag">Ideas</a><a href="#" rel="tag">Tags</a><a href="#" rel="tag">Bootstrap</a><a href="#" rel="tag">Popular</a><a href="#" rel="tag">English</a>
-          </div>
-        </div>
-        <div class="widget">
-          <h5 class="widget-title font-alt">Text</h5>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.
-        </div>
-        <div class="widget">
-          <h5 class="widget-title font-alt">Recent Comments</h5>
-          <ul class="icon-list">
-            <li>Maria on <a href="#">Designer Desk Essentials</a></li>
-            <li>John on <a href="#">Realistic Business Card Mockup</a></li>
-            <li>Andy on <a href="#">Eco bag Mockup</a></li>
-            <li>Jack on <a href="#">Bottle Mockup</a></li>
-            <li>Mark on <a href="#">Our trip to the Alps</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 @endsection

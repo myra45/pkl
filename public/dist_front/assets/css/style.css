@@ -165,7 +165,7 @@ a,
 .module,
 .module-small {
   position: relative;
-  padding: 140px 0;
+  padding: 218px 0;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -871,7 +871,7 @@ a {
 
 a:hover, a:focus {
   text-decoration: none;
-  color: rgb(221, 221, 221);
+  color: #5271ff;
   outline: 0;
 }
 
@@ -2937,3 +2937,4 @@ Google map
     width: 100%;
   }
 }
+

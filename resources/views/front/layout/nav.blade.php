@@ -15,22 +15,21 @@
   </div>
   <div class="collapse navbar-collapse " id="custom-collapse" style="padding-top: 1.5rem;">
     <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a class="a-color" href="#" data-toggle="dropdown"
-          >Beranda</a
+      <li class="">
+        <a class="a-color" href="{{ route('home') }}">Beranda</a
         >
       </li>
-      <li class="dropdown">
-        <a class="a-color" href="#" data-toggle="dropdown"
+      <li class="">
+        <a class="a-color" href="#tentang"
           >Tentang</a
         >
       </li>
-      <li class="dropdown">
+      <li class="">
         <a class="a-color" href="{{ route('berita') }}"
           >Berita</a
         >
       </li>
-      <li class=""><a class="a-color" href="#" data-toggle="">Kontak</a></li>
+      <li class=""><a class="a-color" href="#kontak" data-toggle="">Kontak</a></li>
       <li class=""><a class="a-color" href="{{ route('login') }}" data-toggle="">Masuk</a></li>
       <li class="">
         <a class="a-color" href="{{ route('sign_up') }}"
