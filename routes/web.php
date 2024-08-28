@@ -70,6 +70,12 @@ Route::prefix('admin')->group(function () {
             Route::get('/eskul/edit/{id}', [EskulController::class, 'edit'])->name('eskul_edit');
             Route::post('/eskul/update/{id}', [EskulController::class, 'update'])->name('eskul_update');
             Route::get('/eskul/delete/{id}', [EskulController::class, 'delete'])->name('eskul_delete');
+
+            // Konten Manajemen 
+            Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
+            Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
+
+
         });
 
         Route::middleware('role')->group(function () {
