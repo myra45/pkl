@@ -97,6 +97,8 @@ Route::prefix('admin')->group(function() {
     Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
 
+    Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
 
+    Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
 
 
