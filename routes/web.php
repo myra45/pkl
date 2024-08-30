@@ -70,6 +70,12 @@ Route::prefix('admin')->group(function () {
             Route::get('/eskul/edit/{id}', [EskulController::class, 'edit'])->name('eskul_edit');
             Route::post('/eskul/update/{id}', [EskulController::class, 'update'])->name('eskul_update');
             Route::get('/eskul/delete/{id}', [EskulController::class, 'delete'])->name('eskul_delete');
+
+            // Konten Manajemen 
+            Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
+            Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
+
+
         });
 
         Route::middleware('role')->group(function () {
@@ -91,12 +97,17 @@ Route::prefix('admin')->group(function () {
     });
 });
 // User
-Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
-Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('forget_password', [LoginController::class, 'forget_password'])->name('forget_password');
-Route::get('confirmation_code', [LoginController::class, 'confirmation_code'])->name('confirmation_code');
-Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
-Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
+    Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
+    Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('forget_password', [LoginController::class, 'forget_password'])->name('forget_password');
+    Route::get('confirmation_code', [LoginController::class, 'confirmation_code'])->name('confirmation_code');
+
+    Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
+    Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
+
+
+
+
