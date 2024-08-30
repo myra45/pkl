@@ -114,7 +114,7 @@
             <div class="card mb-3">
                 <div class="card-body">
                     <h4 class="mb-3">Laporan Presensi </h4>
-                    <a href="{{ route('generate_report') }}" class="btn btn-primary">Create</a>
+                    <a href="{{ route('preview_report') }}" class="btn btn-primary">Create</a>
                 </div>
             </div>
             <div class="card mb-3">

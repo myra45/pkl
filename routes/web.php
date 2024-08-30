@@ -85,7 +85,8 @@ Route::prefix('admin')->group(function () {
             Route::get('/extracurricular/presensi/show/{event_id}', [PresensiController::class, 'presensi'])->name('admin_extracurricular_presensi_show');            
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
-            Route::get('/extracurricular/presensi/generate-report', [PresensiController::class, 'generateReport'])->name('generate_report');    
+            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');    
+            Route::get('/extracurricular/presensi/download-report', [PresensiController::class, 'download_report'])->name('download_report');    
         });
     });
 });
