@@ -16,7 +16,7 @@
   <div class="collapse navbar-collapse " id="custom-collapse" style="padding-top: 1.5rem;">
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a class="a-color" href="#" data-toggle="dropdown"
+        <a class="a-color" href="#"
           >Beranda</a
         >
       </li>
@@ -30,8 +30,8 @@
           >Berita</a
         >
       </li>
-      <li class=""><a class="a-color" href="#" data-toggle="">Kontak</a></li>
-      <li class=""><a class="a-color" href="{{ route('login') }}" data-toggle="">Masuk</a></li>
+      <li class=""><a class="a-color" href="#kontak">Kontak</a></li>
+      <li class=""><a class="a-color" href="{{ route('login') }}">Masuk</a></li>
       <li class="">
         <a class="a-color" href="{{ route('sign_up') }}"
       >Daftar</a>
