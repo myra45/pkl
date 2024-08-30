@@ -309,7 +309,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form id="contactForm" role="form" method="post" action="php/contact.php">
+                                <form role="form" method="POST" action="">
+                                    @csrf
                                     <div class="form-group">
                                         <label class="sr-only" for="name">Nama</label>
                                         <input class="form-control" type="text" id="name" name="name"
