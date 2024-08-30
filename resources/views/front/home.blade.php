@@ -19,11 +19,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6" style="padding: 0px;">
-                        <img src="{{ asset('dist_front/assets/images/favicons/Kegiatan-Eskul.jpg') }}"
+                        <img src="{{ asset('uploads/'.$page_data->about_photo) }}"
                             alt="Ekstrakulikuler image" class="about-img" />
                     </div>
                     <div class="col-md-6" style="margin-top: 8rem;">
-                        <h2 class="module-title    align-left">Apa Itu Ekstrakulikuler?</h2>
+                        <h2 class="module-title    align-left">{{ $page_data->about_title}}</h2>
                         <div class="module-subtitle font-serif align-left">
                             "Kegiatan ekstrakurikuler merupakan kegiatan diluar kurikulum pokok yang dilakukan disekolah
                             untuk mengembangkan aspek non-akademik siswa" &mdash; Prof. Dr. Haryanto, M.Pd.,
@@ -36,13 +36,13 @@
                             <div class="features-item">
                                 <div class="features-icon">
                                     <span><img width="50" height="50"
-                                            src="https://img.icons8.com/ios/50/design--v1.png" alt="design--v1" /></span>
+                                            src="{{ $page_data->about_icon_1}}" alt="design--v1" /></span>
                                 </div>
                                 <h3 class="features-title">
-                                    Development
+                                    {{$page_data->about_title_icon_1}}
                                 </h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>Meningkatkan keahlian dan minat siswa diluar kurikulum akademik</div>
+                                    <div>{{$page_data->about_desc_icon_1}}</div>
                                 </span>
                             </div>
 
@@ -51,14 +51,14 @@
                             <div class="features-item">
                                 <div class="features-icon">
                                     <span><img width="50" height="50"
-                                            src="https://img.icons8.com/ios/50/development-skill.png"
+                                            src="{{ $page_data->about_icon_2}}"
                                             alt="development-skill" /></span>
                                 </div>
                                 <h3 class="features-title   ">
-                                    Improve your skills
+                                    {{ $page_data->about_title_icon_2}}
                                 </h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>Anak dapat mengasah soft skill dan hard skill mereka</div>
+                                    <div>{{ $page_data->about_desc_icon_2}}</div>
                                 </span>
                             </div>
 
@@ -67,12 +67,12 @@
                         <div class="col-md-4 ">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="https://img.icons8.com/ios/50/welfare.png"
+                                    <span><img width="50" height="50" src="{{ $page_data->about_icon_3}}"
                                             alt="welfare" /></span>
                                 </div>
-                                <h3 class="features-title   ">Productivity</h3>
+                                <h3 class="features-title   ">{{ $page_data->about_title_icon_3}}</h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>Memberi ruang untuk anak-anak agar dapat menjadi pribadi yang aktif dan produktif
+                                    <div>{{ $page_data->about_desc_icon_3}}
                                     </div>
                                 </span>
                             </div>
