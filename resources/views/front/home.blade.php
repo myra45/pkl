@@ -10,7 +10,7 @@
                 <div class="mb-40 titan-title-size-3" style="text-transform: uppercase;">
                     <span class="rotate">Welcome|To|Extracurricular Management|Enjoy the convenience</span>
                 </div>
-                <a class="section-scroll btn btn-border-w btn-circle a-color" href="#about">Learn More</a>
+                <a class="section-scroll btn btn-border-w btn-circle a-color" href="#tentang">Learn More</a>
             </div>
         </div>
     </section>
@@ -54,7 +54,7 @@
                                             src="{{ $page_data->about_icon_2}}"
                                             alt="development-skill" /></span>
                                 </div>
-                                <h3 class="features-title   ">
+                                <h3 class="features-title">
                                     {{ $page_data->about_title_icon_2}}
                                 </h3>
                                 <span class=" " style="font-size: 1.4rem;">
@@ -215,7 +215,7 @@
                             </div>
                 </section>
                 <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial"
-                    data-background="assets/images/testimonial_bg.jpg">
+                    data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
                     <div class="testimonials-slider pt-140 pb-140">
                         <ul class="slides">
                             <li>
@@ -299,7 +299,7 @@
                         </ul>
                     </div>
                 </section>
-                <section class="module" id="contact">
+                <section class="module" id="kontak">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-3">
@@ -336,7 +336,7 @@
                                         </button>
                                     </div>
                                 </form>
-                                <div class="ajax-response   " id="contactFormResponse"></div>
+                                {{-- <div class="ajax-response   " id="contactFormResponse"></div> --}}
                             </div>
                         </div>
                     </div>
