@@ -5,7 +5,7 @@
         <div class="titan-caption home-caption">
             <div class="caption-content">
                 <div class="mb-30 titan-title-size-2 a-color">
-                    Extracurricular Management
+                    Ekstrakulikuler Manajemen
                 </div>
                 <div class="mb-40 titan-title-size-3" style="text-transform: uppercase;">
                     <span class="rotate">Welcome|To|Extracurricular Management|Enjoy the convenience</span>
@@ -147,7 +147,7 @@
         </section>
         <section class="module pt-0 pb-0" id="news">
             <div class="row position-relative m-0">
-               <h2 class="module-title" style="margin: 0 ;">BERITA</h2>
+                <h2 class="module-title" style="margin: 0 ;">BERITA</h2>
                 <section class="module">
                     <div class="container">
                         <div class="row multi-columns-row post-columns">
@@ -172,7 +172,8 @@
                                         <p>A wonderful serenity has taken possession of my entire soul, like these sweet
                                             mornings of spring which I enjoy with my whole heart.</p>
                                     </div>
-                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a></div>
+                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-4">
@@ -191,7 +192,8 @@
                                         <p>A wonderful serenity has taken possession of my entire soul, like these sweet
                                             mornings of spring which I enjoy with my whole heart.</p>
                                     </div>
-                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a></div>
+                                    <div class="post-more"><a class="more-link" href="{{ route('detail_berita') }}">Baca Selengkapnya</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-4">
@@ -202,7 +204,7 @@
                                                 alt="Blog-post Thumbnail" /></a></div>
                                     <div class="post-header   ">
                                         <h2 class="post-title"><a href="#">Taman Baca</a></h2>
-                                        <div class="post-meta">By&nbsp;<a href="#">SMK BBC</a>&nbsp;| 5 November |
+                                        <div class="post-meta">By&nbsp;<a href="{{ route('detail_berita') }}">SMK BBC</a>&nbsp;| 5 November |
                                             15 Comments
                                         </div>
                                     </div>
@@ -210,7 +212,8 @@
                                         <p>A wonderful serenity has taken possession of my entire soul, like these sweet
                                             mornings of spring which I enjoy with my whole heart.</p>
                                     </div>
-                                    <div class="post-more"><a class="more-link" href="{{route('detail_berita')}}">Baca Selengkapnya</a></div>
+                                    <div class="post-more"><a class="more-link" href="{{ route('detail_berita') }}">Baca
+                                            Selengkapnya</a></div>
                                 </div>
                             </div>
                 </section>
@@ -343,4 +346,5 @@
                     </div>
                 </section>
             </div>
-        @endsection
+    </div>
+@endsection
