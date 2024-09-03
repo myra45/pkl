@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Komentar extends Model
+class BeritaCategory extends Model
 {
-    public function berita()
-    {
-        return $this->belongsTo(Berita::class);
-    }
     use HasFactory;
+    public function rBerita()
+    {
+        return $this->hasMany(BeritaCategory::class);
+    }
 }

@@ -40,7 +40,7 @@
                             quia impedit magni deleniti veritatis. Rerum voluptatum incidunt impedit ipsa!</p>
                     </div>
                     {{-- <div class="komentar">
-                        <div class="btn-group">
+                        <div class="btn-group">   
                             <button class="btn btn.default"><i class="lnr lnr-thumbs-up"></i> Suka</button>
                             <button class="btn btn.default"><i class="lnr lnr-bubble"></i> Komentar</button>
                         </div>
@@ -48,7 +48,19 @@
                             <textarea name="Komentar" class="from-control" id="Komentar-Utama" cols="40" rows="10" placeholder="komentar"></textarea>
                         </div>
                     </div> --}}
-                    <div class="comment" style="margin-top: -50px;">
+                    <form action="" method="post">
+                        <label for="nama">Nama:</label>
+                        <input type="text" id="nama" name="nama" required>
+                    
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    
+                        <label for="komentar">Komentar:</label>
+                        <textarea id="komentar" name="komentar" rows="4" required></textarea>
+                    
+                        <button type="submit">Kirim</button>
+                    </form>
+                    <div class="comment" style="margin-top: -50px, display:none">
                         <h5 class="widget widget-title font-alt mb-3">Komentar : </h5>
                         <div class="form-group col-md-6" style="padding-right: 0;padding-left: 0;">
                           <input type="text" Name="" id="" class="form-control" placeholder="Nama">
@@ -133,3 +145,14 @@
         </div>
     </section>
 @endsection
+
+@section('footer')
+    <Script>
+        $(document).ready(function(){
+            $('#btn-pesan-utama').click(function(){
+                alert(0);
+            });
+        });
+    </Script>
+@endsection
+
