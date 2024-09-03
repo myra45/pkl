@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminHomePageController;
@@ -33,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
-Route::post('/send-comment', [CommentController::class, 'sendComment'])->name('send_comment');
+Route::post('/send_contact', [ContactController::class, 'send_messagee'])->name('send_contact');
 
 
 // Admin

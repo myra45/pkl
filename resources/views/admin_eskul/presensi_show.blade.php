@@ -42,7 +42,7 @@
                     <div class="d-flex flex-row gap-6 align-items-center">
                         <div
                             class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-warning">
-                            <i class="ti ti-file-info fs-6"></i>
+                            <i class="ti calendar-off fs-6"></i>
                         </div>
                         <div class="align-self-center">
                             <h4 class="card-title mb-1">Izin</h4>
