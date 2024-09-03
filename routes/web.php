@@ -35,6 +35,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
 Route::get('/detail-berita', [BeritaController::class, 'show'])->name('detail_berita');
+Route::post('/send-comment', [CommentController::class, 'sendComment'])->name('send_comment');
 
 
 // Admin
@@ -75,6 +76,9 @@ Route::prefix('admin')->group(function () {
             // Berita
             Route::get('/berita-category/show', [AdminBeritaController::class, 'all_news_categories'])->name('news_category_show');
             Route::get('/berita/show', [AdminBeritaController::class, 'all_news'])->name('news_show');
+            // Konten Manajemen 
+            Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
+            Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
 
         });
 
@@ -91,17 +95,23 @@ Route::prefix('admin')->group(function () {
             Route::get('/extracurricular/presensi/show/{event_id}', [PresensiController::class, 'presensi'])->name('admin_extracurricular_presensi_show');            
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
-            Route::get('/extracurricular/presensi/generate-report', [PresensiController::class, 'generateReport'])->name('generate_report');    
+            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');    
+            Route::get('/extracurricular/presensi/download-report', [PresensiController::class, 'download_report'])->name('download_report');    
         });
     });
 });
 // User
-Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
-Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
-Route::get('/login', [LoginController::class, 'login'])->name('login');
-Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::get('forget_password', [LoginController::class, 'forget_password'])->name('forget_password');
-Route::get('confirmation_code', [LoginController::class, 'confirmation_code'])->name('confirmation_code');
-Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
-Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
+    Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
+    Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('forget_password', [LoginController::class, 'forget_password'])->name('forget_password');
+    Route::get('confirmation_code', [LoginController::class, 'confirmation_code'])->name('confirmation_code');
+
+    Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
+    Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
+
+
+
+
