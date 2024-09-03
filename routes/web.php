@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\EskulController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\PresensiController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserHomeController;
@@ -31,8 +33,8 @@ use Illuminate\Support\Facades\Route;
 // Front
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
-Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::get('/detail-berita', [BeritaController::class, 'show'])->name('detail_berita');
 Route::post('/send-comment', [CommentController::class, 'sendComment'])->name('send_comment');
 
 
@@ -71,11 +73,12 @@ Route::prefix('admin')->group(function () {
             Route::get('/eskul/edit/{id}', [EskulController::class, 'edit'])->name('eskul_edit');
             Route::post('/eskul/update/{id}', [EskulController::class, 'update'])->name('eskul_update');
             Route::get('/eskul/delete/{id}', [EskulController::class, 'delete'])->name('eskul_delete');
-
+            // Berita
+            Route::get('/berita-category/show', [AdminBeritaController::class, 'all_news_categories'])->name('news_category_show');
+            Route::get('/berita/show', [AdminBeritaController::class, 'all_news'])->name('news_show');
             // Konten Manajemen 
             Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
-
 
         });
 
