@@ -99,11 +99,8 @@
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                           <li class="sidebar-item ">
-<<<<<<< HEAD
-                            <a href="{{ route('home_banner_show') }}" class="sidebar-link">
-=======
                             <a class="sidebar-link">
->>>>>>> 1d135ab267027e91a5c6f54f82bfeac6291b68aa
+                            <a href="{{ route('home_banner_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -116,6 +113,15 @@
                                 <i class="ti ti-circle"></i>
                               </div>
                               <span class="hide-menu">About Section</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item ">
+                            <a class="sidebar-link">
+                            <a href="{{ route('home_service_show') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>  
+                              <span class="hide-menu">Service Section</span>
                             </a>
                           </li>
                         </ul>

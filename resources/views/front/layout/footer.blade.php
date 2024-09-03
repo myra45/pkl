@@ -1,5 +1,5 @@
         <div class="module-small bg-dark" style="background-color: #5271ff; color: #fff">
-          <div class="container">
+          <div class="container"> 
             <div class="row">
               <div class="col-sm-3">
                 <div class="widget">
@@ -16,7 +16,7 @@
                     <li>Maria on <a href="#">Designer Desk Essentials</a></li>
                     <li>John on <a href="#">Realistic Business Card Mockup</a></li>
                     <li>Andy on <a href="#">Eco bag Mockup</a></li>
-                    <li>Jack on <a href="#">Bottle Mockup</a></li>
+                    <li>Jack on <a href="#">Bottle Mockup</a></li>  
                     <li>Mark on <a href="#">Our trip to the Alps</a></li>
                   </ul>
                 </div>

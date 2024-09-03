@@ -1,19 +1,23 @@
 @extends('front.layout.app')
 @section('main_content')
-    <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home"
-        data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
-        <div class="titan-caption home-caption">
-            <div class="caption-content">
-                <div class="mb-30 titan-title-size-2 a-color">
-                    Extracurricular Management
+    @foreach ($banner_data as $item)
+        <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home"
+            data-background="{{ asset('uploads/' . $item->banner_photo) }}">
+            <div class="titan-caption home-caption">
+                <div class="caption-content">
+                    <div class="mb-30 titan-title-size-2 a-color">
+                        {{ $item->banner_title }}
+                    </div>
+                    <div class="mb-40 titan-title-size-3" style="text-transform: uppercase;">
+                        <span class="rotate">{{ $item->banner_subtitle }}</span>
+                    </div>
+                    <a class="section-scroll btn btn-border-w btn-circle a-color"
+                        href="{{ $item->banner_button_url }}">{{ $item->banner_button_text }}</a>
                 </div>
-                <div class="mb-40 titan-title-size-3" style="text-transform: uppercase;">
-                    <span class="rotate">Welcome|To|Extracurricular Management|Enjoy the convenience</span>
-                </div>
-                <a class="section-scroll btn btn-border-w btn-circle a-color" href="#about">Learn More</a>
             </div>
-        </div>
-    </section>
+        </section>
+    @endforeach
+
     <div class="main">
         <section class="about-section" style="padding-top: 8rem;" id="about">
             <div class="container">
@@ -81,73 +85,70 @@
                     </div>
                 </div>
         </section>
-        <section class="module">
-            <h2 class="module-title    ">Beberapa Ekskul di SMK BBC</h2>
-            <div class="container">
-                <div class="row multi-columns-row">
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="features-item">
-                            <div class="features-icon">
-                                <span><img width="50" height="50" src="https://img.icons8.com/ios/50/mosque.png"
-                                        alt="mosque" /></span>
+        @foreach ($banner_data as $item)
+            <section class="module">
+                <h2 class="module-title    ">{{ $item->service_title }}</h2>
+                <div class="container">
+                    <div class="row multi-columns-row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="features-item">
+                                <div class="features-icon">
+                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_1 }}"
+                                            alt="mosque" /></span>
+                                </div>
+                                <h3 class="features-title">{{ $item->nama_eskul_1 }}</h3>
+                                <span class=" " style="font-size: 1.4rem;">
+                                    <div>{{ $item->desc_eskul_1 }}</div>
+                                </span>
                             </div>
-                            <h3 class="features-title">DKM</h3>
-                            <span class=" " style="font-size: 1.4rem;">
-                                <div>Dewan Kemakmuran Masjid merupakan badan atau organisasi yang bertugas mengelola,
-                                    menjaga, dan memajukan masjid dalam berbagai aspek.</div>
-                            </span>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="features-item">
-                            <div class="features-icon">
-                                <span><img width="50" height="50"
-                                        src="https://img.icons8.com/ios/50/open-book--v1.png" alt="open-book--v1" /></span>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="features-item">
+                                <div class="features-icon">
+                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_2 }}"
+                                            alt="open-book--v1" /></span>
+                                </div>
+                                <h3 class="features-title   ">
+                                    {{ $item->nama_eskul_2 }}
+                                </h3>
+                                <span class="" style="font-size: 1.4rem;">
+                                    <div>{{ $item->desc_eskul_2 }}</div>
+                                </span>
                             </div>
-                            <h3 class="features-title   ">
-                                WJLRC
-                            </h3>
-                            <span class="" style="font-size: 1.4rem;">
-                                <div>(West Java Leader's Reading Challenge) adalah sebuah inisiatif yang bertujuan
-                                    meningkatkan kemampuan literasi dan minat baca siswa di Provinsi Jawa Barat.</div>
-                            </span>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="features-item">
-                            <div class="features-icon">
-                                <span><img width="50" height="50" src="https://img.icons8.com/ios/50/poplar.png"
-                                        alt="poplar" /></span>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="features-item">
+                                <div class="features-icon">
+                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_3 }}"
+                                            alt="poplar" /></span>
+                                </div>
+                                <h3 class="features-title   ">
+                                    {{ $item->nama_eskul_3 }}
+                                </h3>
+                                <span class=" " style="font-size: 1.4rem;">
+                                    <div>{{ $item->desc_eskul_3 }}</div>
+                                </span>
                             </div>
-                            <h3 class="features-title   ">
-                                KEPAL
-                            </h3>
-                            <span class=" " style="font-size: 1.4rem;">
-                                <div>Kelompok Pecinta Alam adalah sebuah organisasi yang didedikasikan supaya dapat
-                                    menghargai, memahami, memperbaiki, dan melindungi keanekaragaman hayati serta lingkungan
-                                    alam.</div>
-                            </span>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="features-item">
-                            <div class="features-icon">
-                                <span><img width="50" height="50" src="https://img.icons8.com/ios/50/angklung.png"
-                                        alt="angklung" /></span>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="features-item">
+                                <div class="features-icon">
+                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_4 }}"
+                                            alt="angklung" /></span>
+                                </div>
+                                <h3 class="features-title   ">{{ $item->nama_eskul_4 }}</h3>
+                                <span class=" " style="font-size: 1.4rem;">
+                                    <div>{{ $item->desc_eskul_4 }}</div>
+                                </span>
                             </div>
-                            <h3 class="features-title   ">KESENIAN</h3>
-                            <span class=" " style="font-size: 1.4rem;">
-                                <div>Ekstrakurikuler kesenian di SMK di fokuskan untuk bisa mengembangkan potensi, bakat,
-                                    dan minat siswa bidang seni.</div>
-                            </span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endforeach
         <section class="module pt-0 pb-0" id="news">
             <div class="row position-relative m-0">
-               <h2 class="module-title" style="margin: 0 ;">BERITA</h2>
+                <h2 class="module-title" style="margin: 0 ;">BERITA</h2>
                 <section class="module">
                     <div class="container">
                         <div class="row multi-columns-row post-columns">
@@ -172,7 +173,8 @@
                                         <p>A wonderful serenity has taken possession of my entire soul, like these sweet
                                             mornings of spring which I enjoy with my whole heart.</p>
                                     </div>
-                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a></div>
+                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-4">
@@ -191,7 +193,8 @@
                                         <p>A wonderful serenity has taken possession of my entire soul, like these sweet
                                             mornings of spring which I enjoy with my whole heart.</p>
                                     </div>
-                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a></div>
+                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-4 col-lg-4">
@@ -210,7 +213,8 @@
                                         <p>A wonderful serenity has taken possession of my entire soul, like these sweet
                                             mornings of spring which I enjoy with my whole heart.</p>
                                     </div>
-                                    <div class="post-more"><a class="more-link" href="{{route('detail_berita')}}">Baca Selengkapnya</a></div>
+                                    <div class="post-more"><a class="more-link" href="{{ route('detail_berita') }}">Baca
+                                            Selengkapnya</a></div>
                                 </div>
                             </div>
                 </section>
