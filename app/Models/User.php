@@ -14,7 +14,7 @@ class User extends Authenticatable
 
     public function rEskul()
     {
-        return $this->belongsToMany(Eskul::class);
+        return $this->belongsTo(Eskul::class, 'eskul_id');
     }
 
 

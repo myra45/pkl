@@ -1,6 +1,12 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Member Eskul')
+@section('heading', 'Daftar Eskul')
+
+@section('button_section')
+
+<a href="{{ route('eskul_add') }}" class="btn btn-primary">Add New <span class="ti ti-plus"></span></a>
+
+@endsection
 
 @section('main_content')
 <div class="section-body">
@@ -13,22 +19,19 @@
                           <thead>
                               <tr>
                                   <th>SL</th>
-                                  <th>Name</th>
-                                  <th>Email</th>
                                   <th>Nama Eskul</th>
                                   <th>Action</th>
                               </tr>
                           </thead>
 
                           <tbody>
-                            @foreach ($user as $item )
+                            @foreach ($all_data as $item )
                                   <tr>
                                       <td>{{ $loop->iteration }}</td>
-                                      <td>{{ $item->name }}</td>
-                                      <td>{{ $item->email }}</td>
-                                      <td>{{ $item->rEskul?->nama_eskul }}</td>
+                                      <td>{{ $item->nama_eskul }}</td>
                                       <td class="pt_10 pb_10">
-                                        <a href="{{ route('member_delete', $item->id) }}" class="btn btn-danger"
+                                        <a href="{{ route('eskul_edit', $item->id) }}" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('eskul_delete', $item->id) }}" class="btn btn-danger"
                                             onClick="return confirm('Are you sure?');">Delete</a>
                                     </td>
                                   </tr>
