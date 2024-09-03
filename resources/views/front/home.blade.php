@@ -309,7 +309,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form role="form" method="POST" action="">
+                                <form role="form" method="POST" action="{{ route('send_comment') }}">
                                     @csrf
                                     <div class="form-group">
                                         <label class="sr-only" for="name">Nama</label>

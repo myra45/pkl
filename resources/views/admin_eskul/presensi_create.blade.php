@@ -1,11 +1,12 @@
 @extends('admin_eskul.layout.app')
 
-@section('heading', 'Presensi')
+@section('heading', 'Buat Presensi')
+
+@section('button_section')
+<a href="{{ route('admin_extracurricular_presensi') }}" class="btn btn-primary">Back</a>
+@endsection
 
 @section('main_content')
-<div class="border-bottom title-part-padding px-0 mb-3">
-  <h5>Buat Presensi</h5>
-</div>
 
 <div class="row">
   <div class="col-md-12">

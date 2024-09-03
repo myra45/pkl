@@ -2,6 +2,10 @@
 
 @section('heading', 'History Presensi')
 
+@section('button_section')
+<a href="{{ route('preview_report') }}" class="btn btn-primary"><span class="ti ti-file-export"></span> Export</a>
+@endsection
+
 @section('main_content')
 <div class="section-body">
     <div class="row">

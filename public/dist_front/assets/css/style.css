@@ -827,7 +827,6 @@ a,
 /* Forms common style */
 .form-control {
   font-family: "Plus Jakarta Sans", sans-serif;
-  text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 11px;
   height: 33px;

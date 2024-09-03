@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\ComentController;
+use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\EskulController;
-use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\PresensiController;
+use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserHomeController;
@@ -33,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
-Route::post('/send-comment', [CommentController::class, 'sendComment'])->name('send_comment');
+Route::post('/send-comment', [ComentController::class, 'sendComment'])->name('send_comment');
 
 
 // Admin
@@ -91,12 +92,17 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/presensi-submit', [PresensiController::class, 'store'])->name('admin_extracurricular_presensi_form_submit');
             Route::get('/extracurricular/presensi/show/{event_id}', [PresensiController::class, 'presensi'])->name('admin_extracurricular_presensi_show');            
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
+            Route::get('/extracurricular/presensi/create', [PresensiController::class, 'create'])->name('presensi_create');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
-            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');    
-            Route::get('/extracurricular/presensi/download-report', [PresensiController::class, 'download_report'])->name('download_report');    
+            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');   
+            // Manajemen Tugas 
+            Route::get('/extracurricular/task-manajemen', [TaskController::class, 'index'])->name('admin_extracurricular_task_manajement');
+
         });
     });
 });
+
+
 // User
     Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
     Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
