@@ -23,7 +23,7 @@
                                             <div class="d-flex justify-content-center mb-2">
                                                 <div class="">
                                                     <div class="border border-4 border-white rounded overflow-hidden">
-                                                        <img src="{{ asset('uploads/'.Auth::guard('admin')->user()->photo) }}"
+                                                        <img src="{{ asset('storage/uploads/'.Auth::user()->profile_img) }}"
                                                             alt="modernize-img" class="w-100 h-100">
                                                     </div>
                                                 </div>
@@ -39,17 +39,17 @@
                                     <div class="mb-4">
                                         <label class="form-label">Name </label>
                                         <input type="text" class="form-control" name="name"
-                                            value="{{ Auth::guard('admin')->user()->name }}">
+                                            value="{{ Auth::user()->name }}">
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Email </label>
                                         <input type="text" class="form-control" name="email"
-                                            value="{{ Auth::guard('admin')->user()->email }}">
+                                            value="{{ Auth::user()->email }}">
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Ekstrakulikuler</label>
                                         <input type="text" name="extracurricular_name" class="form-control"
-                                            id="" value="{{ $extracurricularName }}">
+                                            id="" value="{{ Auth::user()->Extracurricular->nama_eskul }}">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </div>

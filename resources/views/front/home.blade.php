@@ -19,15 +19,15 @@
     @endforeach
 
     <div class="main">
-        <section class="about-section" style="padding-top: 8rem;" id="about">
+        <section class="about-section" style="padding-top: 8rem;" id="tentang">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6" style="padding: 0px;">
-                        <img src="{{ asset('dist_front/assets/images/favicons/Kegiatan-Eskul.jpg') }}"
+                        <img src="{{ asset('uploads/'.$page_data->about_photo) }}"
                             alt="Ekstrakulikuler image" class="about-img" />
                     </div>
                     <div class="col-md-6" style="margin-top: 8rem;">
-                        <h2 class="module-title    align-left">Apa Itu Ekstrakulikuler?</h2>
+                        <h2 class="module-title    align-left">{{ $page_data->about_title}}</h2>
                         <div class="module-subtitle font-serif align-left">
                             "Kegiatan ekstrakurikuler merupakan kegiatan diluar kurikulum pokok yang dilakukan disekolah
                             untuk mengembangkan aspek non-akademik siswa" &mdash; Prof. Dr. Haryanto, M.Pd.,
@@ -40,13 +40,13 @@
                             <div class="features-item">
                                 <div class="features-icon">
                                     <span><img width="50" height="50"
-                                            src="https://img.icons8.com/ios/50/design--v1.png" alt="design--v1" /></span>
+                                            src="{{ $page_data->about_icon_1}}" alt="design--v1" /></span>
                                 </div>
                                 <h3 class="features-title">
-                                    Development
+                                    {{$page_data->about_title_icon_1}}
                                 </h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>Meningkatkan keahlian dan minat siswa diluar kurikulum akademik</div>
+                                    <div>{{$page_data->about_desc_icon_1}}</div>
                                 </span>
                             </div>
 
@@ -55,14 +55,14 @@
                             <div class="features-item">
                                 <div class="features-icon">
                                     <span><img width="50" height="50"
-                                            src="https://img.icons8.com/ios/50/development-skill.png"
+                                            src="{{ $page_data->about_icon_2}}"
                                             alt="development-skill" /></span>
                                 </div>
-                                <h3 class="features-title   ">
-                                    Improve your skills
+                                <h3 class="features-title">
+                                    {{ $page_data->about_title_icon_2}}
                                 </h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>Anak dapat mengasah soft skill dan hard skill mereka</div>
+                                    <div>{{ $page_data->about_desc_icon_2}}</div>
                                 </span>
                             </div>
 
@@ -71,12 +71,12 @@
                         <div class="col-md-4 ">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="https://img.icons8.com/ios/50/welfare.png"
+                                    <span><img width="50" height="50" src="{{ $page_data->about_icon_3}}"
                                             alt="welfare" /></span>
                                 </div>
-                                <h3 class="features-title   ">Productivity</h3>
+                                <h3 class="features-title   ">{{ $page_data->about_title_icon_3}}</h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>Memberi ruang untuk anak-anak agar dapat menjadi pribadi yang aktif dan produktif
+                                    <div>{{ $page_data->about_desc_icon_3}}
                                     </div>
                                 </span>
                             </div>
@@ -193,7 +193,7 @@
                                         <p>A wonderful serenity has taken possession of my entire soul, like these sweet
                                             mornings of spring which I enjoy with my whole heart.</p>
                                     </div>
-                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a>
+                                    <div class="post-more"><a class="more-link" href="{{ route('detail_berita') }}">Baca Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                                                 alt="Blog-post Thumbnail" /></a></div>
                                     <div class="post-header   ">
                                         <h2 class="post-title"><a href="#">Taman Baca</a></h2>
-                                        <div class="post-meta">By&nbsp;<a href="#">SMK BBC</a>&nbsp;| 5 November |
+                                        <div class="post-meta">By&nbsp;<a href="{{ route('detail_berita') }}">SMK BBC</a>&nbsp;| 5 November |
                                             15 Comments
                                         </div>
                                     </div>
@@ -219,7 +219,7 @@
                             </div>
                 </section>
                 <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial"
-                    data-background="assets/images/testimonial_bg.jpg">
+                    data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
                     <div class="testimonials-slider pt-140 pb-140">
                         <ul class="slides">
                             <li>
@@ -303,7 +303,7 @@
                         </ul>
                     </div>
                 </section>
-                <section class="module" id="contact">
+                <section class="module" id="kontak">
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-6 col-sm-offset-3">
@@ -313,7 +313,8 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form id="contactForm" role="form" method="post" action="php/contact.php">
+                                <form role="form" method="POST" action="{{ route('send_comment') }}">
+                                    @csrf
                                     <div class="form-group">
                                         <label class="sr-only" for="name">Nama</label>
                                         <input class="form-control" type="text" id="name" name="name"
@@ -340,10 +341,11 @@
                                         </button>
                                     </div>
                                 </form>
-                                <div class="ajax-response   " id="contactFormResponse"></div>
+                                {{-- <div class="ajax-response   " id="contactFormResponse"></div> --}}
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
-        @endsection
+    </div>
+@endsection

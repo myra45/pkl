@@ -14,10 +14,10 @@
             <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
                 <ul id="sidebarnav"
                     {{ Request::is('admin/extracurricular/home') || Request::is('admin/extracurricular/profile') || Request::is('admin/extracurricular/presensi') || Request::is('admin/table') || Request::is('admin/forget-password') || Request::is('admin/confirmation-password') ? 'active' : '' }}>
-                    <li class="nav-small-cap">
+                    {{-- <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Home</span>
-                    </li>
+                    </li> --}}
                     <li class="sidebar-item {{ Request::is('admin/extracurricular/home') ? 'active' : '' }}">
                         <a class="sidebar-link" href="{{ route('admin_extracurricular_home') }}">
                             <span>
@@ -34,16 +34,106 @@
                             <span class="hide-menu">Profile</span>
                         </a>
                     </li>
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">User Manajement</span>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" aria-expanded="false">
+                            <span class="d-flex">
+                                <i class="ti ti-users"></i>
+                            </span>
+                            <span class="hide-menu">User Manajemen</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level {{ Request::is('admin/extracurricular/member') ? 'active' : '' }}">
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/member') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('member_eskul_show') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">All Member</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="sidebar-item {{ Request::is('admin/extracurricular/presensi') ? 'active' : '' }}">
-                        <a class="sidebar-link" href="{{ route('admin_extracurricular_presensi') }}">
-                            <span>
-                                <i class="ti ti-checkup-list"></i>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" aria-expanded="false">
+                            <span class="d-flex">
+                                <i class="ti ti-clipboard-check"></i>
                             </span>
                             <span class="hide-menu">Presensi</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level {{ Request::is('admin/extracurricular/presensi/*') ? 'active' : '' }}">
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/presensi') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_presensi') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">All Presensi</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/presensi/create') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('presensi_create') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Create Presensi</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/presensi/history') || Request::is('admin/extracurricular/presensi/show/{event_id}') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('presensi_history_all') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">History Presensi</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('preview_report') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Presensi Report</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" aria-expanded="false">
+                            <span class="d-flex">
+                                <i class="ti ti-list-details"></i>
+                            </span>
+                            <span class="hide-menu">Manajemen Tugas</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level {{ Request::is('admin/extracurricular/task-manajemen/*') ? 'active' : '' }}">
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_task_manajement') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">All Task</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Create Task</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link">
+                            <span>
+                                <i class="ti ti-certificate"></i>
+                            </span>
+                            <span class="hide-menu">Sertifikat</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('admin_logout') }}">
+                            <span>
+                                <i class="ti ti-logout"></i>
+                            </span>
+                            <span class="hide-menu">Logout</span>
                         </a>
                     </li>
                 </ul>

@@ -24,8 +24,9 @@ padding-bottom: 1.5rem;
 }
 
 .icon-list a{
-color: #fff !important;
+color: #000000 !important;
 }
+
 
 .icon-list a:hover{
 color:black!important;

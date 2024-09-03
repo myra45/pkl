@@ -108,7 +108,7 @@
                             </a>
                           </li>
                           <li class="sidebar-item">
-                            <a class="sidebar-link">
+                            <a href="{{route('about_show')}}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -122,6 +122,41 @@
                                 <i class="ti ti-circle"></i>
                               </div>  
                               <span class="hide-menu">Service Section</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="sidebar-item">
+                        <a class="sidebar-link has-arrow" aria-expanded="">
+                          <span class="d-flex">
+                            <i class="ti ti-news"></i>
+                          </span>
+                          <span class="hide-menu">News</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                          <li class="sidebar-item ">
+                            <a class="sidebar-link" href="{{route('news_show')}}">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">All News</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{route('news_category_show')}}">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">Category News</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item">
+                            <a class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">All Comentars</span>
                             </a>
                           </li>
                         </ul>
