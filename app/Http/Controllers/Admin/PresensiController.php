@@ -15,9 +15,13 @@ class PresensiController extends Controller
 {
     public function index()
     {
+        return view('admin_eskul.presensi_show');
+    }
+
+    public function create() {
         $user = Auth::user();
         $admin_data = User::with('Extracurricular')->findOrFail($user->id);
-        return view('admin_eskul.presensi_show', compact('admin_data'));
+        return view('admin_eskul.presensi_create', compact('admin_data'));
     }
 
     public function store(Request $request)

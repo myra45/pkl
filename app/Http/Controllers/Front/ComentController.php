@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class ComentController extends Controller
 {
@@ -21,12 +22,12 @@ class ComentController extends Controller
             'message' => $validated['message'],
         ];
 
-        Mail::send('emails.comment', $data, function ($message) use ($data) {
-            $message->to('youremail@example.com') // Ganti dengan email Anda
-                    ->subject('Komentar Baru dari ' . $data['name']);
+        Mail::send('email.coment', $data, function ($message) use ($data) {
+            $message->to('eskulmanajemen@gmail.com') // Ganti dengan email Anda
+                    ->subject('Pesan Baru dari ' . $data['name']);
         });
 
-        return back()->with('success', 'Komentar Anda telah terkirim!');
+        return back()->with('success', 'Pesan Anda telah terkirim!');
     }
 }
 
