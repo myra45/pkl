@@ -107,11 +107,19 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
+                                    <span class="hide-menu">Task Show</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen/all') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_task_manajement_all') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
                                     <span class="hide-menu">All Task</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link">
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen/create') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_task_manajement_create')}}">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
