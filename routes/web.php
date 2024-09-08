@@ -15,6 +15,7 @@ use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\NilaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -108,7 +109,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
-
+    Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit')->middleware('user:web');
+    Route::get('/nlai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
 
 
 

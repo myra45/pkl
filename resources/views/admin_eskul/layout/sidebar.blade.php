@@ -120,20 +120,20 @@
                             </li>
                         </ul>
                     </li>
+                     <li class="sidebar-item">
+                        <a class="sidebar-link">
+                            <span>
+                                <i class="ti ti-file-report"></i>
+                            </span>
+                            <span class="hide-menu">Nilai Akhir</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link">
                             <span>
                                 <i class="ti ti-news"></i>
                             </span>
                             <span class="hide-menu">Post News</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link">
-                            <span>
-                                <i class="ti ti-certificate"></i>
-                            </span>
-                            <span class="hide-menu">Sertifikat</span>
                         </a>
                     </li>
                     <li class="sidebar-item">

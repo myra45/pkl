@@ -15,7 +15,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="" method="POST"
+                        <form action="{{route('user_profile_submit')}}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -25,7 +25,7 @@
                                             <div class="d-flex justify-content-center mb-2">
                                                 <div class="">
                                                     <div class="border border-4 border-white rounded overflow-hidden">
-                                                        <img src=""
+                                                        <img src="{{ asset('storage/uploads/'.Auth::user()->profile_img) }}"
                                                             alt="modernize-img" class="w-100 h-100">
                                                     </div>
                                                 </div>
@@ -40,15 +40,15 @@
                                 <div class="col-md-8">
                                     <div class="mb-4">
                                         <label class="form-label">Name </label>
-                                        <input type="text" class="form-control" name="name">
+                                        <input type="text" class="form-control" name="name" value="{{ $all_data->name}}">
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Email </label>
-                                        <input type="text" class="form-control" name="email">
+                                        <input type="text" class="form-control" name="email" value="{{ $all_data->email}}">
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Ekstrakulikuler</label>
-                                        <input type="text" name="extracurricular_name" class="form-control">
+                                        <input type="text" name="extracurricular_name" class="form-control" value="{{$extracurricularName}}" disabled>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
