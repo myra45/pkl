@@ -4,68 +4,53 @@
 
 @section('main_content')
     <div class="row">
-        <div class="col-lg-3 col-md-6">
+        <div class="col-md-6">
             <div class="card">
+                <div class="card-header bg-primary">
+                    <h5 class="text-white">Tugas yang dibuat: </h5>
+                </div>
                 <div class="card-body">
-                    <div class="d-flex flex-row gap-6 align-items-center">
-                        <div
-                            class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-primary">
-                            <i class="ti ti-list-details fs-6"></i>
+                    <ul>
+                      @foreach ($all_tugas as $item)
+                      <li>
+                        <div class="h5 d-flex justify-content-between mb-1">
+                          • {{ $item->judul_tugas }}
+                          <span><p class=" fw-normal fs-3">{{ $item->tanggal }}</p></span>
                         </div>
-                        <div class="align-self-center">
-                            <h4 class="card-title mb-1">All Task</h4>
-                            <p class="card-subtitle">34</p>
-                        </div>
-                    </div>
+                        <span class="mb-3 badge bg-warning">Belum Selesai</span>
+                      </li>
+                      @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex flex-row gap-6 align-items-center">
-                        <div
-                            class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-success">
-                            <i class="ti ti-users fs-6"></i>
-                        </div>
-                        <div class="align-self-center">
-                            <h4 class="card-title mb-1">All Member</h4>
-                            <p class="card-subtitle">5</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-6">
+          <div class="header">
+              <div class="border-bottom title-part-padding px-0 mb-3">
+                  <h5>Quick Links <span class="ti ti-link align-items-center"></span> </h5>
+              </div>
+          </div>
+          <div class="d-flex">
+            <div class="col-md-4 col-sm-4">
+              <div class="card p-4 me-3">
+                    <p class="fw-bold fs-5 mb-3">
+                      All Task
+                    </p>
+                    <a href="{{ route('admin_extracurricular_task_manajement_all') }}" class="btn btn-sm btn-primary">View All</a>
+              </div>
             </div>
-        </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="card p-4 me-3">
+                    <p class="fw-bold fs-5 mb-3">
+                      Create Task
+                    </p>
+                    <a href="{{ route('admin_extracurricular_task_manajement_create') }}" class="btn btn-sm btn-primary">Create</a>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
     </div>
-
-    <div class="border-bottom title-part-padding px-0 mb-3">
-        <h5>Quick Links</h5>
-    </div>
-    <div class="row">
-         <div class="col-md-12 d-flex">
-            <div class="col-md-3 card me-4">
-                <div class="card-body">
-                    <h4 class="mb-3">
-                        Create Task
-                    </h4>
-                    <a href="{{ route('presensi_create') }}" class="btn btn-primary">Create</a>
-                </div>
-            </div>
-            <div class="col-md-3 card me-4">
-                <div class="card-body">
-                    <h4 class="mb-3">
-                        All Task
-                    </h4>
-                    <a href="{{ route('presensi_history_all') }}" class="btn btn-primary">View All</a>
-                </div>
-            </div>
-            <div class="col-md-3 card me-4">
-                <div class="card-body">
-                    <h4 class="mb-3">Task Setting </h4>
-                    <a href="{{ route('preview_report') }}" class="btn btn-primary">Create</a>
-                </div>
-            </div>
-         </div> 
     </div>
 
 
