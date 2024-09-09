@@ -1,13 +1,14 @@
 <?php
-
-use App\Http\Controllers\Admin\AdminBeritaController;
-use App\Http\Controllers\Admin\AdminEskulController;
+use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminLoginController;
-use App\Http\Controllers\Admin\AdminHomePageController;
+use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\EskulController;
 use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\TaskController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\NilaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,8 +35,10 @@ use Illuminate\Support\Facades\Route;
 // Front
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
-Route::get('/detail-berita', [BeritaController::class, 'show'])->name('detail_berita');
+Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
+Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
+Route::post('/send-contact', [ContactController::class, 'send_messagee'])->name('send_contact');
+
 
 // Admin
 Route::prefix('admin')->group(function () {
@@ -50,7 +54,6 @@ Route::prefix('admin')->group(function () {
 
         Route::middleware('admin')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin_home');
-
             // Admin
             Route::get('/show', [AdminEskulController::class, 'index'])->name('admin_show');
             Route::get('/add', [AdminEskulController::class, 'add'])->name('add_admin');
@@ -73,8 +76,17 @@ Route::prefix('admin')->group(function () {
             Route::get('/eskul/delete/{id}', [EskulController::class, 'delete'])->name('eskul_delete');
             // Berita
             Route::get('/berita-category/show', [AdminBeritaController::class, 'all_news_categories'])->name('news_category_show');
+            Route::get('/berita-category/add', [AdminBeritaController::class, 'news_categories_add'])->name('news_category_add');
+            Route::post('/berita-category/submit', [AdminBeritaController::class, 'news_categories_store'])->name('news_category_submit');
+            Route::get('/berita-category/edit/{id}', [AdminBeritaController::class, 'news_categories_edit'])->name('news_category_edit');
+            Route::post('/berita-category/update/{id}', [AdminBeritaController::class, 'news_categories_update'])->name('news_category_update');
+            Route::get('/berita-category/delete/{id}', [AdminBeritaController::class, 'news_categories_delete'])->name('news_category_delete');
             Route::get('/berita/show', [AdminBeritaController::class, 'all_news'])->name('news_show');
+            Route::get('/berita/add',[AdminBeritaController::class,'add'])->name('admin_news_add');
+            Route::post('/berita-submit',[AdminBeritaController::class,'store_news'])->name('admin_news_submit');
+            Route::get('/berita/edit/{id}',[AdminBeritaController::class, 'news_edit'])->name ('admin_news_edit');
             // Konten Manajemen 
+
             Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
 
@@ -94,17 +106,11 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
             Route::get('/extracurricular/presensi/create', [PresensiController::class, 'create'])->name('presensi_create');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
-            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');   
-            // Manajemen Tugas 
-            Route::get('/extracurricular/task-manajemen', [TaskController::class, 'index'])->name('admin_extracurricular_task_manajement');
-            Route::get('/extracurricular/task-manajemen/all', [TaskController::class, 'all'])->name('admin_extracurricular_task_manajement_all');
-            Route::get('/extracurricular/task-manajemen/create', [TaskController::class, 'create'])->name('admin_extracurricular_task_manajement_create');
-            Route::post('/extracurricular/task-manajemen/submit', [TaskController::class, 'store'])->name('admin_extracurricular_task_manajement_create_submit');
-            Route::get('/extracurricular/task-manajemen/edit/{id}', [TaskController::class, 'edit'])->name('admin_extracurricular_task_manajement_edit');
-            Route::post('/extracurricular/task-manajemen/update/{id}', [TaskController::class, 'update'])->name('admin_extracurricular_task_manajement_update');
-            Route::get('/extracurricular/task-manajemen/delete/{id}', [TaskController::class, 'delete'])->name('admin_extracurricular_task_manajement_delete');
-
-        });
+            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');         
+            
+            // Nilai Akhir
+            Route::get('/extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade'); 
+         });
     });
 });
 
@@ -120,7 +126,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
-
+    Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit')->middleware('user:web');
+    Route::get('/nlai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
 
 
 

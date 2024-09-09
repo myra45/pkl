@@ -13,6 +13,8 @@
     <div class="section-body">
         <div class="row">
             <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
                         <form action="{{ route('admin_extracurricular_profile_submit') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf

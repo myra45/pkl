@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Front;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
 
-class ComentController extends Controller
+
+class ContactController extends Controller
 {
-    public function sendComment(Request $request)
+    public function send_messagee(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -19,15 +21,16 @@ class ComentController extends Controller
         $data = [
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'message' => $validated['message'],
+            'pesan' => $validated['message'],
         ];
 
-        Mail::send('email.coment', $data, function ($message) use ($data) {
-            $message->to('eskulmanajemen@gmail.com') // Ganti dengan email Anda
+        Mail::send('email.contact', $data, function ($mail) use ($data) {
+            $mail->to('eskulmanajemen@gmail.com') // Ganti dengan email Anda
                     ->subject('Pesan Baru dari ' . $data['name']);
         });
 
         return back()->with('success', 'Pesan Anda telah terkirim!');
     }
 }
+
 

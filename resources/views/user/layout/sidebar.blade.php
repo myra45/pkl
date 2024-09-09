@@ -32,9 +32,25 @@
                     <li class="sidebar-item {{ Request::is('/tugas') ? 'active' : ' ' }}">
                         <a class="sidebar-link" href="#">
                             <span>
-                                <i class="ti ti-checklist"></i>
+                                <i class="ti ti-checkbox"></i>
                             </span>
                             <span class="hide-menu">Tugas</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ Request::is('/tugas') ? 'active' : ' ' }}">
+                        <a class="sidebar-link" href="{{route('user_nilai_akhir')}}">
+                            <span>
+                                <i class="ti ti-file-report"></i>
+                            </span>
+                            <span class="hide-menu">Nilai Akhir</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ Request::is('/logout') ? 'active' : ' ' }}">
+                        <a class="sidebar-link" href="{{route('logout')}}">
+                            <span>
+                                <i class="ti ti-logout"></i>
+                            </span>
+                            <span class="hide-menu">Log Out</span>
                         </a>
                     </li>
                 </ul>
