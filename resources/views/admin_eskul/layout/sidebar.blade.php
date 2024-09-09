@@ -68,8 +68,8 @@
                                     <span class="hide-menu">All Presensi</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link">
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/presensi/create') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('presensi_create') }}">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
@@ -85,11 +85,11 @@
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link">
+                                <a class="sidebar-link" href="{{ route('preview_report') }}">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Laporan Presensi</span>
+                                    <span class="hide-menu">Presensi Report</span>
                                 </a>
                             </li>
                         </ul>
@@ -101,26 +101,35 @@
                             </span>
                             <span class="hide-menu">Manajemen Tugas</span>
                         </a>
-                        <ul aria-expanded="false" class="collapse first-level">
-                            <li class="sidebar-item">
-                                <a class="sidebar-link">
+                        <ul aria-expanded="false" class="collapse first-level {{ Request::is('admin/extracurricular/task-manajemen/*') ? 'active' : '' }}">
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_task_manajement') }}">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Create Task</span>
+                                    <span class="hide-menu">Task Show</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link">
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen/all') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_task_manajement_all') }}">
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
                                     <span class="hide-menu">All Task</span>
                                 </a>
                             </li>
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen/create') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_task_manajement_create')}}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Create Task</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
-                     <li class="sidebar-item">
+                   
+                    <li class="sidebar-item">
                         <a class="sidebar-link" href="{{route('admin_extracurricular_grade')}}">
                             <span>
                                 <i class="ti ti-file-report"></i>

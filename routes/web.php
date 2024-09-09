@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Front\HomeController;
@@ -10,8 +11,9 @@ use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\EskulController;
-use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\PresensiController;
+use App\Http\Controllers\Admin\TaskController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserHomeController;
@@ -36,7 +38,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
-Route::post('/send_contact', [ContactController::class, 'send_messagee'])->name('send_contact');
+Route::post('/send-comment', [CommentController::class, 'sendComment'])->name('send_comment');
 
 
 // Admin
@@ -74,11 +76,12 @@ Route::prefix('admin')->group(function () {
             Route::get('/eskul/edit/{id}', [EskulController::class, 'edit'])->name('eskul_edit');
             Route::post('/eskul/update/{id}', [EskulController::class, 'update'])->name('eskul_update');
             Route::get('/eskul/delete/{id}', [EskulController::class, 'delete'])->name('eskul_delete');
-
+            // Berita
+            Route::get('/berita-category/show', [AdminBeritaController::class, 'all_news_categories'])->name('news_category_show');
+            Route::get('/berita/show', [AdminBeritaController::class, 'all_news'])->name('news_show');
             // Konten Manajemen 
             Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
-
 
         });
 
@@ -94,14 +97,13 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/presensi-submit', [PresensiController::class, 'store'])->name('admin_extracurricular_presensi_form_submit');
             Route::get('/extracurricular/presensi/show/{event_id}', [PresensiController::class, 'presensi'])->name('admin_extracurricular_presensi_show');            
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
+            Route::get('/extracurricular/presensi/create', [PresensiController::class, 'create'])->name('presensi_create');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
-            Route::get('/extracurricular/presensi/generate-report', [PresensiController::class, 'generateReport'])->name('generate_report');    
-
-            // Nilai Akhit
-            Route::get('/extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade');
-        });
+            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');           });
     });
 });
+
+
 // User
     Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
     Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');

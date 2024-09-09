@@ -15,9 +15,13 @@ class PresensiController extends Controller
 {
     public function index()
     {
+        return view('admin_eskul.presensi_show');
+    }
+
+    public function create() {
         $user = Auth::user();
         $admin_data = User::with('Extracurricular')->findOrFail($user->id);
-        return view('admin_eskul.presensi_show', compact('admin_data'));
+        return view('admin_eskul.presensi_create', compact('admin_data'));
     }
 
     public function store(Request $request)
@@ -100,10 +104,19 @@ class PresensiController extends Controller
     }
 
 
-    public function generateReport()
+    public function preview_report()
     {
-        // Mengambil semua event dan data presensi yang terkait
-        $events = Event::with(['presensis', 'presensis.user'])->get();
+        // Mendapatkan admin yang sedang login
+        $admin = Auth::guard('web')->user();
+
+        // Mengambil semua event dan data presensi yang terkait dengan kondisi eskul_id yang sesuai
+        $events = Event::with(['presensis' => function ($query) use ($admin) {
+            $query->whereHas('user', function ($query) use ($admin) {
+                $query->where('eskul_id', $admin->eskul_id);
+            });
+        }, 'presensis.user', 'eskuls'])
+            ->where('eskul_id', $admin->eskul_id) // Tambahkan kondisi untuk memastikan hanya event dari eskul admin yang ditampilkan
+            ->get();
 
         // Data ini akan dioper ke view untuk dijadikan laporan
         $data = [
@@ -113,7 +126,8 @@ class PresensiController extends Controller
         // Render PDF
         $pdf = PDF::loadView('admin_eskul.presensi_laporan', $data);
 
-        // Unduh PDF dengan nama file tertentu
-        return $pdf->download('laporan_presensi.pdf');
+        // Tampilkan pratinjau PDF di browser
+        return $pdf->stream('laporan_presensi.pdf');
     }
+
 }

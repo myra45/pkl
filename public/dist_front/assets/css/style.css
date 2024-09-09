@@ -167,7 +167,7 @@ a,
 .module,
 .module-small {
   position: relative;
-  padding: 140px 0;
+  padding: 218px 0;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
@@ -827,7 +827,6 @@ a,
 /* Forms common style */
 .form-control {
   font-family: "Plus Jakarta Sans", sans-serif;
-  text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 11px;
   height: 33px;
@@ -873,7 +872,7 @@ a {
 
 a:hover, a:focus {
   text-decoration: none;
-  color: rgb(221, 221, 221);
+  color: #5271ff;
   outline: 0;
 }
 

@@ -15,9 +15,8 @@
   </div>
   <div class="collapse navbar-collapse " id="custom-collapse" style="padding-top: 1.5rem;">
     <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-        <a class="a-color" href="#"
-          >Beranda</a
+      <li class="">
+        <a class="a-color" href="{{ route('home') }}">Beranda</a
         >
       </li>
       <li class="dropdown">
@@ -25,7 +24,7 @@
           >Tentang</a
         >
       </li>
-      <li class="dropdown">
+      <li class="">
         <a class="a-color" href="{{ route('berita') }}"
           >Berita</a
         >

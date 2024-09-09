@@ -1,4 +1,4 @@
-@extends('user.layout.app')
+@extends('admin_eskul.layout.app')
 
 @section('heading', 'Profile')
 
@@ -15,7 +15,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{route('user_profile_submit')}}" method="POST"
+                        <form action="{{ route('admin_extracurricular_profile_submit') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <div class="row">
@@ -40,23 +40,24 @@
                                 <div class="col-md-8">
                                     <div class="mb-4">
                                         <label class="form-label">Name </label>
-                                        <input type="text" class="form-control" name="name" value="{{ $all_data->name}}">
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ Auth::user()->name }}">
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Email </label>
-                                        <input type="text" class="form-control" name="email" value="{{ $all_data->email}}">
+                                        <input type="text" class="form-control" name="email"
+                                            value="{{ Auth::user()->email }}">
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Ekstrakulikuler</label>
-                                        <input type="text" name="extracurricular_name" class="form-control" value="{{$extracurricularName}}" disabled>
+                                        <input type="text" name="extracurricular_name" class="form-control"
+                                            id="" value="{{ Auth::user()->Extracurricular->nama_eskul }}">
                                     </div>
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
 @endsection
