@@ -1,4 +1,4 @@
-        <div class="module-small bg-dark" style="background-color: #5271ff; color: #fff !important;">
+<div class="module-small bg-dark" style="background-color: #5271ff; color: #fff !important;">
           <div class="container">
             <div class="row">
               <div class="col-sm-3">
@@ -13,9 +13,6 @@
                 <div class="widget">
                   <h5 class="widget-title font-alt">Komentar Terakhir</h5>
                   <ul class="icon-list">
-                    <li>Muhammad Rifan Herdiansyah <a href="#">Paskibra SMK Budi Bakti Ciwidey KEREN</a></li>
-                    <li>Azlia Nur Afifah <a href="#">Ayo join WJLRC sekarang!</a></li>
-                    <li>Muhammad Abyan Ma'ruf <a href="#">Eskul kita Masyaallah</a></li>
                   </ul>
                 </div>
               </div>
