@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Forget Password</title>
+    <title>Reset Password</title>
     @include('admin.layout.favicon')
     @include('admin.layout.styles')
 </head>
@@ -20,22 +20,21 @@
                     <div class="col-sm-8 col-md-8 col-lg-6 col-xxl-3">
                         <div class="card mb-0">
                             <div class="card-body">
-                                <div class="mb-5">
-                                    <h2 class="fw-bolder fs-7 mb-3">Forgot your password?</h2>
-                                    <p class="mb-0 ">
-                                        Please enter the email address associated with your account and We will
-                                        email you a link to reset
-                                        your password.
-                                    </p>
+                                <div class="mb-3">
+                                    <h2 class="fw-bolder fs-7 mb-3">Reset Password</h2>
                                 </div>
-                                <form method="POST" action="{{ route('user_forget_password_submit') }}">
+                                <form method="POST" action="{{ route('user_reset_password_submit')}}">
                                     @csrf
+
+                                    <input type="hidden" name="token" value="{{ $token }}">
+                                    <input type="hidden" name="email" value="{{ $email }}">
+
                                     <div class="mb-3">
-                                        <label for="email" class="form-label">Email address</label>
-                                        <input type="text" class="form-control @error('email')
+                                        <label for="password" class="form-label">New Password</label>
+                                        <input type="password" class="form-control @error('password')
                                             is-invalid
-                                        @enderror" name="email" id="email" value="{{ old('email') }}" autofocus>
-                                        @error('email')
+                                        @enderror" name="password" id="password" autofocus>
+                                        @error('password')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                         @if (session()->get('error'))
@@ -44,9 +43,16 @@
                                                 </div>
                                             @endif
                                     </div>
-                                    <button type="submit" class="btn btn-primary w-100 py-8 mb-3">Send Password Reset Link</button>
-                                    <a href="{{ route('login') }}">Back to
-                                        Login</a>
+                                    <div class="mb-3">
+                                        <label for="retype_password" class="form-label">Retype Password</label>
+                                        <input type="password" class="form-control @error('retype_password')
+                                            is-invalid
+                                        @enderror" name="retype_password" id="retype_password" value="{{ old('email') }}" autofocus>
+                                        @error('retype_password')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100 py-8 mb-3">Update</button>
                                 </form>
                             </div>
                         </div>
@@ -59,4 +65,3 @@
 </body>
 
 </html>
-
