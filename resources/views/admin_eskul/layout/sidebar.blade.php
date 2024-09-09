@@ -129,14 +129,6 @@
                         </ul>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link">
-                            <span>
-                                <i class="ti ti-certificate"></i>
-                            </span>
-                            <span class="hide-menu">Sertifikat</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
                         <a class="sidebar-link" href="{{ route('admin_logout') }}">
                             <span>
                                 <i class="ti ti-logout"></i>
