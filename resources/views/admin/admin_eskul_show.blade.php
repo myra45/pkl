@@ -32,7 +32,7 @@
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $item->name }}</td>
                                       <td>{{ $item->email }}</td>
-                                      <td>{{ $item->rExtracurricular?->nama_eskul }}</td>
+                                      <td>{{ $item->Extracurricular?->nama_eskul }}</td>
                                       <td class="pt_10 pb_10">
                                         <a href="{{ route('admin_edit', $item->id) }}" class="btn btn-primary">Edit</a>
                                         <a href="{{ route('admin_delete', $item->id) }}" class="btn btn-danger"

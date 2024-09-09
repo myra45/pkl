@@ -9,7 +9,7 @@
 @section('main_content')
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="{{ route('add_admin_submit') }}">
+            <form method="POST" action="{{ route('admin_news_submit') }}">
               @csrf
                 <div class="row">
                     <div class="col-md-9">
@@ -40,7 +40,7 @@
 
                     <div class="mb-4">
                       <label for="eskul" class="form-label">Ekstrakulikuler</label>
-                      <select name="eskul_id" class="form-control select2">
+                      <select name="eskul_id" class="form-control">
                           <option value="">-- Pilih Ekstrakulikuler --</option>
                           @foreach ($eskul_data as $rEskul)
                               <option value="{{ $rEskul->id }}">

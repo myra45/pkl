@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('eskuls', function (Blueprint $table) {
             $table->id('id');
-            $table->text('nama');
+            $table->text('nama_eskul');
+            $table->foreignId('admin_id')->constrained('users')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +24,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('eskuls', function (Blueprint $table) {
+            $table->dropForeign(['admin_id']);
+        });
         Schema::dropIfExists('eskuls');
     }
 };

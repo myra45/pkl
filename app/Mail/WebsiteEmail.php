@@ -27,7 +27,7 @@ class WebsiteEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Website Email',
+            subject: 'Reset Password',
         );
     }
 
@@ -41,10 +41,10 @@ class WebsiteEmail extends Mailable
     //     );
     // }
 
-    public function build() {
-        return $this->view('email.email')->with([
-            'subject' => $this->subject
-        ]);
+    public function build()
+    {
+        return $this->subject('Reset Password')
+                    ->view('email.email');
     }
 
     /**

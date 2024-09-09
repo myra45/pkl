@@ -24,7 +24,7 @@
                                             <div class="d-flex justify-content-center mb-2">
                                                 <div class="mb-4">
                                                     <div class="border border-4 border-white rounded overflow-hidden mb-4">
-                                                        <img src="{{ asset('uploads/'.Auth::guard('admin')->user()->photo) }}"
+                                                        <img src="{{ asset('storage/uploads'.Auth::user()->profile_img) }}"
                                                             alt="admin-img" class="w-100 h-100">
                                                     </div>
                                                     <div class="mb-4">
@@ -39,12 +39,12 @@
                                     <div class="mb-4">
                                         <label class="form-label">Name</label>
                                         <input type="text" class="form-control" name="name"
-                                            value="{{ Auth::guard('admin')->user()->name }}">
+                                            value="{{ Auth::user()->name }}">
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Email</label>
                                         <input type="text" class="form-control" name="email"
-                                            value="{{ Auth::guard('admin')->user()->email }}">
+                                            value="{{ Auth::user()->email }}">
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Password</label>

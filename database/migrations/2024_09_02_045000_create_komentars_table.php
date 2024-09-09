@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('komentars', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('eskuls_id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
-            $table->text('photo');
-            $table->tinyInteger('role');
-            $table->string('token');
+            $table->foreignId('berita_id')->constrained('beritas')->onDelete('cascade')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->nullable();
+            $table->text('isi_komentar');
             $table->timestamps();
-            
         });
     }
 
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('komentars');
     }
 };

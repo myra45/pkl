@@ -11,6 +11,12 @@ class Eskul extends Model
 
     public function rUsers()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class, 'admin_id');
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
+
 }
