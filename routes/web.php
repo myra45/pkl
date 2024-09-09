@@ -106,8 +106,15 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
             Route::get('/extracurricular/presensi/create', [PresensiController::class, 'create'])->name('presensi_create');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
-            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');         
-            
+            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report'); 
+            // Manajemen Tugas 
+            Route::get('/extracurricular/task-manajemen', [TaskController::class, 'index'])->name('admin_extracurricular_task_manajement');
+            Route::get('/extracurricular/task-manajemen/all', [TaskController::class, 'all'])->name('admin_extracurricular_task_manajement_all');
+            Route::get('/extracurricular/task-manajemen/create', [TaskController::class, 'create'])->name('admin_extracurricular_task_manajement_create');
+            Route::post('/extracurricular/task-manajemen/submit', [TaskController::class, 'store'])->name('admin_extracurricular_task_manajement_create_submit');
+            Route::get('/extracurricular/task-manajemen/edit/{id}', [TaskController::class, 'edit'])->name('admin_extracurricular_task_manajement_edit');
+            Route::post('/extracurricular/task-manajemen/update/{id}', [TaskController::class, 'update'])->name('admin_extracurricular_task_manajement_update');
+            Route::get('/extracurricular/task-manajemen/delete/{id}', [TaskController::class, 'delete'])->name('admin_extracurricular_task_manajement_delete');                 
             // Nilai Akhir
             Route::get('/extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade'); 
          });
@@ -121,8 +128,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('forget_password', [LoginController::class, 'forget_password'])->name('forget_password');
-    Route::get('confirmation_code', [LoginController::class, 'confirmation_code'])->name('confirmation_code');
+    Route::get('/forget-password', [LoginController::class, 'forget_password'])->name('user_forget_password');
+    Route::post('/forget-password-submit', [LoginController::class, 'forget_password_submit'])->name('user_forget_password_submit');
+    Route::get('/reset-password/{token}/{email}', [LoginController::class, 'reset_password'])->name('user_reset_password');
+    Route::post('/reset-password-submit', [LoginController::class, 'reset_password_submit'])->name('user_reset_password_submit');
 
     Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
