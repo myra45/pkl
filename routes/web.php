@@ -99,7 +99,11 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
             Route::get('/extracurricular/presensi/create', [PresensiController::class, 'create'])->name('presensi_create');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
-            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');           });
+            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');         
+            
+            // Nilai Akhir
+            Route::get('/extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade'); 
+         });
     });
 });
 
