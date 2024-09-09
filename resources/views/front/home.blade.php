@@ -5,12 +5,12 @@
         <div class="titan-caption home-caption">
             <div class="caption-content">
                 <div class="mb-30 titan-title-size-2 a-color">
-                    Ekstrakulikuler Manajemen
+                    {{ $page_data->banner_title }}
                 </div>
                 <div class="mb-40 titan-title-size-3" style="text-transform: uppercase;">
-                    <span class="rotate">Welcome|To|Extracurricular Management|Enjoy the convenience</span>
+                    <span class="rotate">{{ $page_data->banner_subtitle }}</span>
                 </div>
-                <a class="section-scroll btn btn-border-w btn-circle a-color" href="#tentang">Learn More</a>
+                <a class="section-scroll btn btn-border-w btn-circle a-color" href="#{{ $page_data->banner_button_url }}">{{ $page_data->banner_button_text }}</a>
             </div>
         </div>
     </section>
