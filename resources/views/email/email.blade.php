@@ -4,7 +4,7 @@
   <title>Email</title>
 </head>
 <body>
-  <h4>Follow this link for reset your password</h4>
+  <h4>Ikuti Link ini untuk Melakukan Reset Password</h4>
   <p>{!! $body !!}</p>
 </body>
 </html>

@@ -2,12 +2,6 @@
 
 @section('heading', 'Dashboard')
 
-@section('button_section')
-
-
-
-@endsection
-
 
 @section('main_content')
     <div class="section-body">
