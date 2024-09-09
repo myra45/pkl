@@ -19,7 +19,7 @@
         <a class="a-color" href="{{ route('home') }}">Beranda</a
         >
       </li>
-      <li class="">
+      <li class="dropdown">
         <a class="a-color" href="#tentang"
           >Tentang</a
         >
@@ -29,8 +29,8 @@
           >Berita</a
         >
       </li>
-      <li class=""><a class="a-color" href="#kontak" data-toggle="">Kontak</a></li>
-      <li class=""><a class="a-color" href="{{ route('login') }}" data-toggle="">Masuk</a></li>
+      <li class=""><a class="a-color" href="#kontak">Kontak</a></li>
+      <li class=""><a class="a-color" href="{{ route('login') }}">Masuk</a></li>
       <li class="">
         <a class="a-color" href="{{ route('sign_up') }}"
       >Daftar</a>
