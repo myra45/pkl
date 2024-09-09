@@ -37,7 +37,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
-Route::post('/send-comment', [CommentController::class, 'sendComment'])->name('send_comment');
 
 
 // Admin
