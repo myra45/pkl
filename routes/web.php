@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminEskulController;
+use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminHomePageController;
@@ -16,6 +18,7 @@ use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\NilaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,8 +36,10 @@ use Illuminate\Support\Facades\Route;
 // Front
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
-Route::get('/detail-berita', [BeritaController::class, 'show'])->name('detail_berita');
+Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
+Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
+Route::post('/send-comment', [CommentController::class, 'sendComment'])->name('send_comment');
+
 
 // Admin
 Route::prefix('admin')->group(function () {
@@ -94,17 +99,7 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
             Route::get('/extracurricular/presensi/create', [PresensiController::class, 'create'])->name('presensi_create');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
-            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');   
-            // Manajemen Tugas 
-            Route::get('/extracurricular/task-manajemen', [TaskController::class, 'index'])->name('admin_extracurricular_task_manajement');
-            Route::get('/extracurricular/task-manajemen/all', [TaskController::class, 'all'])->name('admin_extracurricular_task_manajement_all');
-            Route::get('/extracurricular/task-manajemen/create', [TaskController::class, 'create'])->name('admin_extracurricular_task_manajement_create');
-            Route::post('/extracurricular/task-manajemen/submit', [TaskController::class, 'store'])->name('admin_extracurricular_task_manajement_create_submit');
-            Route::get('/extracurricular/task-manajemen/edit/{id}', [TaskController::class, 'edit'])->name('admin_extracurricular_task_manajement_edit');
-            Route::post('/extracurricular/task-manajemen/update/{id}', [TaskController::class, 'update'])->name('admin_extracurricular_task_manajement_update');
-            Route::get('/extracurricular/task-manajemen/delete/{id}', [TaskController::class, 'delete'])->name('admin_extracurricular_task_manajement_delete');
-
-        });
+            Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report');           });
     });
 });
 
@@ -120,7 +115,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
-
+    Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit')->middleware('user:web');
+    Route::get('/nlai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
 
 
 

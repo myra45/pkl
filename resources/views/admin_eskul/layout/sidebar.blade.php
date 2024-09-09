@@ -128,12 +128,13 @@
                             </li>
                         </ul>
                     </li>
+                   
                     <li class="sidebar-item">
-                        <a class="sidebar-link">
+                        <a class="sidebar-link" href="{{route('admin_extracurricular_grade')}}">
                             <span>
-                                <i class="ti ti-certificate"></i>
+                                <i class="ti ti-file-report"></i>
                             </span>
-                            <span class="hide-menu">Sertifikat</span>
+                            <span class="hide-menu">Nilai Akhir</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
