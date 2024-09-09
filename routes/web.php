@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminEskulController;
+use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -95,6 +96,9 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/presensi/{event_id}/submit', [PresensiController::class, 'presensi_submit'])->name('admin_extracurricular_presensi_submit');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
             Route::get('/extracurricular/presensi/generate-report', [PresensiController::class, 'generateReport'])->name('generate_report');    
+
+            // Nilai Akhit
+            Route::get('/extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade');
         });
     });
 });

@@ -1,10 +1,6 @@
 @extends('admin_eskul.layout.app')
 
-@section('heading')
-    <div>
-        <h4>Presensi Untuk Event : {{ $event?->nama_event }}</h4>
-    </div>
-@endsection
+@section('heading', 'Nilai Akhir')
 
 @section('button_section')
 <a href="{{ route('presensi_history_all') }}" class="btn btn-primary">Back</a>
@@ -14,46 +10,40 @@
     <div class="section-body">
         <div class="row">
             <div class="col-12">
-                <div>
-                    <p>Pukul : {{ $event?->jam_mulai }}</p>
-                    <p>Tanggal : {{ $event?->tanggal }}</p>
-                    <p>Lokasi : {{ $event?->tempat }}</p>
-
-                </div>
-                <form action="{{ route('admin_extracurricular_presensi_submit', $event?->id) }}" method="POST">
+                <form action="">
                     @csrf
                     <div class="table-responsive">
                         <table class="table table-bordered" id="example1">
                             <thead>
                                 <tr>
                                     <th>SL</th>
-                                    <th>Name</th>
+                                    <th>Nama</th>
                                     <th>Ekstrakulikuler</th>
-                                    <th>Status</th>
+                                    <th>Nilai Akhir</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach ($presensi as $item)
+                                @foreach ($members as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->user->name }}</td>
-                                        <td>{{ $item->eskul->nama_eskul }}</td>
-
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->Extracurricular->nama_eskul }}</td>
                                         <td>
-                                            <input type="hidden" name="user_id[]" value="{{ $item->user->id }}">
-                                            <select name="status[]" class="form-control">
-                                                <option value="Hadir" {{ isset($presensi) && $item->status == 'Hadir' ? 'selected' : '' }}>Hadir</option>
-                                                <option value="Sakit" {{ isset($item) && $item->status == 'Sakit' ? 'selected' : '' }}>Sakit</option>
-                                                <option value="Izin" {{ isset($item) && $item->status == 'Izin' ? 'selected' : '' }}>Izin</option>
-                                                <option value="Tanpa Keterangan" {{ isset($item) && $item->status == 'Tanpa Keterangan' ? 'selected' : '' }}>Tanpa Keterangan</option>
+                                            <input type="hidden" name="eskul_id" value="{{ $item->Extracurricular->id }}">
+                                            <input type="hidden" name="user_id" value="{{ $item->id }}">
+                                            <select name="nilai" class="form-control">
+                                                <option value="A">A</option>
+                                                <option value="B">B</option> 
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
                                             </select>
                                         </td>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <button type="submit" class="btn btn-primary">Simpan Absensi</button>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <button type="submit" class="btn btn-primary">Simpan Nilai </button>
                     </div>
                 </form>
             </div>
