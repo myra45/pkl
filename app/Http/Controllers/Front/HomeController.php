@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\HomePageItem;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\HomePageItem;
 
 class HomeController extends Controller
 {
