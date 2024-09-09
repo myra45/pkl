@@ -322,9 +322,8 @@
                                     <div class="form-group">
                                         <label class="sr-only" for="name">Nama</label>
                                         <input class="form-control" type="text" id="name" name="name"
-                                            placeholder="Nama*" required="required"
-                                            data-validation-required-message="Please enter your name." />
-                                        <p class="help-block text-danger"></p>
+                                            placeholder="Nama*"/>
+                                        <p class="text-danger"></p>
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="email">Email</label>
