@@ -312,8 +312,13 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form role="form" method="POST" action="">
+                                    <form role="form" method="POST" action="{{ route('send_contact')}}">
                                     @csrf
+                                    @if (session()->get('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session()->get('success') }}
+                                    </div>
+                                    @endif
                                     <div class="form-group">
                                         <label class="sr-only" for="name">Nama</label>
                                         <input class="form-control" type="text" id="name" name="name"

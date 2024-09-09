@@ -35,7 +35,7 @@
                     </li>
 
                     <li class="sidebar-item {{ Request::is('admin/*') || Request::is('admin/member/*') ? 'active' : ' ' }}">
-                        <a class="sidebar-link has-arrow">
+                        <a class="sidebar-link has-arrow" aria-expanded="false">
                           <span class="d-flex">
                             <i class="ti ti-users"></i>
                           </span>
@@ -61,6 +61,32 @@
                         </ul>
                       </li>
                       
+                        {{-- <li class="sidebar-item {{ Request::is('admin/*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link has-arrow" aria-expanded="false">
+                          <span class="d-flex">
+                            <i class="ti ti-users"></i>
+                          </span>
+                          <span class="hide-menu">User Manajemen</span>
+                        </a>
+                        <ul class="collapse first-level">
+                          <li class="sidebar-item {{ Request::is('admin/*') ? 'active' : ' '}} ">
+                            <a href="{{ route('admin_show') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">All Admin</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item {{ Request::is('admin/member/show') ? 'active' : ' '}}">
+                            <a href="{{ route('member_show') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">All Member</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li> --}}
 
                     <li class="sidebar-item {{ Request::is('admin/eskul/*') ? 'active' : ' ' }}">
                         <a class="sidebar-link has-arrow" aria-expanded="false">
