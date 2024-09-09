@@ -1,15 +1,14 @@
 <?php
-
-use App\Http\Controllers\Admin\AdminBeritaController;
-use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ContactController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminLoginController;
-use App\Http\Controllers\Admin\AdminHomePageController;
+use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\EskulController;
 use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\TaskController;
@@ -55,7 +54,6 @@ Route::prefix('admin')->group(function () {
 
         Route::middleware('admin')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin_home');
-
             // Admin
             Route::get('/show', [AdminEskulController::class, 'index'])->name('admin_show');
             Route::get('/add', [AdminEskulController::class, 'add'])->name('add_admin');
@@ -78,8 +76,17 @@ Route::prefix('admin')->group(function () {
             Route::get('/eskul/delete/{id}', [EskulController::class, 'delete'])->name('eskul_delete');
             // Berita
             Route::get('/berita-category/show', [AdminBeritaController::class, 'all_news_categories'])->name('news_category_show');
+            Route::get('/berita-category/add', [AdminBeritaController::class, 'news_categories_add'])->name('news_category_add');
+            Route::post('/berita-category/submit', [AdminBeritaController::class, 'news_categories_store'])->name('news_category_submit');
+            Route::get('/berita-category/edit/{id}', [AdminBeritaController::class, 'news_categories_edit'])->name('news_category_edit');
+            Route::post('/berita-category/update/{id}', [AdminBeritaController::class, 'news_categories_update'])->name('news_category_update');
+            Route::get('/berita-category/delete/{id}', [AdminBeritaController::class, 'news_categories_delete'])->name('news_category_delete');
             Route::get('/berita/show', [AdminBeritaController::class, 'all_news'])->name('news_show');
+            Route::get('/berita/add',[AdminBeritaController::class,'add'])->name('admin_news_add');
+            Route::post('/berita-submit',[AdminBeritaController::class,'store_news'])->name('admin_news_submit');
+            Route::get('/berita/edit/{id}',[AdminBeritaController::class, 'news_edit'])->name ('admin_news_edit');
             // Konten Manajemen 
+
             Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
 

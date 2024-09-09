@@ -13,9 +13,9 @@ class Berita extends Model
          return $this->hasMany(Komentar::class);
      }
 
-    public function rCategory()
+     public function rCategory()
      {
-         return $this->hasOne(Berita::class);
+        return $this->belongsTo(BeritaCategory::class, 'berita_category_id', 'id');
      }
 
 }
