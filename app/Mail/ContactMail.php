@@ -9,16 +9,23 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class WebsiteEmail extends Mailable
+class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $subject, $body;
 
-    
-    public function __construct($subject, $body)
+    public $data;
+    /**
+     * Create a new message instance.
+     */
+    public function __construct()
     {
-        $this->subject = $subject;
-        $this->body = $body;
+        $this->data = $data;
+    }
+
+    public function build()
+    {
+        return $this->subject('Pesan Baru dari Form Kontak')
+        ->view('email.contact');                       
     }
 
     /**
@@ -27,7 +34,7 @@ class WebsiteEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Reset Password',
+            subject: 'Contact Mail',
         );
     }
 
@@ -37,15 +44,10 @@ class WebsiteEmail extends Mailable
     // public function content(): Content
     // {
     //     return new Content(
-    //         view: 'email.email'
+    //         view: 'view.name',
     //     );
     // }
 
-    public function build()
-    {
-        return $this->subject('Reset Password')
-                    ->view('email.email');
-    }
 
     /**
      * Get the attachments for the message.

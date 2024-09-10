@@ -9,16 +9,19 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class WebsiteEmail extends Mailable
+class SendNotificationMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $subject, $body;
+    public $task;
+    public $announcement;
 
-    
-    public function __construct($subject, $body)
+    /**
+     * Create a new message instance.
+     */
+    public function __construct($task, $announcement)
     {
-        $this->subject = $subject;
-        $this->body = $body;
+        $this->task = $task;
+        $this->announcement = $announcement;
     }
 
     /**
@@ -27,7 +30,7 @@ class WebsiteEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Reset Password',
+            subject: 'Notifikasi Tugas Baru',
         );
     }
 
@@ -37,14 +40,14 @@ class WebsiteEmail extends Mailable
     // public function content(): Content
     // {
     //     return new Content(
-    //         view: 'email.email'
+    //         view: 'view.name',
     //     );
     // }
 
     public function build()
     {
-        return $this->subject('Reset Password')
-                    ->view('email.email');
+        return $this->subject('Notifikasi Tugas Baru')
+                    ->view('email.tugas');
     }
 
     /**

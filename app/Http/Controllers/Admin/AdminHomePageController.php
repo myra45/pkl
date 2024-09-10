@@ -17,6 +17,7 @@ class AdminHomePageController extends Controller
         $page_data = HomePageItem::where('id',1)->first();
         return view('admin.home_banner_show',compact('page_data'));
     }
+  
     public function banner_submit(Request $request) {
         $page_data = HomePageItem::where('id',1)->first();
         $request->validate([
@@ -25,7 +26,7 @@ class AdminHomePageController extends Controller
             'banner_button_text'=>'required',
             'banner_button_url'=>'required'
         ]);
-
+      
         if($request->hasFile('banner_photo')) {
             $request->validate([
                 'banner_photo' => 'image|mimes:jpg,jpeg,png,gif'
@@ -48,8 +49,8 @@ class AdminHomePageController extends Controller
         
         return redirect()->back()->with('success','data is updated successfully');
     }
-
-    public function about() {
+  
+       public function about() {
         $page_data = HomePageItem::where('id', 1)->first();
         return view ('admin.home_about_show', compact('page_data'));
      }
@@ -106,8 +107,7 @@ class AdminHomePageController extends Controller
 
        return redirect()->back()->with('success', 'Data is updated succesfully');
      }
-
-
+  
     public function service() {
         $page_data = HomePageItem::where('id',1)->first();
         return view('admin.home_service_show',compact('page_data'));

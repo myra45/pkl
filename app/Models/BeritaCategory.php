@@ -10,6 +10,6 @@ class BeritaCategory extends Model
     use HasFactory;
     public function rBerita()
     {
-        return $this->hasMany(BeritaCategory::class);
+        return $this->hasMany(Berita::class, 'berita_category_id', 'id');
     }
 }

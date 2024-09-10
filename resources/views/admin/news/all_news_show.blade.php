@@ -4,7 +4,7 @@
 
 @section('button_section')
 
-<a href="" class="btn btn-primary">Add New <span class="ti ti-plus"></span></a>
+<a href="{{route('admin_news_add')}}" class="btn btn-primary">Add New <span class="ti ti-plus"></span></a>
 
 @endsection
 
@@ -20,7 +20,6 @@
                               <tr>
                                   <th>SL</th>
                                   <th>Judul Berita</th>
-                                  <th>Photo</th>
                                   <th>Tanggal</th>
                                   <th>Kategori</th>
                                   <th>Action</th>
@@ -28,19 +27,19 @@
                           </thead>
 
                           <tbody>
-                            {{-- @foreach ($admin_eskul as $item ) --}}
+                            @foreach ($all_data as $item )
                                   <tr>
-                                      <td>1</td>
-                                      <td>Mengikuti Lomba</td>
-                                      <td><img src="{{asset('dist_front/assets/images/post-1.jpg')}}" style="width: 200px; height: 100px;"></img></td>
-                                      <td>22/08/2024</td>
-                                      <td>WJLRC</td>
+                                      <td>{{ $loop->iteration }}</td>
+                                      <td>{{ $item->judul }}</td>
+                                      <td>{{ $item->tanggal }}</td>
+                                      <td>{{ $item->rCategory?->name }}</td>
                                       <td class="pt_10 pb_10">
-                                        <a href="" class="btn btn-primary">Edit</a>
+                                        <a href="{{ route('admin_news_edit', $item->id) }}" class="btn btn-primary">Edit</a>
                                         <a href="" class="btn btn-danger"
                                             onClick="return confirm('Are you sure?');">Delete</a>
                                     </td>
                                   </tr>
+                                  @endforeach
                           </tbody>
                       </table>
                   </div>

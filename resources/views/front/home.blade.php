@@ -11,7 +11,7 @@
                         <span class="rotate">{{ $page_data->banner_subtitle }}</span>
                     </div>
                     <a class="section-scroll btn btn-border-w btn-circle a-color"
-                        href="{{ $page_data->banner_button_url }}">{{ $page_data->banner_button_text }}</a>
+                        href="#{{ $page_data->banner_button_url }}">{{ $page_data->banner_button_text }}</a>
                 </div>
             </div>
         </section>
@@ -255,14 +255,18 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form role="form" method="POST" action="">
+                                    <form role="form" method="POST" action="{{ route('send_contact')}}">
                                     @csrf
+                                    @if (session()->get('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session()->get('success') }}
+                                    </div>
+                                    @endif
                                     <div class="form-group">
                                         <label class="sr-only" for="name">Nama</label>
                                         <input class="form-control" type="text" id="name" name="name"
-                                            placeholder="Nama*" required="required"
-                                            data-validation-required-message="Please enter your name." />
-                                        <p class="help-block text-danger"></p>
+                                            placeholder="Nama*"/>
+                                        <p class="text-danger"></p>
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="email">Email</label>

@@ -1,4 +1,4 @@
-@extends('admin_eskul.layout.app')
+@extends('user.layout.app')
 
 @section('heading', 'Profile')
 
@@ -13,8 +13,9 @@
     <div class="section-body">
         <div class="row">
             <div class="col-12">
-                        <form action="{{ route('admin_extracurricular_profile_submit') }}" method="POST"
-                            enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ route('user_profile_submit') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-4">
@@ -49,7 +50,7 @@
                                     <div class="mb-4">
                                         <label class="form-label">Ekstrakulikuler</label>
                                         <input type="text" name="extracurricular_name" class="form-control"
-                                            id="" value="{{ Auth::user()->Extracurricular->nama_eskul }}">
+                                            id="" value="{{ Auth::user()->Extracurricular->nama_eskul }}" disabled>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
