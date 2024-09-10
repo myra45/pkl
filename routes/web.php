@@ -4,7 +4,6 @@ use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ComentController;
-use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminHomePageController;
