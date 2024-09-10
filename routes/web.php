@@ -50,8 +50,7 @@ Route::prefix('admin')->group(function () {
     Route::post('/reset-password-submit', [AdminLoginController::class, 'reset_password_submit'])->name('admin_reset_password_submit');
     Route::middleware('auth')->group(function () {
     Route::get('/logout', [AdminLoginController::class, 'logout'])->name('admin_logout');
-
-
+      
         Route::middleware('admin')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin_home');
             // Admin
@@ -86,9 +85,12 @@ Route::prefix('admin')->group(function () {
             Route::post('/berita-submit',[AdminBeritaController::class,'store_news'])->name('admin_news_submit');
             Route::get('/berita/edit/{id}',[AdminBeritaController::class, 'news_edit'])->name ('admin_news_edit');
             // Konten Manajemen 
-
+            Route::get('/home-banner', [AdminHomePageController::class, 'banner'])->name('home_banner_show');
+            Route::post('home-banner-submit', [AdminHomePageController::class, 'banner_submit'])->name('home_banner_submit');
             Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
+            Route::get('/home-service-section', [AdminHomePageController::class, 'service'])->name('home_service_show');
+            Route::post('home-service-submit', [AdminHomePageController::class, 'service_submit'])->name('home_service_submit');
 
         });
 
@@ -137,6 +139,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
     Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit')->middleware('user:web');
     Route::get('/nlai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
+
+
 
 
 

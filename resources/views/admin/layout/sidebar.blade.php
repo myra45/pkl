@@ -91,6 +91,7 @@
                         <ul aria-expanded="false" class="collapse first-level">
                           <li class="sidebar-item ">
                             <a class="sidebar-link">
+                            <a href="{{ route('home_banner_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -103,6 +104,15 @@
                                 <i class="ti ti-circle"></i>
                               </div>
                               <span class="hide-menu">About Section</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item ">
+                            <a class="sidebar-link">
+                            <a href="{{ route('home_service_show') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>  
+                              <span class="hide-menu">Service Section</span>
                             </a>
                           </li>
                         </ul>
