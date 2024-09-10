@@ -10,10 +10,10 @@
       <div class="card-body">
         <div class="d-flex flex-row gap-6 align-items-center">
           <div class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-primary">
-            <i class="ti ti-clipboard-check fs-6"></i>
+            <i class="ti ti-users fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Presensi</h4>
+            <h4 class="card-title mb-1">All Admin</h4>
             <p class="card-subtitle">5</p>
           </div>
         </div>
@@ -25,10 +25,10 @@
       <div class="card-body">
         <div class="d-flex flex-row gap-6 align-items-center">
           <div class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-success">
-            <i class="ti ti-checklist fs-6"></i>
+            <i class="ti ti-users fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Tugas</h4>
+            <h4 class="card-title mb-1">All Member</h4>
             <p class="card-subtitle">5</p>
           </div>
         </div>
@@ -40,10 +40,10 @@
       <div class="card-body">
         <div class="d-flex flex-row gap-6 align-items-center">
           <div class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-warning">
-            <i class="ti ti-users fs-6"></i>
+            <i class="ti ti-x fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Members</h4>
+            <h4 class="card-title mb-1">All Eskul</h4>
             <p class="card-subtitle">110</p>
           </div>
         </div>
@@ -55,10 +55,10 @@
       <div class="card-body">
         <div class="d-flex flex-row gap-6 align-items-center">
           <div class="round-40 rounded-circle text-white d-flex align-items-center justify-content-center text-bg-danger">
-            <i class="ti ti-speakerphone fs-6"></i>
+            <i class="ti ti-news fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Event</h4>
+            <h4 class="card-title mb-1">All News</h4>
             <p class="card-subtitle">5</p>
           </div>
         </div>

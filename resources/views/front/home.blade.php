@@ -83,67 +83,65 @@
                     </div>
                 </div>
         </section>
-        @foreach ($banner_data as $item)
             <section class="module">
-                <h2 class="module-title    ">{{ $item->service_title }}</h2>
+                <h2 class="module-title    ">{{ $page_data->service_title }}</h2>
                 <div class="container">
                     <div class="row multi-columns-row">
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_1 }}"
+                                    <span><img width="50" height="50" src="{{ $page_data->eskul_icon_1 }}"
                                             alt="mosque" /></span>
                                 </div>
-                                <h3 class="features-title">{{ $item->nama_eskul_1 }}</h3>
+                                <h3 class="features-title">{{ $page_data->nama_eskul_1 }}</h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>{{ $item->desc_eskul_1 }}</div>
+                                    <div>{{ $page_data->desc_eskul_1 }}</div>
                                 </span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_2 }}"
+                                    <span><img width="50" height="50" src="{{ $page_data->eskul_icon_2 }}"
                                             alt="open-book--v1" /></span>
                                 </div>
                                 <h3 class="features-title   ">
-                                    {{ $item->nama_eskul_2 }}
+                                    {{ $page_data->nama_eskul_2 }}
                                 </h3>
                                 <span class="" style="font-size: 1.4rem;">
-                                    <div>{{ $item->desc_eskul_2 }}</div>
+                                    <div>{{ $page_data->desc_eskul_2 }}</div>
                                 </span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_3 }}"
+                                    <span><img width="50" height="50" src="{{ $page_data->eskul_icon_3 }}"
                                             alt="poplar" /></span>
                                 </div>
                                 <h3 class="features-title   ">
-                                    {{ $item->nama_eskul_3 }}
+                                    {{ $page_data->nama_eskul_3 }}
                                 </h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>{{ $item->desc_eskul_3 }}</div>
+                                    <div>{{ $page_data->desc_eskul_3 }}</div>
                                 </span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_4 }}"
+                                    <span><img width="50" height="50" src="{{ $page_data->eskul_icon_4 }}"
                                             alt="angklung" /></span>
                                 </div>
-                                <h3 class="features-title   ">{{ $item->nama_eskul_4 }}</h3>
+                                <h3 class="features-title   ">{{ $page_data->nama_eskul_4 }}</h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>{{ $item->desc_eskul_4 }}</div>
+                                    <div>{{ $page_data->desc_eskul_4 }}</div>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        @endforeach
         <section class="module pt-0 pb-0" id="news">
             <div class="row position-relative m-0">
                 <h2 class="module-title" style="margin: 0 ;">BERITA</h2>
