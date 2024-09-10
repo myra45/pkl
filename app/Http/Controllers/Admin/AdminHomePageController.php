@@ -148,4 +148,67 @@ class AdminHomePageController extends Controller
         
         return redirect()->back()->with('success','data is updated successfully');
     }
+
+    public function testimonial() { 
+        $page_data = HomePageItem::where('id',1)->first();
+        return view('admin.home_testimonial_show',compact('page_data'));
+    }
+    public function testimonial_submit(Request $request) {
+        $page_data = HomePageItem::where('id',1)->first();
+        $request->validate([
+            'desc_testi'=>'required',
+            'nama_testi'=>'required',
+            'eskul_testi'=>'required'
+        ]);
+
+        if($request->hasFile('bg_testi')) {
+            $request->validate([
+                'bg_testi' => 'image|mimes:jpg,jpeg,png,gif'
+            ]);
+            unlink(public_path('uploads/'.$page_data->bg_testi));
+
+            $ext = $request->file('bg_testi')->extension();
+            $final_name = 'home_testimonial'.'.'.$ext;
+
+            $request->file('bg_testi')->move(public_path('uploads/'),$final_name);
+
+            $page_data->bg_testi =$final_name;
+        }
+
+         $page_data->desc_testi = $request->desc_testi;
+         $page_data->nama_testi = $request->nama_testi;
+         $page_data->eskul_testi = $request->eskul_testi;
+         $page_data->update();
+        
+        return redirect()->back()->with('success','data is updated successfully');
+    }
+
+    public function footer() {
+        $page_data = HomePageItem::where('id',1)->first();
+        return view('admin.home_footer_show',compact('page_data'));
+    }
+
+    public function footer_submit(Request $request) {
+        $page_data = HomePageItem::where('id',1)->first();
+        $request->validate([
+            'footer_judul_1'=>'required',
+            'footer_judul_2'=>'required',
+            'footer_judul_3'=>'required',
+            'footer_judul_4'=>'required',
+            'footer_desc'=>'required',
+            'footer_kontak_telepon'=>'required',
+            'footer_kontak_email'=>'required'
+        ]);
+
+         $page_data->footer_judul_1 = $request->footer_judul_1;
+         $page_data->footer_judul_2 = $request->footer_judul_2;
+         $page_data->footer_judul_3 = $request->footer_judul_3;
+         $page_data->footer_judul_4 = $request->footer_judul_4;
+         $page_data->footer_desc = $request->footer_desc;
+         $page_data->footer_kontak_telepon = $request->footer_kontak_telepon;
+         $page_data->footer_kontak_email = $request->footer_kontak_email;
+         $page_data->update();
+        
+        return redirect()->back()->with('success','data is updated successfully');
+    }
 }
