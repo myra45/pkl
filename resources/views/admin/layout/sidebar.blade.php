@@ -4,7 +4,7 @@
         <div>
             <div class="brand-logo d-flex align-items-center justify-content-between">
                 <a href="{{ route('admin_home') }}" class="text-nowrap logo-img">
-                    <img src="{{ asset('dist/images/logos/dark-logo.svg') }}" width="180" alt="" />
+                    <img src="{{ asset('dist/images/logos/4.png') }}" width="400" style="margin-top:20px;" alt="" />
                 </a>
                 <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                     <i class="ti ti-x fs-8"></i>
@@ -90,7 +90,6 @@
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                           <li class="sidebar-item ">
-                            <a class="sidebar-link">
                             <a href="{{ route('home_banner_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
@@ -107,16 +106,31 @@
                             </a>
                           </li>
                           <li class="sidebar-item ">
-                            <a class="sidebar-link">
                             <a href="{{ route('home_service_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>  
-                              <span class="hide-menu">Service Section</span>
+                              <span class="hide-menu">Service Section</an>
                             </a>
                           </li>
-                        </ul>
+                          <li class="sidebar-item ">
+                            <a href="{{ route('home_testimonial_show') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>  
+                              <span class="hide-menu">Testimonial Section</span>
+                            </a>
+                          </li>
+                      <li class="sidebar-item ">
+                        <a href="{{ route('home_footer_show') }}" class="sidebar-link">
+                          <div class="round-16 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-circle"></i>
+                          </div>  
+                          <span class="hide-menu">Footer Section</span>
+                        </a>
                       </li>
+                    </ul>
+                  </li>
 
                       <li class="sidebar-item {{ Request::is('admin/berita/*') || Request::is('admin/berita-category/*') ? 'active' : ' '}}">
                         <a class="sidebar-link has-arrow">

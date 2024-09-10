@@ -83,67 +83,65 @@
                     </div>
                 </div>
         </section>
-        @foreach ($banner_data as $item)
             <section class="module">
-                <h2 class="module-title    ">{{ $item->service_title }}</h2>
+                <h2 class="module-title    ">{{ $page_data->service_title }}</h2>
                 <div class="container">
                     <div class="row multi-columns-row">
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_1 }}"
+                                    <span><img width="50" height="50" src="{{ $page_data->eskul_icon_1 }}"
                                             alt="mosque" /></span>
                                 </div>
-                                <h3 class="features-title">{{ $item->nama_eskul_1 }}</h3>
+                                <h3 class="features-title">{{ $page_data->nama_eskul_1 }}</h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>{{ $item->desc_eskul_1 }}</div>
+                                    <div>{{ $page_data->desc_eskul_1 }}</div>
                                 </span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_2 }}"
+                                    <span><img width="50" height="50" src="{{ $page_data->eskul_icon_2 }}"
                                             alt="open-book--v1" /></span>
                                 </div>
                                 <h3 class="features-title   ">
-                                    {{ $item->nama_eskul_2 }}
+                                    {{ $page_data->nama_eskul_2 }}
                                 </h3>
                                 <span class="" style="font-size: 1.4rem;">
-                                    <div>{{ $item->desc_eskul_2 }}</div>
+                                    <div>{{ $page_data->desc_eskul_2 }}</div>
                                 </span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_3 }}"
+                                    <span><img width="50" height="50" src="{{ $page_data->eskul_icon_3 }}"
                                             alt="poplar" /></span>
                                 </div>
                                 <h3 class="features-title   ">
-                                    {{ $item->nama_eskul_3 }}
+                                    {{ $page_data->nama_eskul_3 }}
                                 </h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>{{ $item->desc_eskul_3 }}</div>
+                                    <div>{{ $page_data->desc_eskul_3 }}</div>
                                 </span>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="features-item">
                                 <div class="features-icon">
-                                    <span><img width="50" height="50" src="{{ $item->eskul_icon_4 }}"
+                                    <span><img width="50" height="50" src="{{ $page_data->eskul_icon_4 }}"
                                             alt="angklung" /></span>
                                 </div>
-                                <h3 class="features-title   ">{{ $item->nama_eskul_4 }}</h3>
+                                <h3 class="features-title   ">{{ $page_data->nama_eskul_4 }}</h3>
                                 <span class=" " style="font-size: 1.4rem;">
-                                    <div>{{ $item->desc_eskul_4 }}</div>
+                                    <div>{{ $page_data->desc_eskul_4 }}</div>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        @endforeach
         <section class="module pt-0 pb-0" id="news">
             <div class="row position-relative m-0">
                 <h2 class="module-title" style="margin: 0 ;">BERITA</h2>
@@ -217,7 +215,7 @@
                             </div>
                 </section>
                 <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial"
-                    data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
+                    data-background="{{ asset('uploads/' . $page_data->bg_testi) }}">
                     <div class="testimonials-slider pt-140 pb-140">
                         <ul class="slides">
                             <li>
@@ -229,69 +227,15 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-8 col-sm-offset-2">
-                                            <blockquote class="testimonial-text font-alt">I am alone, and feel the charm of
-                                                existence in this spot, which was created for the bliss of souls like mine.
-                                            </blockquote>
+                                            <blockquote class="testimonial-text font-alt">{{$page_data->desc_testi}}</blockquote>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 col-sm-offset-4">
                                             <div class="testimonial-author">
                                                 <div class="testimonial-caption font-alt">
-                                                    <div class="testimonial-title">Jack Woods</div>
-                                                    <div class="testimonial-descr">SomeCompany INC, CEO</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="module-icon"><span class="icon-quote"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-8 col-sm-offset-2">
-                                            <blockquote class="testimonial-text font-alt">I should be incapable of drawing
-                                                a single stroke at the present moment; and yet I feel that I never was a
-                                                greater artist than now.</blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4 col-sm-offset-4">
-                                            <div class="testimonial-author">
-                                                <div class="testimonial-caption font-alt">
-                                                    <div class="testimonial-title">Jim Stone</div>
-                                                    <div class="testimonial-descr">SomeCompany INC, CEO</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="module-icon"><span class="icon-quote"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-8 col-sm-offset-2">
-                                            <blockquote class="testimonial-text font-alt">I am so happy, my dear friend, so
-                                                absorbed in the exquisite sense of mere tranquil existence, that I neglect
-                                                my talents.</blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4 col-sm-offset-4">
-                                            <div class="testimonial-author">
-                                                <div class="testimonial-caption font-alt">
-                                                    <div class="testimonial-title">Adele Snow</div>
-                                                    <div class="testimonial-descr">SomeCompany INC, CEO</div>
+                                                    <div class="testimonial-title">{{$page_data->nama_testi}}</div>
+                                                    <div class="testimonial-descr">{{$page_data->eskul_testi}}</div>
                                                 </div>
                                             </div>
                                         </div>
