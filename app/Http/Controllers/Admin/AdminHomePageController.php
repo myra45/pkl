@@ -109,12 +109,12 @@ class AdminHomePageController extends Controller
      }
   
     public function service() {
-        $page_data = HomePageItem::where('id',10)->first();
+        $page_data = HomePageItem::where('id',1)->first();
         return view('admin.home_service_show',compact('page_data'));
     }
 
     public function service_submit(Request $request) {
-        $page_data = HomePageItem::where('id',10)->first();
+        $page_data = HomePageItem::where('id',1)->first();
         $request->validate([
             'service_title'=>'required',
             'eskul_icon_1'=>'required',

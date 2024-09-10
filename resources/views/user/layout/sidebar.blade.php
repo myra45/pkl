@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item {{ Request::is('/tugas') ? 'active' : ' ' }}">
-                        <a class="sidebar-link" href="#">
+                        <a class="sidebar-link" href="{{ route('user_task') }}">
                             <span>
                                 <i class="ti ti-checkbox"></i>
                             </span>
