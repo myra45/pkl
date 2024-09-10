@@ -4,9 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-
-    "content-hash": "d941a046c775de70ca5eb171e1c4c049",
-
+    "content-hash": "fe58a750db4e319a7cee508e047c2e8e",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -3477,8 +3475,6 @@
             "time": "2024-04-27T21:32:50+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "sabberworm/php-css-parser",
             "version": "v8.6.0",
             "source": {
@@ -3544,7 +3540,6 @@
             "time": "2024-07-01T07:33:21+00:00"
         },
         {
->>>>>>> b71773164220916fd872235b40a644d589af9d21
             "name": "srmklive/paypal",
             "version": "3.0.32",
             "source": {

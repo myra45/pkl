@@ -21,8 +21,7 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                    <img src="{{ asset('dist/images/logos/dark-logo.svg') }}" width="180"
-                                        alt="">
+                                    <img src="{{ asset('dist/images/logos/44.png') }}" width="300" style="margin-bottom:0px; margin-right:650px; margin-left:-25px; margin-top:-30px" alt="" />
                                 </a>
                                 <p class="text-center">Ekstrakulikuler Manajemen</p>
                                 @if (session()->get('success'))

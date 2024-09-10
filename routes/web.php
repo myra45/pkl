@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminBeritaController;
-use App\Http\Controllers\Admin\AdminEskulController;
+use App\Http\Controllers\BeritaController;
+// Front
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ComentController;
+// Admin
+use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminMemberController;
@@ -12,11 +15,12 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\EskulController;
 use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\TaskController;
-use App\Http\Controllers\BeritaController;
+// User
 use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserHomeController;
 use App\Http\Controllers\User\UserProfileController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -81,6 +85,10 @@ Route::prefix('admin')->group(function () {
             Route::post('home-service-submit', [AdminHomePageController::class, 'service_submit'])->name('home_service_submit'); 
             Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
+            Route::get('/testimonial-section', [AdminHomePageController::class, 'testimonial'])->name('home_testimonial_show');
+            Route::post('home-testimonial-submit', [AdminHomePageController::class, 'testimonial_submit'])->name('home_testimonial_submit'); 
+            Route::get('/footer-section', [AdminHomePageController::class, 'footer'])->name('home_footer_show');
+            Route::post('home-footer-submit', [AdminHomePageController::class, 'footer_submit'])->name('home_footer_submit'); 
 
         });
 

@@ -8,8 +8,8 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     public function index() {
-        $banner_data = HomePageItem::where('id',10)->get();
-        return view('front.home', compact('banner_data'));
+        $page_data = HomePageItem::where('id',1)->first();
+        return view('front.home', compact( 'page_data'));
 }
     public function berita() {
         return view('front.news');
