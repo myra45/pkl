@@ -1,3 +1,4 @@
+
         <div class="module-small bg-dark" style="background-color: #5271ff; color: #fff">
           <div class="container"> 
             <div class="row">
@@ -8,8 +9,8 @@
                   <p>Phone: {{$page_data->footer_kontak_telepon}}</p>
                   <p>Email:<a href="#"> {{$page_data->footer_kontak_email}}</a></p>
                 </div>
-              </div>
-              <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
                 <div class="widget">
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_2}}</h5>
                   <ul class="icon-list">
@@ -18,8 +19,8 @@
                     <li>Muhammad Abyan Ma'ruf <a href="#">Eskul kita Masyaallah</a></li>
                   </ul>
                 </div>
-              </div>
-              <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
                 <div class="widget">
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_3}}</h5>
                   <ul class="icon-list">
@@ -30,8 +31,8 @@
                     <li><a href="#">Kepal</a></li>
                   </ul>
                 </div>
-              </div>
-              <div class="col-sm-3">
+            </div>
+            <div class="col-sm-3">
                 <div class="widget">
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_4}}</h5>
                   <ul class="widget-posts">
@@ -51,20 +52,22 @@
                     </li>
                   </ul>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-        <hr class="divider-d">
-        <footer class="footer bg-dark"  style="background-color: #5271ff; color: #fff">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-              </div>
-              <div class="col-sm-6">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a>
-                </div>
-              </div>
+    </div>
+</div>
+<hr class="divider-d">
+<footer class="footer bg-dark" style="background-color: #5271ff; color: #fff">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
             </div>
-          </div>
-        </footer>
+            <div class="col-sm-6">
+                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a
+                        href="#"><i class="fa fa-twitter"></i></a><a href="#"><i
+                            class="fa fa-dribbble"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
