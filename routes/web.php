@@ -1,10 +1,6 @@
 <?php
 use App\Http\Controllers\BeritaController;
 // Front
-use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\ComentController;
-// Admin
-use App\Http\Controllers\Admin\AdminBeritaController;
 
 use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Front\HomeController;
@@ -166,5 +162,5 @@ Route::prefix('admin')->group(function () {
 
 
 
-
+});
 
