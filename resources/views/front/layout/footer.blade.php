@@ -5,7 +5,7 @@
               <div class="col-sm-3">
                 <div class="widget">
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_1}}</h5>
-                  <p>{{$page_data->footer_desc}}</p>
+                  <p>{{ $page_data->footer_desc }}</p>
                   <p>Phone: {{$page_data->footer_kontak_telepon}}</p>
                   <p>Email:<a href="#"> {{$page_data->footer_kontak_email}}</a></p>
                 </div>

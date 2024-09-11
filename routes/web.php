@@ -1,25 +1,19 @@
 <?php
-use App\Http\Controllers\BeritaController;
-// Front
-use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\ComentController;
-// Admin
-use App\Http\Controllers\Admin\AdminBeritaController;
-
-use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\ContactController;
+
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminMemberController;
+use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\EskulController;
 use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\TaskController;
-// User
+
 use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\UserHomeController;
@@ -56,8 +50,6 @@ Route::prefix('admin')->group(function () {
     Route::post('/forget-password-submit', [AdminLoginController::class, 'forget_password_submit'])->name('admin_forget_password_submit');
     Route::get('/reset-password/{token}/{email}', [AdminLoginController::class, 'reset_password'])->name('admin_reset_password');
     Route::post('/reset-password-submit', [AdminLoginController::class, 'reset_password_submit'])->name('admin_reset_password_submit');
-
-
     Route::middleware('auth')->group(function () {
     Route::get('/logout', [AdminLoginController::class, 'logout'])->name('admin_logout');
       
@@ -91,17 +83,6 @@ Route::prefix('admin')->group(function () {
             Route::post('/berita-category/update/{id}', [AdminBeritaController::class, 'news_categories_update'])->name('news_category_update');
             Route::get('/berita-category/delete/{id}', [AdminBeritaController::class, 'news_categories_delete'])->name('news_category_delete');
             Route::get('/berita/show', [AdminBeritaController::class, 'all_news'])->name('news_show');
-            // Konten Manajemen
-            Route::get('/home-banner', [AdminHomePageController::class, 'banner'])->name('home_banner_show');
-            Route::post('home-banner-submit', [AdminHomePageController::class, 'banner_submit'])->name('home_banner_submit');
-            Route::get('/service-section', [AdminHomePageController::class, 'service'])->name('home_service_show');
-            Route::post('home-service-submit', [AdminHomePageController::class, 'service_submit'])->name('home_service_submit'); 
-            Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
-            Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
-            Route::get('/testimonial-section', [AdminHomePageController::class, 'testimonial'])->name('home_testimonial_show');
-            Route::post('home-testimonial-submit', [AdminHomePageController::class, 'testimonial_submit'])->name('home_testimonial_submit'); 
-            Route::get('/footer-section', [AdminHomePageController::class, 'footer'])->name('home_footer_show');
-            Route::post('home-footer-submit', [AdminHomePageController::class, 'footer_submit'])->name('home_footer_submit'); 
             Route::get('/berita/add',[AdminBeritaController::class,'add'])->name('admin_news_add');
             Route::post('/berita-submit',[AdminBeritaController::class,'store_news'])->name('admin_news_submit');
             Route::get('/berita/edit/{id}',[AdminBeritaController::class, 'news_edit'])->name ('admin_news_edit');
@@ -112,6 +93,8 @@ Route::prefix('admin')->group(function () {
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
             Route::get('/home-service-section', [AdminHomePageController::class, 'service'])->name('home_service_show');
             Route::post('home-service-submit', [AdminHomePageController::class, 'service_submit'])->name('home_service_submit');
+            Route::get('/testimonial-section', [AdminHomePageController::class, 'testimonial'])->name('home_testimonial_show');
+            Route::post('home-testimonial-submit', [AdminHomePageController::class, 'testimonial_submit'])->name('home_testimonial_submit'); 
             Route::get('/footer-section', [AdminHomePageController::class, 'footer'])->name('home_footer_show');
             Route::post('home-footer-submit', [AdminHomePageController::class, 'footer_submit'])->name('home_footer_submit'); 
 
@@ -142,9 +125,10 @@ Route::prefix('admin')->group(function () {
             Route::get('/extracurricular/task-manajemen/delete/{id}', [TaskController::class, 'delete'])->name('admin_extracurricular_task_manajement_delete');                 
             // Nilai Akhir
             Route::get('/extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade'); 
-
-        });
+            Route::post('/extracurricular/grade-submit', [AdminNilaiAkhirController::class, 'store'])->name('admin_extracurricular_grade_submit'); 
+         });
     });
+});
 
 
 // User
@@ -162,7 +146,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
     Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit')->middleware('user:web');
     Route::get('/task',[UserTaskController::class, 'index'])->name('user_task')->middleware('user:web');
-    Route::get('/nlai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
+    Route::get('/nilai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
 
 
 

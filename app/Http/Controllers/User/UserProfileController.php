@@ -59,10 +59,6 @@ class UserProfileController extends Controller
                 'email' => $request->email,
                 'profile_img' => $user_photo,
             ]);
-        // $user_data->name = $request->name;
-        // $user_data->email = $request->email;
-        // $admin_photo->photo = $admin_photo;
-        // $user_data->save();
 
         return redirect()->back()->with('success', 'Profile information is saved succesfully');
     }
