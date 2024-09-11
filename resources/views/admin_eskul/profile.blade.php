@@ -2,12 +2,6 @@
 
 @section('heading', 'Profile')
 
-@section('button_section')
-
-
-
-@endsection
-
 
 @section('main_content')
     <div class="section-body">
@@ -23,8 +17,7 @@
                                             <div class="d-flex justify-content-center mb-2">
                                                 <div class="">
                                                     <div class="border border-4 border-white rounded overflow-hidden">
-                                                        <img src="{{ asset('storage/uploads/'.Auth::user()->profile_img) }}"
-                                                            alt="modernize-img" class="w-100 h-100">
+                                                        <img src="{{ auth()->user()->profile_picture_url }}" alt="Profile Picture" class="w-100 h-100">
                                                     </div>
                                                 </div>
                                             </div>

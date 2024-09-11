@@ -4,7 +4,7 @@
         <div>
             <div class="brand-logo d-flex align-items-center justify-content-between">
                 <a href="{{ route('admin_home') }}" class="text-nowrap logo-img">
-                    <img src="{{ asset('dist/images/logos/4.png') }}" width="400" style="margin-top:20px;" alt="" />
+                  <img src="{{ asset('dist/images/logos/44.png') }}" width="190" style="margin-top:20px;" alt="" />
                 </a>
                 <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                     <i class="ti ti-x fs-8"></i>

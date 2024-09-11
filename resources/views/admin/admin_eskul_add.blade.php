@@ -9,7 +9,7 @@
 @section('main_content')
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="{{ route('admin_news_submit') }}">
+            <form method="POST" action="{{ route('add_admin_submit') }}">
               @csrf
                 <div class="row">
                     <div class="col-md-9">

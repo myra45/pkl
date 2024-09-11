@@ -18,16 +18,6 @@
                         <form action="{{ route('home_footer_submit') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card-body p-0">
-                                        <div class="">
-                                            <div class="d-flex justify-content-center mb-2">
-                                                <div class="mb-4">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                     <div class="mb-4">
                                         <label class="form-label">Judul Footer 1</label>
                                         <input type="text" class="form-control" name="footer_judul_1" value="{{ $page_data->footer_judul_1 }}">
@@ -46,7 +36,7 @@
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Deskripsi Footer</label>
-                                        <textarea name="footer_desc" class="form-control" id="" cols="30" rows="10"></textarea>
+                                        <textarea name="footer_desc" class="form-control" id="" cols="30" rows="10">{{ $page_data->footer_desc }}</textarea>
                                     </div>
                                     <div class="mb-4">
                                         <label class="form-label">Kontak Telepon Footer</label>

@@ -17,7 +17,6 @@
         <section class="module">
             <div class="container">
                 <div class="row multi-columns-row post-columns">
-                    
                     <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="post">
                             <div class="post-thumbnail gambar-badag"><a href="#"><img

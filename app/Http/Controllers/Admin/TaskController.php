@@ -52,7 +52,7 @@ class TaskController extends Controller
         $announcement = "Ada tugas baru yang telah ditambahkan. Mohon segera cek dan selesaikan tugas tersebut.";
 
         // Ambil semua member yang terkait dengan eskul
-        $members = User::where('eskul_id', $request->eskul_id)->get();
+        $members = User::where('role', 'Member')->where('eskul_id', $request->eskul_id)->get();
 
         // Kirim email notifikasi ke setiap member
         foreach ($members as $member) {

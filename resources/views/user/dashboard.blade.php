@@ -15,7 +15,6 @@
                         <!-- Profile -->
                         <div class="text-center">
                             <a href="{{ route('user_profile') }}" class="btn btn-outline-primary">
-                                <i class="ti ti-user mb-2"></i>
                                 <p>Profile</p>
                             </a>
                         </div>
