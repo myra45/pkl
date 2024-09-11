@@ -147,6 +147,7 @@ Route::prefix('admin')->group(function () {
 
 
 // User
+Route::middleware('user')->group(function () {
     Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
     Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
     Route::get('/login', [LoginController::class, 'login'])->name('login');
@@ -161,6 +162,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
     Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit')->middleware('user:web');
     Route::get('/nlai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
+}
 
 
 
