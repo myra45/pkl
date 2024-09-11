@@ -37,8 +37,6 @@ class AdminEskulController extends Controller
 
         $role = 'Pembina Eskul';
 
-        $photo = 'admin.jpg';
-
         $token = ' ';
 
         $admin_eskul = new User();
@@ -46,7 +44,6 @@ class AdminEskulController extends Controller
         $admin_eskul->email = $request->email;
         $admin_eskul->password = Hash::make($request->password);
         $admin_eskul->eskul_id = $request->eskul_id;
-        $admin_eskul->profile_img = $photo;
         $admin_eskul->role = $role;
 
         // Generate a unique token

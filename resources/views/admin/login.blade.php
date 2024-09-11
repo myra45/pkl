@@ -23,7 +23,6 @@
                                 <a href="" class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     <img src="{{ asset('dist/images/logos/44.png') }}" width="300" style="margin-bottom:0px; margin-right:650px; margin-left:-25px; margin-top:-30px" alt="" />
                                 </a>
-                                <p class="text-center">Ekstrakulikuler Manajemen</p>
                                 @if (session()->get('success'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session()->get('success') }}

@@ -3,7 +3,7 @@
 @section('heading', 'Add News')
 
 @section('button_section')
-    <a href="{{ route('news_category_show') }}" class="btn btn-primary">Back</a>
+    <a href="{{ route('news_show') }}" class="btn btn-primary">Back</a>
 @endsection
 
 @section('main_content')

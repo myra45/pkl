@@ -13,9 +13,11 @@ class HomeController extends Controller
         return view('front.home', compact('page_data'));
     }
     public function berita() {
-        return view('front.news');
+        $page_data = HomePageItem::where('id', 1)->first();
+        return view('front.news', compact('page_data'));
     }
     public function detail_berita() {
-        return view('front.news_detail');
+        $page_data = HomePageItem::where('id', 1)->first();
+        return view('front.news_detail', compact('page_data'));
     }
 }
