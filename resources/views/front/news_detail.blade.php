@@ -48,7 +48,7 @@
                             <textarea name="Komentar" class="from-control" id="Komentar-Utama" cols="40" rows="10" placeholder="komentar"></textarea>
                         </div>
                     </div> --}}
-                    <form action="" method="post">
+                    {{-- <form action="" method="post">
                         <label for="nama">Nama:</label>
                         <input type="text" id="nama" name="nama" required>
                     
@@ -59,7 +59,7 @@
                         <textarea id="komentar" name="komentar" rows="4" required></textarea>
                     
                         <button type="submit">Kirim</button>
-                    </form>
+                    </form> --}}
                     <div class="comment" style="margin-top: -50px, display:none">
                         <h5 class="widget widget-title font-alt mb-3">Komentar : </h5>
                         <div class="form-group col-md-6" style="padding-right: 0;padding-left: 0;">

@@ -10,6 +10,11 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    public function getProfilePictureUrlAttribute()
+    {
+        return $this->profile_img ? asset('storage/uploads/' . $this->profile_img) : asset('uploads/default-profile.png');
+    }
+
     use HasApiTokens, HasFactory, Notifiable;
 
     public function rEskul()

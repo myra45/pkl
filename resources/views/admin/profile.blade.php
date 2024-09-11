@@ -24,8 +24,7 @@
                                             <div class="d-flex justify-content-center mb-2">
                                                 <div class="mb-4">
                                                     <div class="border border-4 border-white rounded overflow-hidden mb-4">
-                                                        <img src="{{ asset('storage/uploads'.Auth::user()->profile_img) }}"
-                                                            alt="admin-img" class="w-100 h-100">
+                                                        <img src="{{ auth()->user()->profile_picture_url }}" alt="Profile Picture" class="w-100 h-100">
                                                     </div>
                                                     <div class="mb-4">
                                                         <input type="file" name="photo" class="form-control">
