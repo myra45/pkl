@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('admin_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('eskul_id')->constrained('eskuls')->onDelete('cascade');
             $table->foreignId('event_penilaian_id')->constrained('event_penilians')->onDelete('cascade');
-            $table->string('nilai_akhir');
+            $table->string('nilai_akhir')->nullable();
             $table->timestamps();
         });
     }
