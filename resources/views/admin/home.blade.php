@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Dashboard Extracuricullar')
+@section('heading', 'Dashboard')
 
 @section('main_content')
 
@@ -14,7 +14,7 @@
           </div>
           <div class="align-self-center">
             <h4 class="card-title mb-1">All Admin</h4>
-            <p class="card-subtitle">5</p>
+            <p class="card-subtitle">{{ $all_admin_eskul }}</p>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
           </div>
           <div class="align-self-center">
             <h4 class="card-title mb-1">All Member</h4>
-            <p class="card-subtitle">5</p>
+            <p class="card-subtitle">{{ $all_members }}</p>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
           </div>
           <div class="align-self-center">
             <h4 class="card-title mb-1">All Eskul</h4>
-            <p class="card-subtitle">110</p>
+            <p class="card-subtitle">{{ $all_eskuls }}</p>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
           </div>
           <div class="align-self-center">
             <h4 class="card-title mb-1">All News</h4>
-            <p class="card-subtitle">5</p>
+            <p class="card-subtitle">{{ $all_beritas }}</p>
           </div>
         </div>
       </div>

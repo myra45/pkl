@@ -129,12 +129,30 @@
                         </ul>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{route('admin_extracurricular_grade')}}">
-                            <span>
+                        <a class="sidebar-link has-arrow" aria-expanded="false">
+                            <span class="d-flex">
                                 <i class="ti ti-file-report"></i>
                             </span>
                             <span class="hide-menu">Nilai Akhir</span>
                         </a>
+                        <ul aria-expanded="false" class="collapse first-level {{ Request::is('admin/extracurricular/task-manajemen/*') ? 'active' : '' }}">
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_grade') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">Nilai Akhir</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item {{ Request::is('admin/extracurricular/grade/history') ? 'active' : '' }}">
+                                <a class="sidebar-link" href="{{ route('admin_extracurricular_grade_history') }}">
+                                    <div class="round-16 d-flex align-items-center justify-content-center">
+                                        <i class="ti ti-circle"></i>
+                                    </div>
+                                    <span class="hide-menu">History Nilai</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="{{ route('admin_logout') }}">

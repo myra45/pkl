@@ -3,7 +3,7 @@
 @section('heading', 'Buat Presensi')
 
 @section('button_section')
-<a href="{{ route('admin_extracurricular_presensi') }}" class="btn btn-primary">Back</a>
+<a href="{{ route('presensi_history_all') }}" class="btn btn-primary">Back</a>
 @endsection
 
 @section('main_content')

@@ -62,13 +62,28 @@ class TaskController extends Controller
         return redirect()->route('admin_extracurricular_task_manajement_all')->with('success', 'Data inserted Successfully and notifications sent!');
     }
 
-    public function all()
+    public function all(Request $request)
     {
-        $adminEskulId = Auth::user()->eskul_id;
-        $all_tugas = Tugas::where('eskul_id', $adminEskulId)->get();
+        $search = $request->input('search');
 
-        return view('admin_eskul.task_all_show', compact('all_tugas'));
+        $all_tugas = Tugas::where('eskul_id', auth()->user()->eskul_id)
+            ->where(function ($query) use ($search) {
+                if ($search) {
+                    $query->where('judul_tugas', 'like', "%{$search}%")
+                        ->orWhere('tanggal', 'like', "%{$search}%");
+
+                    // Pencarian status berdasarkan input
+                    if (strtolower($search) == 'belum selesai') {
+                        $query->orWhere('status', 'Belum Selesai');
+                    } elseif (strtolower($search) == 'selesai') {
+                        $query->orWhere('status', 'Selesai');
+                    }
+                }
+            })->paginate(10);
+
+        return view('admin_eskul.task_all_show', compact('all_tugas', 'search'));
     }
+
 
     public function edit($id)
     {

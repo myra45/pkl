@@ -12,11 +12,29 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminEskulController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $admin_eskul = User::where('role', 'Pembina Eskul')->with('Extracurricular')->get();
-        return view('admin.admin_eskul_show', compact('admin_eskul'));
+        $search = $request->input('search');
+    
+        $admin_eskul = User::where('role', 'Pembina Eskul')
+            ->where(function ($query) use ($search) {
+                if ($search) {
+                    $query->where('name', 'like', "%{$search}%")
+                          ->orWhere('email', 'like', "%{$search}%")
+                          ->orWhereHas('Extracurricular', function ($query) use ($search) {
+                              $query->where('nama_eskul', 'like', "%{$search}%");
+                          });
+                }
+            })
+            ->with('Extracurricular')
+            ->paginate(5);
+    
+        return view('admin.admin_eskul_show', compact('admin_eskul', 'search'));
     }
+    
+    
+
+
 
     public function add()
     {
