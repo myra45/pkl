@@ -15,7 +15,12 @@ class PresensiController extends Controller
 {
     public function index()
     {
-        return view('admin_eskul.presensi_show');
+        $eskul_id = Auth::user()->eskul_id;
+        $status_hadir = Presensi::where('eskul_id', $eskul_id)->where('status', 'Hadir')->count();
+        $status_sakit = Presensi::where('eskul_id', $eskul_id)->where('status', 'Sakit')->count();
+        $status_izin = Presensi::where('eskul_id', $eskul_id)->where('status', 'Izin')->count();
+        $status_tanpa_keterangan = Presensi::where('eskul_id', $eskul_id)->where('status', 'Tanpa Keterangan')->count();
+        return view('admin_eskul.presensi_show', compact('status_hadir', 'status_sakit', 'status_izin', 'status_tanpa_keterangan'));
     }
 
     public function create()
@@ -130,6 +135,7 @@ class PresensiController extends Controller
                         ->orWhere('tempat', 'like', "%{$search}%");
                 });
             })
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 
         return view('admin_eskul.presensi_history', compact('search', 'events'));
@@ -152,7 +158,8 @@ class PresensiController extends Controller
                 });
             }, 'presensis.user', 'eskuls'])
                 ->where('id', $event_id) // Batasi hanya pada event tertentu
-                ->where('eskul_id', $admin->eskul_id) // Pastikan admin hanya bisa melihat event dari eskulnya
+                ->where('eskul_id', $admin->eskul_id) 
+                ->orderBy('created_at', 'desc')// Pastikan admin hanya bisa melihat event dari eskulnya
                 ->get();
         } else {
             // Jika tidak ada event_id, ambil semua event yang terkait dengan eskul admin
@@ -161,7 +168,8 @@ class PresensiController extends Controller
                     $query->where('eskul_id', $admin->eskul_id);
                 });
             }, 'presensis.user', 'eskuls'])
-                ->where('eskul_id', $admin->eskul_id) // Hanya event dari eskul admin yang ditampilkan
+                ->where('eskul_id', $admin->eskul_id) 
+                ->orderBy('created_at', 'desc')// Hanya event dari eskul admin yang ditampilkan
                 ->get();
         }
 

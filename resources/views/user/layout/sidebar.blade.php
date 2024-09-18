@@ -12,12 +12,12 @@
             </div>
             <!-- Sidebar navigation-->
             <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-                <ul id="sidebarnav" {{ Request::is('/dashboard') || Request::is('/profile') || Request::is('/tugas') ? 'active' : ' ' }}>
+                <ul id="sidebarnav" {{ Request::is('user/dashboard') || Request::is('user/profile') || Request::is('/tugas') ? 'active' : ' ' }}>
                     <li class="nav-small-cap">
                         <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                         <span class="hide-menu">Home</span>
                     </li>
-                    <li class="sidebar-item {{ Request::is('/home') ? 'active' : ' ' }}" >
+                    <li class="sidebar-item {{ Request::is('user/home') ? 'active' : ' ' }}" >
                         <a class="sidebar-link" href="{{ route('user_dashboard') }}">
                             <span>
                                 <i class="ti ti-layout-dashboard"></i>
@@ -25,7 +25,7 @@
                             <span class="hide-menu">Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ Request::is('/profile') ? 'active' : ' ' }}">
+                    <li class="sidebar-item {{ Request::is('user/profile') ? 'active' : ' ' }}">
                         <a class="sidebar-link" href="{{ route('user_profile') }}">
                             <span>
                                 <i class="ti ti-user-circle"></i>
@@ -33,7 +33,7 @@
                             <span class="hide-menu">Profile</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ Request::is('/tugas') ? 'active' : ' ' }}">
+                    <li class="sidebar-item {{ Request::is('user/tugas') ? 'active' : ' ' }}">
                         <a class="sidebar-link" href="{{ route('user_task') }}">
                             <span>
                                 <i class="ti ti-checkbox"></i>
@@ -41,15 +41,15 @@
                             <span class="hide-menu">Tugas</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ Request::is('/tugas') ? 'active' : ' ' }}">
-                        <a class="sidebar-link" href="{{ route('user_task') }}">
+                    <li class="sidebar-item {{ Request::is('user/presensi/history/?search=*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link" href="{{ route('user_presensi_history') }}">
                             <span>
                                 <i class="ti ti-clipboard-check"></i>
                             </span>
                             <span class="hide-menu">Presensi</span>
                         </a>
                     </li>
-                    <li class="sidebar-item {{ Request::is('/tugas') ? 'active' : ' ' }}">
+                    <li class="sidebar-item {{ Request::is('user/nilai-akhir') ? 'active' : ' ' }}">
                         <a class="sidebar-link" href="{{route('user_nilai_akhir')}}">
                             <span>
                                 <i class="ti ti-file-report"></i>
