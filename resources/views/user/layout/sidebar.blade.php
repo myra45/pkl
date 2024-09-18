@@ -42,6 +42,14 @@
                         </a>
                     </li>
                     <li class="sidebar-item {{ Request::is('/tugas') ? 'active' : ' ' }}">
+                        <a class="sidebar-link" href="{{ route('user_task') }}">
+                            <span>
+                                <i class="ti ti-clipboard-check"></i>
+                            </span>
+                            <span class="hide-menu">Presensi</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item {{ Request::is('/tugas') ? 'active' : ' ' }}">
                         <a class="sidebar-link" href="{{route('user_nilai_akhir')}}">
                             <span>
                                 <i class="ti ti-file-report"></i>
