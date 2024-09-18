@@ -5,15 +5,12 @@
 @section('main_content')
 <div class="row">
     <div class="col-md-12">
-        {{-- <div class="card">
+        <div class="card">
             <div class="card-header bg-primary">
                 <h5 class="text-white">Tugas Saya:</h5>
             </div>
             <div class="card-body">
-                
-            </div>
-        </div> --}}
-        @if($user_tasks->count() > 0)
+                        @if($user_tasks->count() > 0)
                     <ul class="list-group list-group-flush">
                         @foreach($user_tasks as $task)
                         @if ($task->status == 'Belum Selesai')
@@ -36,6 +33,8 @@
                 @else
                     <p>Belum ada tugas yang diberikan.</p>
                 @endif
+            </div>
+        </div>
     </div>
 </div>
 @endsection

@@ -3,7 +3,7 @@
 @section('heading', 'Create Task')
 
 @section('button_section')
-<a href="{{ route('admin_extracurricular_task_manajement') }}" class="btn btn-primary">Back</a>
+<a href="{{ route('admin_extracurricular_task_manajement_all') }}" class="btn btn-primary">Back</a>
 @endsection
 
 @section('main_content')
