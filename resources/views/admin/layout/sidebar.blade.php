@@ -34,7 +34,7 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item {{ Request::is('admin/*') || Request::is('admin/member/*') ? 'active' : ' ' }}">
+                    <li class="sidebar-item {{ Request::is('admin/show/*') || Request::is('admin/member/*') ? 'active' : ' ' }}">
                         <a class="sidebar-link has-arrow" aria-expanded="false">
                           <span class="d-flex">
                             <i class="ti ti-users"></i>
@@ -42,7 +42,7 @@
                           <span class="hide-menu">User Manajemen</span>
                         </a>
                         <ul class="collapse first-level">
-                          <li class="sidebar-item {{ Request::is('admin/*') ? 'active' : ' ' }}">
+                          <li class="sidebar-item {{ Request::is('admin/show/*') ? 'active' : ' ' }}">
                             <a href="{{ route('admin_show') }}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
@@ -75,6 +75,41 @@
                                 <i class="ti ti-circle"></i>
                               </div>
                               <span class="hide-menu">All Eskul</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link has-arrow" aria-expanded="false">
+                          <span class="d-flex">
+                            <i class="ti ti-file-report"></i>
+                          </span>
+                          <span class="hide-menu">Event Penilain</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                          <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' '}} ">
+                            <a href="{{ route('event_nilai_show') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">Event Penilain</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' '}} ">
+                            <a href="{{ route('event_nilai_create') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">Create Event Penilain</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' '}} ">
+                            <a href="{{ route('event_nilai_all') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">History Event Penilain</span>
                             </a>
                           </li>
                         </ul>
@@ -166,6 +201,14 @@
                           </li>
                         </ul>
                       </li>
+                      <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('admin_logout') }}">
+                            <span>
+                                <i class="ti ti-logout"></i>
+                            </span>
+                            <span class="hide-menu">Logout</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

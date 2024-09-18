@@ -12,9 +12,24 @@ class EskulController extends Controller
 {
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $all_data = Eskul::with('rUsers')->get();
+        // $all_data = Eskul::with('rUsers')->get();
+        // return view('admin.eskul_show', compact('all_data'));
+
+        $search = $request->input('search');
+    
+        $all_data = Eskul::where(function ($query) use ($search) {
+                if ($search) {
+                    $query->where('nama_eskul', 'like', "%{$search}%")
+                          ->orWhereHas('rUsers', function ($query) use ($search) {
+                              $query->where('name', 'like', "%{$search}%");
+                          });
+                }
+            })
+            ->with('rUsers')
+            ->paginate(5);
+    
         return view('admin.eskul_show', compact('all_data'));
     }
 

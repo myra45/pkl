@@ -7,64 +7,33 @@
 @endsection --}}
 
 @section('main_content')
+    @if($event_nilai)
     <div class="section-body">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin_extracurricular_grade_submit') }}" method="POST">
-                    @csrf
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="example1">
-                            <thead>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Nama</th>
-                                    <th>Ekstrakulikuler</th>
-                                    <th>Nilai Akhir</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                @foreach ($members as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->Extracurricular->nama_eskul }}</td>
-                                        <td>
-                                            @php
-                                                // Mengecek apakah ada nilai yang sudah diupdate untuk user ini
-                                                $nilai = $nilaiData->firstWhere('user_id', $item->id);
-                                            @endphp
-
-                                            <input type="hidden" name="user_id[]" value="{{ $item->id }}">
-                                            <input type="hidden" name="eskul_id[]" value="{{ $item->Extracurricular->id }}">
-
-                                            @if($nilai)
-                                                <!-- Menampilkan nilai yang sudah diupdate -->
-                                                <select name="nilai_akhir[]" class="form-control">
-                                                    <option value="A" {{ $nilai->nilai_akhir == 'A' ? 'selected' : '' }}>A</option>
-                                                    <option value="B" {{ $nilai->nilai_akhir == 'B' ? 'selected' : '' }}>B</option>
-                                                    <option value="C" {{ $nilai->nilai_akhir == 'C' ? 'selected' : '' }}>C</option>
-                                                    <option value="D" {{ $nilai->nilai_akhir == 'D' ? 'selected' : '' }}>D</option>
-                                                </select>
-                                            @else
-                                                <!-- Menampilkan dropdown untuk memasukkan nilai baru jika belum ada -->
-                                                <select name="nilai_akhir[]" class="form-control">
-                                                    <option value="">--Silahkan Pilih Predikat Nilai--</option>
-                                                    <option value="A">A</option>
-                                                    <option value="B">B</option> 
-                                                    <option value="C">C</option>
-                                                    <option value="D">D</option>
-                                                </select>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <button type="submit" class="btn btn-primary">Simpan Nilai </button>
+                <div class="card">
+                    <div class="card-header bg-primary text-white h5">Pengumuman</div>
+                    <div class="card-body">
+                        Halaman Penilaian telah tersedia, silahkan akses link dibawah ini untuk menginput nilai.
+                        <a href="{{ route('admin_extracurricular_grade_detail', $event_nilai->id) }}">Link Penilaian</a>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
+    @else
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white h5">Pengumuman</div>
+                    <div class="card-body fs-3">
+                        Halaman Penilaian belum tersedia, silahkan berkunjung lain kali dan tunggu pengumuman. Jika tidak bisa coba lihat halaman history ini <a href="{{ route('admin_extracurricular_grade_history') }}">History</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
 @endsection
+

@@ -42,7 +42,7 @@
                                     <div class="mb-4">
                                         <label class="form-label">Ekstrakulikuler</label>
                                         <input type="text" name="extracurricular_name" class="form-control"
-                                            id="" value="{{ Auth::user()->Extracurricular->nama_eskul }}">
+                                            id="" value="{{ Auth::user()->Extracurricular->nama_eskul }}" disabled>
                                     </div>
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </div>

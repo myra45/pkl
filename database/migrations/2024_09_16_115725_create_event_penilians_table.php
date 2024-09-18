@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nilais', function (Blueprint $table) {
+        Schema::create('event_penilians', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('admin_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('eskul_id')->constrained('eskuls')->onDelete('cascade');
-            $table->text('nilai_akhir');
+            $table->text('nama_event');
+            $table->date('tanggal');
+            $table->enum('status', ['Aktif', 'Selesai']);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('nilais');
+        Schema::dropIfExists('event_penilians');
     }
 };

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminHomePageController;
+use App\Http\Controllers\Admin\AdminPenilaianController;
 use App\Http\Controllers\Admin\EskulController;
 use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\TaskController;
@@ -55,7 +56,7 @@ Route::prefix('admin')->group(function () {
       
         Route::middleware('admin')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin_home');
-            // Admin
+            // Admin  
             Route::get('/show', [AdminEskulController::class, 'index'])->name('admin_show');
             Route::get('/add', [AdminEskulController::class, 'add'])->name('add_admin');
             Route::post('-submit', [AdminEskulController::class, 'store'])->name('add_admin_submit');
@@ -75,6 +76,14 @@ Route::prefix('admin')->group(function () {
             Route::get('/eskul/edit/{id}', [EskulController::class, 'edit'])->name('eskul_edit');
             Route::post('/eskul/update/{id}', [EskulController::class, 'update'])->name('eskul_update');
             Route::get('/eskul/delete/{id}', [EskulController::class, 'delete'])->name('eskul_delete');
+            // Event Penilain
+            Route::get('/event-nilai/show', [AdminPenilaianController::class, 'index'])->name('event_nilai_show');
+            Route::get('/event-nilai/all', [AdminPenilaianController::class, 'all'])->name('event_nilai_all');
+            Route::get('/event-nilai/create', [AdminPenilaianController::class, 'create'])->name('event_nilai_create');
+            Route::post('/event-nilai/create-submit', [AdminPenilaianController::class, 'store'])->name('event_nilai_create_submit');
+            Route::get('/event-nilai/edit/{id}', [AdminPenilaianController::class, 'edit'])->name('event_nilai_edit');
+            Route::post('/event-nilai/update/{id}', [AdminPenilaianController::class, 'update'])->name('event_nilai_update');
+            Route::get('/event-nilai/delete/{id}', [AdminPenilaianController::class, 'delete'])->name('event_nilai_delete');
             // Berita
             Route::get('/berita-category/show', [AdminBeritaController::class, 'all_news_categories'])->name('news_category_show');
             Route::get('/berita-category/add', [AdminBeritaController::class, 'news_categories_add'])->name('news_category_add');
@@ -107,6 +116,7 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/profile-submit', [AdminProfileController::class, 'eskul_profile_submit'])->name('admin_extracurricular_profile_submit');
             // Member
             Route::get('/extracurricular/member', [AdminMemberController::class, 'member_eskul'])->name('member_eskul_show');
+            Route::get('/extracurricular/delete/{id}', [AdminMemberController::class, 'member_eskul_delete'])->name('member_eskul_delete');
             // Presensi
             Route::get('/extracurricular/presensi', [PresensiController::class, 'index'])->name('admin_extracurricular_presensi');
             Route::post('/extracurricular/presensi-submit', [PresensiController::class, 'store'])->name('admin_extracurricular_presensi_form_submit');
@@ -115,6 +125,8 @@ Route::prefix('admin')->group(function () {
             Route::get('/extracurricular/presensi/create', [PresensiController::class, 'create'])->name('presensi_create');
             Route::get('/extracurricular/presensi/history', [PresensiController::class, 'history'])->name('presensi_history_all');   
             Route::get('/extracurricular/presensi/preview-report', [PresensiController::class, 'preview_report'])->name('preview_report'); 
+            Route::get('/extracurricular/presensi/preview-report/{event_id}', [PresensiController::class, 'preview_report'])->name('preview_report_event'); 
+            Route::get('/extracurricular/presensi/delete/{id}', [PresensiController::class, 'delete'])->name('presensi_delete'); 
             // Manajemen Tugas 
             Route::get('/extracurricular/task-manajemen', [TaskController::class, 'index'])->name('admin_extracurricular_task_manajement');
             Route::get('/extracurricular/task-manajemen/all', [TaskController::class, 'all'])->name('admin_extracurricular_task_manajement_all');
@@ -124,8 +136,12 @@ Route::prefix('admin')->group(function () {
             Route::post('/extracurricular/task-manajemen/update/{id}', [TaskController::class, 'update'])->name('admin_extracurricular_task_manajement_update');
             Route::get('/extracurricular/task-manajemen/delete/{id}', [TaskController::class, 'delete'])->name('admin_extracurricular_task_manajement_delete');                 
             // Nilai Akhir
-            Route::get('/extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade'); 
-            Route::post('/extracurricular/grade-submit', [AdminNilaiAkhirController::class, 'store'])->name('admin_extracurricular_grade_submit'); 
+            // Route::get('/extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade'); 
+            Route::get('extracurricular/grade', [AdminNilaiAkhirController::class, 'index'])->name('admin_extracurricular_grade');
+            Route::get('/extracurricular/grade/detail/{event_id}', [AdminNilaiAkhirController::class, 'showNilaiAkhir'])->name('admin_extracurricular_grade_detail'); 
+            Route::post('/extracurricular/grade/detail/{event_id}', [AdminNilaiAkhirController::class, 'store'])->name('admin_extracurricular_grade_detail_submit'); 
+            Route::get('/extracurricular/grade/history', [AdminNilaiAkhirController::class, 'history'])->name('admin_extracurricular_grade_history'); 
+            Route::get('/extracurricular/grade/export/{event_id}', [AdminNilaiAkhirController::class, 'export'])->name('admin_extracurricular_grade_export'); 
          });
     });
 });
