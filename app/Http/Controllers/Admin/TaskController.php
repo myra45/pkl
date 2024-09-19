@@ -79,7 +79,9 @@ class TaskController extends Controller
                         $query->orWhere('status', 'Selesai');
                     }
                 }
-            })->paginate(10);
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return view('admin_eskul.task_all_show', compact('all_tugas', 'search'));
     }

@@ -1,4 +1,4 @@
-@extends('admin_eskul.layout.app')
+@extends('admin.layout.app')
 
 @section('heading', 'Edit Event Nilai')
 

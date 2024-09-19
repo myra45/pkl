@@ -1,27 +1,28 @@
 <?php
-use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\Front\ContactController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\TaskController;
 
+use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\NilaiController;
+use App\Http\Controllers\Admin\EskulController;
+use App\Http\Controllers\User\SignUpController;
+use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\User\UserHomeController;
+use App\Http\Controllers\User\UserTaskController;
+use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminLoginController;
+
+use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminMemberController;
-use App\Http\Controllers\Admin\AdminNilaiAkhirController;
+use App\Http\Controllers\User\UserPresensiController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminPenilaianController;
-use App\Http\Controllers\Admin\EskulController;
-use App\Http\Controllers\Admin\PresensiController;
-use App\Http\Controllers\Admin\TaskController;
-
-use App\Http\Controllers\User\SignUpController;
-use App\Http\Controllers\User\LoginController;
-use App\Http\Controllers\User\UserHomeController;
-use App\Http\Controllers\User\UserProfileController;
-use App\Http\Controllers\User\NilaiController;
-use App\Http\Controllers\User\UserTaskController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 
 /*
 |--------------------------------------------------------------------------
@@ -148,21 +149,28 @@ Route::prefix('admin')->group(function () {
 
 
 // User
-    Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
-    Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
-    Route::get('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/forget-password', [LoginController::class, 'forget_password'])->name('user_forget_password');
-    Route::post('/forget-password-submit', [LoginController::class, 'forget_password_submit'])->name('user_forget_password_submit');
-    Route::get('/reset-password/{token}/{email}', [LoginController::class, 'reset_password'])->name('user_reset_password');
-    Route::post('/reset-password-submit', [LoginController::class, 'reset_password_submit'])->name('user_reset_password_submit');
+Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
+Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/forget-password', [LoginController::class, 'forget_password'])->name('user_forget_password');
+Route::post('/forget-password-submit', [LoginController::class, 'forget_password_submit'])->name('user_forget_password_submit');
+Route::get('/reset-password/{token}/{email}', [LoginController::class, 'reset_password'])->name('user_reset_password');
+Route::post('/reset-password-submit', [LoginController::class, 'reset_password_submit'])->name('user_reset_password_submit');
+    Route::prefix('user')->group(function () {
+        Route::middleware('user')->group(function () {
+            Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard');
+            Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile');
+            Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit');
+            Route::get('/task',[UserTaskController::class, 'index'])->name('user_task');
+            Route::get('/presensi/history',[UserPresensiController::class, 'presensi_history'])->name('user_presensi_history');
+            Route::get('/nilai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir');
+    });
+});
+    
 
-    Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
-    Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
-    Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit')->middleware('user:web');
-    Route::get('/task',[UserTaskController::class, 'index'])->name('user_task')->middleware('user:web');
-    Route::get('/nilai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
+    
 
 
 
