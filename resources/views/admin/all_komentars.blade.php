@@ -1,10 +1,9 @@
 @extends('admin.layout.app')
 
-@section('heading', 'All News')
+@section('heading', 'All Comentars')
 
 @section('button_section')
 
-<a href="{{route('admin_news_add')}}" class="btn btn-primary">Add New <span class="ti ti-plus"></span></a>
 
 @endsection
 
@@ -19,27 +18,26 @@
                           <thead>
                               <tr>
                                   <th>SL</th>
-                                  <th>Judul Berita</th>
-                                  <th>Tanggal</th>
-                                  <th>Kategori</th>
+                                  <th>Berita Id</th>
+                                  <th>User Id</th>
+                                  <th>Isi Komentar</th>
+                                  <th>Created</th>
                                   <th>Action</th>
                               </tr>
                           </thead>
 
                           <tbody>
-                            @foreach ($all_data as $item )
                                   <tr>
-                                      <td>{{ $loop->iteration }}</td>
-                                      <td>{{ $item->judul }}</td>
-                                      <td>{{ $item->tanggal }}</td>
-                                      <td>{{ $item->rCategory?->name }}</td>
+                                      <td>1</td>
+                                      <td>2</td>
+                                      <td>9</td>
+                                      <td>kj</td>
+                                      <td>2006</td>
                                       <td class="pt_10 pb_10">
-                                        <a href="{{ route('admin_news_edit', $item->id) }}" class="btn btn-primary">Edit</a>
-                                        <a href="{{ route('admin_news_delete',$item->id) }}" class="btn btn-danger"
+                                        <a href="" class="btn btn-danger"
                                             onClick="return confirm('Are you sure?');">Delete</a>
                                     </td>
                                   </tr>
-                                  @endforeach
                           </tbody>
                       </table>
                   </div>
