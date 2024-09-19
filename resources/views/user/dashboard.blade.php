@@ -52,9 +52,9 @@
                     <div class="card-body">
                         <h6 class="mb-3">Deadline Tugas :</h6>
                         <ul>
-                            <li>- Tugas 1: Selesaikan sebelum tanggal 25 September 2024</li>
-                            <li>- Tugas 2: Kumpulkan laporan pada tanggal 30 September 2024</li>
-                            <li>- Tugas 3: Ujian akhir pada tanggal 5 Oktober 2024</li>
+                            @foreach ($user_tasks as $item)
+                            <li>Tugas {{ $loop->iteration }} : {{ $item->judul_tugas }}, selesaikan sebelum tanggal {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
