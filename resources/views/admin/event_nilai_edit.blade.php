@@ -14,12 +14,12 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nama Event</label>
+                            <label for="name" class="form-label">Event Name</label>
                             <input type="text" class="form-control" id="name" name="nama_event"
                                 value="{{ $row_data->nama_event }}" disabled>
                         </div>
                         <div class="mb-3">
-                            <label for="text" class="form-label">Tanggal</label>
+                            <label for="text" class="form-label">Date</label>
                             <input type="date" class="form-control" id="judul" name="tanggal"
                                 value="{{ $row_data->tanggal }}" disabled>
                         </div>

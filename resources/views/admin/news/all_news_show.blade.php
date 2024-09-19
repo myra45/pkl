@@ -23,23 +23,22 @@
 @endsection
 
 @section('main_content')
-    <div class="section-body">
-        <div class="row">
-            <div class="col-12">
-                <div class="">
-                    <div class="">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="example1">
-                                <thead>
-                                    <tr>
-                                        <th>SL</th>
-                                        <th>Judul Berita</th>
-                                        <th>Tanggal</th>
-                                        <th>Kategori</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-
+<div class="section-body">
+  <div class="row">
+      <div class="col-12">
+          <div class="">
+              <div class="">
+                  <div class="table-responsive">
+                      <table class="table table-bordered" id="example1">
+                          <thead>
+                              <tr>
+                                  <th>SL</th>
+                                  <th>Title</th>
+                                  <th>Date</th>
+                                  <th>category</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
                                 <tbody>
                                     @if ($all_data->count() > 0)
                                         @foreach ($all_data as $item)

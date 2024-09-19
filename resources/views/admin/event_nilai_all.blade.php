@@ -7,7 +7,7 @@
         <form action="{{ route('event_nilai_all') }}" method="GET" class="d-flex">
             <div class="form-group">
                 <input type="text" name="search" id="search" class="form-control" value="{{ request()->input('search') }}"
-                    placeholder="Cari...">
+                    placeholder="Search...">
             </div>
             <button type="submit" class="btn btn-secondary ms-2"><i class="ti ti-search"></i></button>
         </form>
@@ -17,8 +17,7 @@
 
         {{-- Tombol Kembali akan muncul jika ada pencarian --}}
         @if (request()->input('search'))
-            <a href="{{ route('event_nilai_all') }}" class="btn btn-warning ms-2">Kembali <i
-                    class="ti ti-arrow-left"></i></a>
+            <a href="{{ route('event_nilai_all') }}" class="btn btn-warning ms-2">Back <i class="ti ti-arrow-left"></i></a>
         @endif
     </div>
 @endsection
@@ -34,8 +33,8 @@
                                 <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Nama Event</th>
-                                        <th>Tanggal</th>
+                                        <th>Event Name</th>
+                                        <th>Date</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>

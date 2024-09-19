@@ -38,7 +38,7 @@
                             <span>
                                 <i class="ti ti-checkbox"></i>
                             </span>
-                            <span class="hide-menu">Tugas</span>
+                            <span class="hide-menu">Task</span>
                         </a>
                     </li>
                     <li class="sidebar-item {{ Request::is('user/presensi/history*') ? 'active' : '' }}">
@@ -54,7 +54,7 @@
                             <span>
                                 <i class="ti ti-file-report"></i>
                             </span>
-                            <span class="hide-menu">Nilai Akhir</span>
+                            <span class="hide-menu">Final Score</span>
                         </a>
                     </li>
                     <li class="sidebar-item {{ Request::is('/logout') ? 'active' : ' ' }}">

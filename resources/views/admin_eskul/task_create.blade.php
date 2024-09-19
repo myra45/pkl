@@ -17,11 +17,11 @@
               <input type="hidden" name="admin_id" value="{{ $user->id }}">
               <input type="hidden" name="eskul_id" value="{{ $eskul_data->Extracurricular->id }}">
               <div class="mb-3">
-                  <label for="tanggal" class="form-label">Tanggal</label>
+                  <label for="tanggal" class="form-label">Date</label>
                   <input type="date" class="form-control" id="tanggal" name="tanggal">
               </div>
               <div class="mb-3">
-                  <label for="judul" class="form-label">Judul Tugas</label>
+                  <label for="judul" class="form-label">Title</label>
                   <input type="text" class="form-control" id="judul_tugas" name="judul">
               </div>
               <div class="mb-3">
@@ -32,7 +32,7 @@
                 <option value="Belum Selesai">Belum Selesai</option>
                 <option value="Selesai">Selesai</option>
               </select>
-              <button type="submit" class="btn btn-primary">Buat Tugas</button>
+              <button type="submit" class="btn btn-primary">Create a Task</button>
           </form>
       </div>
   </div>
