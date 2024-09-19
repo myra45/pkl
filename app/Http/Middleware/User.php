@@ -2,13 +2,18 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
-class User extends Middleware
+class User 
 {
-    protected function redirectTo(Request $request): ?string
+    public function handle($request, Closure $next)
     {
-        return $request->expectsJson() ? null : route('login');
+        if (auth()->user()->role == 'Member') {
+            return $next($request);
+        } else {
+            return redirect()->route('login')->with('error', 'Invalid credentials');
+        }
     }
 }

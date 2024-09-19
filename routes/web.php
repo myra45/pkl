@@ -149,22 +149,28 @@ Route::prefix('admin')->group(function () {
 
 
 // User
-    Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
-    Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
-    Route::get('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/forget-password', [LoginController::class, 'forget_password'])->name('user_forget_password');
-    Route::post('/forget-password-submit', [LoginController::class, 'forget_password_submit'])->name('user_forget_password_submit');
-    Route::get('/reset-password/{token}/{email}', [LoginController::class, 'reset_password'])->name('user_reset_password');
-    Route::post('/reset-password-submit', [LoginController::class, 'reset_password_submit'])->name('user_reset_password_submit');
+Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
+Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login-submit', [LoginController::class, 'login_submit'])->name('login_submit');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/forget-password', [LoginController::class, 'forget_password'])->name('user_forget_password');
+Route::post('/forget-password-submit', [LoginController::class, 'forget_password_submit'])->name('user_forget_password_submit');
+Route::get('/reset-password/{token}/{email}', [LoginController::class, 'reset_password'])->name('user_reset_password');
+Route::post('/reset-password-submit', [LoginController::class, 'reset_password_submit'])->name('user_reset_password_submit');
+    Route::prefix('user')->group(function () {
+        Route::middleware('user')->group(function () {
+            Route::get('/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard');
+            Route::get('/profile', [UserProfileController::class, 'profile'])->name('user_profile');
+            Route::post('/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit');
+            Route::get('/task',[UserTaskController::class, 'index'])->name('user_task');
+            Route::get('/presensi/history',[UserPresensiController::class, 'presensi_history'])->name('user_presensi_history');
+            Route::get('/nilai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir');
+    });
+});
+    
 
-    Route::get('user/dashboard', [UserHomeController::class, 'index'])->name('user_dashboard')->middleware('user:web');
-    Route::get('user/profile', [UserProfileController::class, 'profile'])->name('user_profile')->middleware('user:web');
-    Route::post('user/profile-submit', [UserProfileController::class, 'profile_submit'])->name('user_profile_submit')->middleware('user:web');
-    Route::get('user/task',[UserTaskController::class, 'index'])->name('user_task')->middleware('user:web');
-    Route::get('user/presensi/history',[UserPresensiController::class, 'presensi_history'])->name('user_presensi_history')->middleware('user:web');
-    Route::get('user/nilai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir')->middleware('user:web');
+    
 
 
 
