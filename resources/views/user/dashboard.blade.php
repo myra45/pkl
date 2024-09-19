@@ -22,14 +22,14 @@
                         <div class="text-center">
                             <a href="{{ route('user_task') }}" class="btn btn-outline-primary">
                                 <span class="class="ti ti-tasks fa-2x mb-2"></span>
-                                <p>Tugas</p>
+                                <p>Task</p>
                             </a>
                         </div>
                         <!-- Nilai Akhir -->
                         <div class="text-center">
                             <a href="{{ route('user_nilai_akhir') }}" class="btn btn-outline-primary">
                                 <i class="fas fa-chart-line fa-2x mb-2"></i>
-                                <p>Nilai Akhir</p>
+                                <p>Final Score</p>
                             </a>
                         </div>
                         <!-- Logout -->
@@ -47,14 +47,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-warning">
-                        <h5 class="text-white">Pengumuman</h5>
+                        <h5 class="text-white">Announcement</h5>
                     </div>
                     <div class="card-body">
                         <h6 class="mb-3">Deadline Tugas :</h6>
                         <ul>
-                            <li>- Tugas 1: Selesaikan sebelum tanggal 25 September 2024</li>
-                            <li>- Tugas 2: Kumpulkan laporan pada tanggal 30 September 2024</li>
-                            <li>- Tugas 3: Ujian akhir pada tanggal 5 Oktober 2024</li>
+                            @foreach ($user_tasks as $item)
+                            <li>Tugas {{ $loop->iteration }} : {{ $item->judul_tugas }}, selesaikan sebelum tanggal {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

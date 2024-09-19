@@ -13,8 +13,8 @@
             <i class="ti ti-clipboard-check fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Presensi</h4>
-            <p class="card-subtitle">5</p>
+            <h4 class="card-title mb-1">Presence</h4>
+            <p class="card-subtitle">{{ $all_presensi }}</p>
           </div>
         </div>
       </div>
@@ -28,8 +28,8 @@
             <i class="ti ti-checklist fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Tugas</h4>
-            <p class="card-subtitle">5</p>
+            <h4 class="card-title mb-1">Task</h4>
+            <p class="card-subtitle">{{ $all_task }}</p>
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@
           </div>
           <div class="align-self-center">
             <h4 class="card-title mb-1">Members</h4>
-            <p class="card-subtitle">110</p>
+            <p class="card-subtitle">{{ $all_member }}</p>
           </div>
         </div>
       </div>
@@ -58,8 +58,8 @@
             <i class="ti ti-speakerphone fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Event</h4>
-            <p class="card-subtitle">5</p>
+            <h4 class="card-title mb-1">Score</h4>
+            <p class="card-subtitle">{{ $all_nilai }}</p>
           </div>
         </div>
       </div>
@@ -67,98 +67,46 @@
   </div>
 </div>
 
-  <div class="row">
-    <div class="col-lg-8 d-flex align-items-strech">
+<div class="row">
+  <div class="col-lg-8 d-flex align-items-stretch">
       <div class="card w-100">
-        <div class="card-body">
-          <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
-            <div class="mb-3 mb-sm-0">
-              <h5 class="card-title fw-semibold">Sales Overview</h5>
-            </div>
-            <div>
-              <select class="form-select">
-                <option value="1">March 2023</option>
-                <option value="2">April 2023</option>
-                <option value="3">May 2023</option>
-                <option value="4">June 2023</option>
-              </select>
-            </div>
-          </div>
-          <div id="chart"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Yearly Breakup -->
-          <div class="card overflow-hidden">
-            <div class="card-body p-4">
-              <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
-              <div class="row align-items-center">
-                <div class="col-8">
-                  <h4 class="fw-semibold mb-3">$36,358</h4>
-                  <div class="d-flex align-items-center mb-3">
-                    <span
-                      class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                      <i class="ti ti-arrow-up-left text-success"></i>
-                    </span>
-                    <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                    <p class="fs-3 mb-0">last year</p>
+          <div class="card-body">
+              <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                  <div class="mb-3 mb-sm-0">
+                      <h5 class="card-title fw-semibold">Kehadiran Bulanan</h5>
                   </div>
-                  <div class="d-flex align-items-center">
-                    <div class="me-4">
-                      <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                      <span class="fs-2">2023</span>
-                    </div>
-                    <div>
-                      <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                      <span class="fs-2">2023</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="d-flex justify-content-center">
-                    <div id="breakup"></div>
-                  </div>
-                </div>
               </div>
-            </div>
+              <canvas id="monthlyAttendanceChart"></canvas>
           </div>
-        </div>
-        <div class="col-lg-12">
-          <!-- Monthly Earnings -->
-          <div class="card">
-            <div class="card-body">
-              <div class="row alig n-items-start">
-                <div class="col-8">
-                  <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
-                  <h4 class="fw-semibold mb-3">$6,820</h4>
-                  <div class="d-flex align-items-center pb-1">
-                    <span
-                      class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
-                      <i class="ti ti-arrow-down-right text-danger"></i>
-                    </span>
-                    <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                    <p class="fs-3 mb-0">last year</p>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="d-flex justify-content-end">
-                    <div
-                      class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
-                      <i class="ti ti-currency-dollar fs-6"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div id="earning"></div>
-          </div>
-        </div>
       </div>
-    </div>
   </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('monthlyAttendanceChart').getContext('2d');
+  new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: @json($monthlyAttendance->pluck('month')),
+          datasets: [{
+              label: 'Jumlah Kehadiran',
+              data: @json($monthlyAttendance->pluck('total_attendance')),
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+</script>
 
 
 @endsection

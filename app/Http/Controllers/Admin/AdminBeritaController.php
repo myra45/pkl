@@ -10,9 +10,21 @@ use App\Http\Controllers\Controller;
 
 class AdminBeritaController extends Controller
 {
-    public function all_news()  {
-        $all_data = Berita::with('rCategory')->get();
-        return view('admin.news.all_news_show', compact('all_data'));
+    public function all_news(Request $request)  {
+        $search = $request->input('search');
+
+        $all_data = Berita::where(function ($query) use ($search) {
+            if($search) {
+                $query->where('judul', 'like', "%{$search}%")
+                      ->orWhere('tanggal', 'like', "%{$search}%")
+                      ->orWhereHas('rCategory', function ($query) use ($search) {
+                          $query->where('name', 'like', "%{$search}%");
+                      });
+            }
+        })
+          ->with('rCategory')
+          ->paginate(10);
+        return view('admin.news.all_news_show', compact('all_data', 'search'));
     }
 
     Public function add() {
@@ -85,12 +97,15 @@ class AdminBeritaController extends Controller
         return redirect()->back()->with('success', 'Data is deleted successfully!');
      }
 
+    public function all_news_categories(Request $request)  {
+        $search = $request->input('search');
 
-
-
-    public function all_news_categories()  {
-        $all_data = BeritaCategory::get();
-        return view('admin.news.all_news_categories', compact('all_data'));
+        $all_data = BeritaCategory::where(function ($query) use ($search) {
+            if($search) {
+                $query->where('name', 'like', "%{$search}%");
+            }
+        })->paginate(10);
+        return view('admin.news.all_news_categories', compact('all_data', 'search'));
     }
 
     public function news_categories_add() {

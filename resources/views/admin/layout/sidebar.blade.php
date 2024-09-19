@@ -34,24 +34,24 @@
                         </a>
                     </li>
 
-                    <li class="sidebar-item {{ Request::is('admin/*') || Request::is('admin/member/*') ? 'active' : ' ' }}">
-                        <a class="sidebar-link has-arrow" aria-expanded="false">
+                    <li class="sidebar-item {{ Request::is('admin/show*') || Request::is('admin/member/*') || Request::is('admin/edit/*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link has-arrow {{ Request::is('admin/show*') || Request::is('admin/member/*') || Request::is('admin/edit/*') ? 'active' : ' ' }}" aria-expanded="false">
                           <span class="d-flex">
                             <i class="ti ti-users"></i>
                           </span>
                           <span class="hide-menu">User Manajemen</span>
                         </a>
                         <ul class="collapse first-level">
-                          <li class="sidebar-item {{ Request::is('admin/*') ? 'active' : ' ' }}">
-                            <a href="{{ route('admin_show') }}" class="sidebar-link">
+                          <li class="sidebar-item {{ Request::is('admin/show*') || Request::is('admin/edit/*') ? 'active' : ' ' }}">
+                            <a href="{{ route('admin_show') }}" class="sidebar-link {{ Request::is('admin/show*') || Request::is('admin/edit/*') ? 'active' : ' ' }}">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
                               <span class="hide-menu">All Admin</span>
                             </a>
                           </li>
-                          <li class="sidebar-item {{ Request::is('admin/member/show') ? 'active' : ' ' }} ">
-                            <a href="{{ route('member_show') }}" class="sidebar-link">
+                          <li class="sidebar-item {{ Request::is('admin/member/show*') ? 'active' : ' ' }} ">
+                            <a href="{{ route('member_show') }}" class="sidebar-link {{ Request::is('admin/member/show*') ? 'active' : ' ' }}">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -61,20 +61,55 @@
                         </ul>
                       </li>
 
-                    <li class="sidebar-item {{ Request::is('admin/eskul/*') ? 'active' : ' ' }}">
-                        <a class="sidebar-link has-arrow" aria-expanded="false">
+                    <li class="sidebar-item {{ Request::is('admin/eskul/*') ||Request::is('admin/eskul*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link has-arrow {{ Request::is('admin/eskul/*') ||Request::is('admin/eskul*') ? 'active' : ' ' }}" aria-expanded="false">
                           <span class="d-flex">
                             <i class="ti ti-file-text"></i>
                           </span>
                           <span class="hide-menu">Eskul Manajemen</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
-                          <li class="sidebar-item {{ Request::is('admin/eskul/*') ? 'active' : ' '}} ">
-                            <a href="{{ route('eskul_show') }}" class="sidebar-link">
+                          <li class="sidebar-item {{ Request::is('admin/eskul/*') || Request::is('admin/eskul*') ? 'active' : ' '}} ">
+                            <a href="{{ route('eskul_show') }}" class="sidebar-link {{ Request::is('admin/eskul/*') || Request::is('admin/eskul*') ? 'active' : ' '}}">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
                               <span class="hide-menu">All Eskul</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+
+                      <li class="sidebar-item {{ Request::is('admin/event-nilai/*') || Request::is('admin/event-nilai*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link has-arrow {{ Request::is('admin/event-nilai/*') || Request::is('admin/event-nilai*') ? 'active' : ' ' }}" aria-expanded="false">
+                          <span class="d-flex">
+                            <i class="ti ti-file-report"></i>
+                          </span>
+                          <span class="hide-menu">Assessment Events</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse first-level">
+                          <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' '}} ">
+                            <a href="{{ route('event_nilai_show') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">Assessment</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' '}} ">
+                            <a href="{{ route('event_nilai_create') }}" class="sidebar-link">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">Create an Assessment</span>
+                            </a>
+                          </li>
+                          <li class="sidebar-item {{ Request::is('admin/event-nilai*') ? 'active' : ' '}} ">
+                            <a href="{{ route('event_nilai_all') }}" class="sidebar-link {{ Request::is('admin/event-nilai*') ? 'active' : ' '}}">
+                              <div class="round-16 d-flex align-items-center justify-content-center">
+                                <i class="ti ti-circle"></i>
+                              </div>
+                              <span class="hide-menu">Assessment History</span>
                             </a>
                           </li>
                         </ul>
@@ -86,7 +121,7 @@
                           <span class="d-flex">
                             <i class="ti ti-file"></i>
                           </span>
-                          <span class="hide-menu">Konten Manajemen</span>
+                          <span class="hide-menu">Content Management</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                           <li class="sidebar-item ">
@@ -133,7 +168,7 @@
                   </li>
 
                       <li class="sidebar-item {{ Request::is('admin/berita/*') || Request::is('admin/berita-category/*') ? 'active' : ' '}}">
-                        <a class="sidebar-link has-arrow">
+                        <a class="sidebar-link has-arrow {{ Request::is('admin/berita/*') || Request::is('admin/berita-category/*') ? 'active' : ' '}}">
                           <span class="d-flex">
                             <i class="ti ti-news"></i>
                           </span>
@@ -141,7 +176,7 @@
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                           <li class="sidebar-item {{ Request::is('admin/berita/*') ? 'active' : ' '}}">
-                            <a class="sidebar-link" href="{{route('news_show')}}">
+                            <a class="sidebar-link {{ Request::is('admin/berita/*') ? 'active' : ' '}}" href="{{route('news_show')}}">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -149,7 +184,7 @@
                             </a>
                           </li>
                           <li class="sidebar-item {{ Request::is('admin/berita-category/*') ? 'active' : ' '}}">
-                            <a class="sidebar-link" href="{{route('news_category_show')}}">
+                            <a class="sidebar-link {{ Request::is('admin/berita-category/*') ? 'active' : ' '}}" href="{{route('news_category_show')}}">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -166,6 +201,14 @@
                           </li>
                         </ul>
                       </li>
+                      <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ route('admin_logout') }}">
+                            <span>
+                                <i class="ti ti-logout"></i>
+                            </span>
+                            <span class="hide-menu">Logout</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
