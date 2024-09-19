@@ -33,9 +33,9 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Nama</th>
-                                <th>Ekstrakurikuler</th>
-                                <th>Nilai Akhir</th>
+                                <th>Name</th>
+                                <th>Extracurricular</th>
+                                <th>Final Score</th>
                             </tr>
                         </thead>
 
@@ -88,7 +88,7 @@
                         @if ($nilai->nilai_akhir != null)
                             <a href="{{ route('admin_extracurricular_grade_export', $event->id) }}" class="btn btn-primary">Export Nilai</a>
                         @else
-                            <button type="submit" class="btn btn-primary">Simpan Nilai</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         @endif
                     @endif
                     <div class="paginate-wrapper mt-4">

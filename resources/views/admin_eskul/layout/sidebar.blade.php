@@ -57,7 +57,7 @@
                             <span class="d-flex">
                                 <i class="ti ti-clipboard-check"></i>
                             </span>
-                            <span class="hide-menu">Presensi</span>
+                            <span class="hide-menu">Presence</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level {{ Request::is('admin/extracurricular/presensi/*') ? 'active' : '' }}">
                             <li class="sidebar-item {{ Request::is('admin/extracurricular/presensi') ? 'active' : '' }}">
@@ -65,7 +65,7 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">All Presensi</span>
+                                    <span class="hide-menu">All Presence</span>
                                 </a>
                             </li>
                             <li class="sidebar-item {{ Request::is('admin/extracurricular/presensi/create') ? 'active' : '' }}">
@@ -73,7 +73,7 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Create Presensi</span>
+                                    <span class="hide-menu">Create Presence</span>
                                 </a>
                             </li>
                             <li class="sidebar-item {{ Request::is('admin/extracurricular/presensi/history') || Request::is('admin/extracurricular/presensi/show/{event_id}') ? 'active' : '' }}">
@@ -81,7 +81,7 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">History Presensi</span>
+                                    <span class="hide-menu">History Presence</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
@@ -89,7 +89,7 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Presensi Report</span>
+                                    <span class="hide-menu">Presence Report</span>
                                 </a>
                             </li>
                         </ul>
@@ -99,7 +99,7 @@
                             <span class="d-flex">
                                 <i class="ti ti-list-details"></i>
                             </span>
-                            <span class="hide-menu">Manajemen Tugas</span>
+                            <span class="hide-menu">Task Management</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level {{ Request::is('admin/extracurricular/task-manajemen/*') ? 'active' : '' }}">
                             <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen') ? 'active' : '' }}">
@@ -133,7 +133,7 @@
                             <span class="d-flex">
                                 <i class="ti ti-file-report"></i>
                             </span>
-                            <span class="hide-menu">Nilai Akhir</span>
+                            <span class="hide-menu">Final Score</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level {{ Request::is('admin/extracurricular/task-manajemen/*') ? 'active' : '' }}">
                             <li class="sidebar-item {{ Request::is('admin/extracurricular/task-manajemen') ? 'active' : '' }}">
@@ -141,7 +141,7 @@
                                     <div class="round-16 d-flex align-items-center justify-content-center">
                                         <i class="ti ti-circle"></i>
                                     </div>
-                                    <span class="hide-menu">Nilai Akhir</span>
+                                    <span class="hide-menu">Final Score</span>
                                 </a>
                             </li>
                             <li class="sidebar-item {{ Request::is('admin/extracurricular/grade/history') ? 'active' : '' }}">

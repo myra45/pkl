@@ -7,7 +7,7 @@
         <form action="{{ route('presensi_history_all') }}" method="GET" class="d-flex">
             <div class="form-group">
                 <input type="text" name="search" id="search" class="form-control" value="{{ request()->input('search') }}"
-                    placeholder="Cari...">
+                    placeholder="Search...">
             </div>
             <button type="submit" class="btn btn-secondary ms-2"><i class="ti ti-search"></i></button>
         </form>
@@ -15,7 +15,7 @@
             data-bs-placement="top" title="Add New"><span class="ti ti-plus"></span></a>
 
         @if (request()->input('search'))
-            <a href="{{ route('presensi_history_all') }}" class="btn btn-warning ms-2">Kembali <i
+            <a href="{{ route('presensi_history_all') }}" class="btn btn-warning ms-2">Back <i
                     class="ti ti-arrow-left"></i></a>
         @endif
     </div>
@@ -30,9 +30,9 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Nama Event</th>
-                                <th>Tanggal</th>
-                                <th>Tempat</th>
+                                <th>Event Name</th>
+                                <th>Date</th>
+                                <th>Place</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

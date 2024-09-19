@@ -13,7 +13,7 @@
             <i class="ti ti-clipboard-check fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Presensi</h4>
+            <h4 class="card-title mb-1">Presence</h4>
             <p class="card-subtitle">{{ $all_presensi }}</p>
           </div>
         </div>
@@ -28,7 +28,7 @@
             <i class="ti ti-checklist fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Tugas</h4>
+            <h4 class="card-title mb-1">Task</h4>
             <p class="card-subtitle">{{ $all_task }}</p>
           </div>
         </div>
@@ -58,7 +58,7 @@
             <i class="ti ti-speakerphone fs-6"></i>
           </div>
           <div class="align-self-center">
-            <h4 class="card-title mb-1">Nilai</h4>
+            <h4 class="card-title mb-1">Score</h4>
             <p class="card-subtitle">{{ $all_nilai }}</p>
           </div>
         </div>

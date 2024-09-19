@@ -1,6 +1,6 @@
 @extends('user.layout.app')
 
-@section('heading', 'Halaman Nilai Akhir Ekstrakulikuler')
+@section('heading', 'Extracurricular Final Grades Page')
 
 @section('button_section')
 @endsection
@@ -11,19 +11,19 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="mb-3">Pengumuman</h3>
+                        <h3 class="mb-3">Announcement</h3>
                         <p class="fs-4">Pengumuman penting mengenai kegiatan ekstrakurikuler dapat ditampilkan di sini.</p>
                     </div>
                 </div>
-                <h3>Nilai Akhir</h3>
+                <h3>Final Score</h3>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="example1">
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Nama Anggota</th>
-                                <th>Ekstrakulikuler</th>
-                                <th>Nilai Akhir</th>
+                                <th>Member Name</th>
+                                <th>extracurricular</th>
+                                <th>Final Scorer</th>
                             </tr>
                         </thead>
                         <tbody>

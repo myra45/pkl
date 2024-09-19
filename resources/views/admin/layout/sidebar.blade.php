@@ -85,7 +85,7 @@
                           <span class="d-flex">
                             <i class="ti ti-file-report"></i>
                           </span>
-                          <span class="hide-menu">Event Penilain</span>
+                          <span class="hide-menu">Assessment Events</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                           <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' '}} ">
@@ -93,7 +93,7 @@
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
-                              <span class="hide-menu">Event Penilain</span>
+                              <span class="hide-menu">Assessment</span>
                             </a>
                           </li>
                           <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' '}} ">
@@ -101,7 +101,7 @@
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
-                              <span class="hide-menu">Create Event Penilain</span>
+                              <span class="hide-menu">Create an Assessment</span>
                             </a>
                           </li>
                           <li class="sidebar-item {{ Request::is('admin/event-nilai/*') ? 'active' : ' '}} ">
@@ -109,7 +109,7 @@
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
-                              <span class="hide-menu">History Event Penilain</span>
+                              <span class="hide-menu">Assessment History</span>
                             </a>
                           </li>
                         </ul>
@@ -121,7 +121,7 @@
                           <span class="d-flex">
                             <i class="ti ti-file"></i>
                           </span>
-                          <span class="hide-menu">Konten Manajemen</span>
+                          <span class="hide-menu">Content Management</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
                           <li class="sidebar-item ">

@@ -1,6 +1,6 @@
 @extends('admin.layout.app')
 
-@section('heading', 'Daftar Eskul')
+@section('heading', 'List of Eskul')
 
 @section('button_section')
 
@@ -8,7 +8,7 @@
         <form action="{{ route('eskul_show') }}" method="GET" class="d-flex">
             <div class="form-group">
                 <input type="text" name="search" id="search" class="form-control" value="{{ request()->input('search') }}"
-                    placeholder="Cari..." data-bs-toggle="tooltip" data-bs-placement="top"
+                    placeholder="Search..." data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Search">
             </div>
             <button type="submit" class="btn btn-secondary ms-2"><i class="ti ti-search"></i></button>
@@ -19,7 +19,7 @@
 
         {{-- Tombol Kembali akan muncul jika ada pencarian --}}
         @if (request()->input('search'))
-            <a href="{{ route('eskul_show') }}" class="btn btn-warning ms-2">Kembali <i class="ti ti-arrow-left"></i></a>
+            <a href="{{ route('eskul_show') }}" class="btn btn-warning ms-2">Back <i class="ti ti-arrow-left"></i></a>
         @endif
     </div>
 @endsection
@@ -35,8 +35,8 @@
                                 <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Nama Eskul</th>
-                                        <th>Nama Admin</th>
+                                        <th>Eskul Name</th>
+                                        <th>Admin Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

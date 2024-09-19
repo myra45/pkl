@@ -15,14 +15,14 @@
           <form method="POST" action="{{ route('event_nilai_create_submit') }}">
               @csrf
               <div class="mb-3">
-                  <label for="nama" class="form-label">Nama Event</label>
+                  <label for="nama" class="form-label">Event Name</label>
                   <input type="text" class="form-control" id="nama" name="nama_event">
               </div>
               <div class="mb-3">
-                  <label for="tanggal" class="form-label">Tanggal</label>
+                  <label for="tanggal" class="form-label">Date</label>
                   <input type="date" class="form-control" id="tanggal" name="tanggal">
               </div>
-              <button type="submit" class="btn btn-primary">Buat Event</button>
+              <button type="submit" class="btn btn-primary"> Create an event</button>
           </form>
       </div>
   </div>

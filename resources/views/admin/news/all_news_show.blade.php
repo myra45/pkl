@@ -19,9 +19,9 @@
                           <thead>
                               <tr>
                                   <th>SL</th>
-                                  <th>Judul Berita</th>
-                                  <th>Tanggal</th>
-                                  <th>Kategori</th>
+                                  <th>Title</th>
+                                  <th>Date</th>
+                                  <th>category</th>
                                   <th>Action</th>
                               </tr>
                           </thead>
