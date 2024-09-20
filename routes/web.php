@@ -1,7 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\TaskController;
 
+use App\Http\Controllers\Admin\TaskController;
+// Front
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\NilaiController;
@@ -13,8 +15,8 @@ use App\Http\Controllers\User\UserTaskController;
 use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminEskulController;
-use App\Http\Controllers\Admin\AdminLoginController;
 
+use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Admin\AdminBeritaController;
 use App\Http\Controllers\Admin\AdminMemberController;
@@ -23,6 +25,8 @@ use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminPenilaianController;
 use App\Http\Controllers\Admin\AdminNilaiAkhirController;
+use App\Http\Controllers\Front\KomentarController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +44,9 @@ use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
-Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
+Route::get('/detail-berita/{id}', [HomeController::class, 'detail_berita'])->name('detail_berita');
 Route::post('/send-contact', [ContactController::class, 'send_messagee'])->name('send_contact');
+Route::post('/send-comentar', [KomentarController::class, 'store'])->name('send_comentar')->middleware('user');
 
 
 // Admin
@@ -96,6 +101,10 @@ Route::prefix('admin')->group(function () {
             Route::get('/berita/add',[AdminBeritaController::class,'add'])->name('admin_news_add');
             Route::post('/berita-submit',[AdminBeritaController::class,'store_news'])->name('admin_news_submit');
             Route::get('/berita/edit/{id}',[AdminBeritaController::class, 'news_edit'])->name ('admin_news_edit');
+            Route::post('/berita/update/{id}',[AdminBeritaController::class, 'news_update'])->name ('admin_news_update');
+            Route::get('/berita/delete/{id}', [AdminBeritaController::class, 'news_delete'])->name('admin_news_delete');
+            Route::get('/berita/komentars', [AdminKomentarController::class, 'index'])->name('admin_komentar');
+            
             // Konten Manajemen 
             Route::get('/home-banner', [AdminHomePageController::class, 'banner'])->name('home_banner_show');
             Route::post('home-banner-submit', [AdminHomePageController::class, 'banner_submit'])->name('home_banner_submit');
@@ -171,8 +180,6 @@ Route::post('/reset-password-submit', [LoginController::class, 'reset_password_s
     
 
     
-
-
 
 
 

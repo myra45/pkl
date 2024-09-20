@@ -830,13 +830,13 @@ a,
   letter-spacing: 2px;
   font-size: 11px;
   height: 33px;
-  border: 1px solid #EAEAEA;
+  border: 1px solid #ccc;
   border-radius: 2px;
   transition: all 0.4s ease-in-out 0s;
 }
 
 .form-control:focus {
-  border-color: #CACACA;
+  border-color: #949393;
 }
 
 /* Forms size */

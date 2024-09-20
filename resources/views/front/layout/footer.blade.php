@@ -15,7 +15,7 @@
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_2}}</h5>
                   <ul class="icon-list">
                     <li>Muhammad Rifan Herdiansyah <a href="#">Paskibra SMK Budi Bakti Ciwidey KEREN</a></li>
-                    <li>Azlia Nur Afifah <a href="#">Ayo join WJLRC sekarang!</a></li>
+                    <li>Azlia Nisrina Afifah  <a href="#">Ayo join WJLRC sekarang!</a></li>
                     <li>Muhammad Abyan Ma'ruf <a href="#">Eskul kita Masyaallah</a></li>
                   </ul>
                 </div>
