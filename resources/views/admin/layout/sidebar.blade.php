@@ -164,6 +164,14 @@
                           <span class="hide-menu">Footer Section</span>
                         </a>
                       </li>
+                      <li class="sidebar-item ">
+                        <a href="{{ route('home_kontak_show') }}" class="sidebar-link">
+                          <div class="round-16 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-circle"></i>
+                          </div>  
+                          <span class="hide-menu">Kontak Section</span>
+                        </a>
+                      </li>
                     </ul>
                   </li>
 

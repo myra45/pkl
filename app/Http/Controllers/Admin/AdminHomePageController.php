@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Admin;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Eskul;
+use App\Models\Testimonial;
 use App\Models\HomePageItem;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
 
 class AdminHomePageController extends Controller
 {
@@ -151,6 +152,7 @@ class AdminHomePageController extends Controller
 
     public function testimonial() { 
         $page_data = HomePageItem::where('id',1)->first();
+        $testimonial = Testimonial::get();
         return view('admin.home_testimonial_show',compact('page_data'));
     }
     public function testimonial_submit(Request $request) {
