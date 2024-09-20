@@ -1,28 +1,30 @@
 <?php
-use App\Http\Controllers\BeritaController;
+use Illuminate\Support\Facades\Route;
 // Front
-use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\BeritaController;
 // Admin
-use App\Http\Controllers\Admin\AdminBeritaController;
+use App\Http\Controllers\Admin\TaskController;
 
-use App\Http\Controllers\Admin\AdminNilaiAkhirController;
+use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\NilaiController;
+use App\Http\Controllers\Admin\EskulController;
+use App\Http\Controllers\User\SignUpController;
 use App\Http\Controllers\Front\ContactController;
+use App\Http\Controllers\User\UserHomeController;
+use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminEskulController;
 use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\User\UserProfileController;
+// User
+use App\Http\Controllers\Admin\AdminBeritaController;
+use App\Http\Controllers\Admin\AdminKontakController;
 use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminHomePageController;
-use App\Http\Controllers\Admin\EskulController;
-use App\Http\Controllers\Admin\PresensiController;
-use App\Http\Controllers\Admin\TaskController;
-// User
-use App\Http\Controllers\User\SignUpController;
-use App\Http\Controllers\User\LoginController;
-use App\Http\Controllers\User\UserHomeController;
-use App\Http\Controllers\User\UserProfileController;
-use App\Http\Controllers\User\NilaiController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminNilaiAkhirController;
+use App\Http\Controllers\Admin\AdminTestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
 Route::post('/send-contact', [ContactController::class, 'send_messagee'])->name('send_contact');
+Route::get('/kontak_developer', [HomeController::class, 'kontak'])->name('kontak_developer');
 
 
 // Admin
@@ -94,8 +97,12 @@ Route::prefix('admin')->group(function () {
             Route::post('home-service-submit', [AdminHomePageController::class, 'service_submit'])->name('home_service_submit'); 
             Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
-            Route::get('/testimonial-section', [AdminHomePageController::class, 'testimonial'])->name('home_testimonial_show');
-            Route::post('home-testimonial-submit', [AdminHomePageController::class, 'testimonial_submit'])->name('home_testimonial_submit'); 
+            Route::get('/testimonial-section', [AdminTestimonialController::class, 'index'])->name('home_testimonial_show');
+            Route::get('/testimonial-add', [AdminTestimonialController::class, 'add'])->name('home_testimonial_add');
+            Route::post('/testimonial-add-submit', [AdminTestimonialController::class, 'store'])->name('home_testimonial_submit');
+            Route::get('/testimonial-edit/{id}', [AdminTestimonialController::class, 'edit'])->name('home_testimonial_edit');
+            Route::post('/testimonial-update/{id}', [AdminTestimonialController::class, 'update'])->name('home_testimonial_update');
+            Route::get('/testimonial-delete/{id}', [AdminTestimonialController::class, 'delete'])->name('home_testimonial_delete');
             Route::get('/footer-section', [AdminHomePageController::class, 'footer'])->name('home_footer_show');
             Route::post('home-footer-submit', [AdminHomePageController::class, 'footer_submit'])->name('home_footer_submit'); 
             Route::get('/berita/add',[AdminBeritaController::class,'add'])->name('admin_news_add');
@@ -110,7 +117,12 @@ Route::prefix('admin')->group(function () {
             Route::post('home-service-submit', [AdminHomePageController::class, 'service_submit'])->name('home_service_submit');
             Route::get('/footer-section', [AdminHomePageController::class, 'footer'])->name('home_footer_show');
             Route::post('home-footer-submit', [AdminHomePageController::class, 'footer_submit'])->name('home_footer_submit'); 
-
+            Route::get('home/kontak-section', [AdminKontakController::class, 'index'])->name('home_kontak_show');
+            Route::get('home/kontak-edit/{id}', [AdminKontakController::class, 'edit'])->name('home_kontak_edit'); 
+            Route::post('home/kontak-update/{id}', [AdminKontakController::class, 'update'])->name('home_kontak_update'); 
+            Route::get('home/kontak-add', [AdminKontakController::class, 'add'])->name('home_kontak_add'); 
+            Route::get('home/kontak-delete/{id}', [AdminKontakController::class, 'delete'])->name('home_kontak_delete'); 
+            Route::post('home/kontak-add-submit', [AdminKontakController::class, 'store'])->name('home_kontak_add_submit'); 
         });
 
         Route::middleware('role')->group(function () {
