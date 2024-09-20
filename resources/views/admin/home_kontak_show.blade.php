@@ -4,7 +4,7 @@
 
 @section('button_section')
 
-<a href="{{route('home_testimonial_add')}}" class="btn btn-primary">Add New </a>
+<a href="{{route('home_kontak_add')}}" class="btn btn-primary">Add New </a>
 
 @endsection
 
@@ -20,22 +20,20 @@
                               <tr>
                                   <th>SL</th>
                                   <th>Nama</th>
-                                  <th>Ekstrakulikuler</th>
-                                  <th>Deskripsi</th>
+                                  <th>Kelas</th>
                                   <th>Action</th>
                               </tr>
                           </thead>
 
                           <tbody>
-                                @foreach ($testimonial as $item)
+                                @foreach ($kontak as $item)
                                 <tr>
                                     <td>{{ $loop->iteration}}</td>
-                                    <td>{{ $item->nama}}</td>
-                                    <td>{{ $item->eskul}}</td>
-                                    <td>{{ $item->desc}}</td>
+                                    <td>{{ $item->nama_developer}}</td>
+                                    <td>{{ $item->kelas_developer}}</td>
                                     <td class="pt_10 pb_10">
-                                      <a href="{{ route('home_testimonial_edit', $item->id) }}" class="btn btn-primary mb-2">Edit</a>
-                                      <a href="{{ route('home_testimonial_delete', $item->id) }}" class="btn btn-danger "
+                                      <a href="{{ route('home_kontak_edit', $item->id) }}" class="btn btn-primary">Edit</a>
+                                      <a href="{{ route('home_kontak_delete', $item->id) }}" class="btn btn-danger"
                                           onClick="return confirm('Are you sure?');">Delete</a>
                                   </td>
                                 </tr>

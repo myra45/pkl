@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use id;
 use App\Models\Berita;
 use Illuminate\Http\Request;
 use App\Models\BeritaCategory;
@@ -57,10 +58,44 @@ class AdminBeritaController extends Controller
         return redirect()->route('news_show')->with('success', 'Data inserted successfully!');
     }
 
+    public function update_news(Request $request, $id){
+
+        $row_data = Berita::with('rCategory')->where('id', $id)->first();
+        $request->validate([
+            'judul'=>'required',
+            'penulis'=>'required',
+            'tanggal'=>'required',
+            'deskripsi'=>'required',
+            'gambar' => 'image|mimes:jpg,jpeg,png,gif'
+        ]);
+
+
+        $ext = $request->file('gambar')->extension();
+        $final_name = 'Berita_'.time().'.'.$ext;
+        $request->file('gambar')->move(public_path('uploads/'),$final_name);
+        $row_data->gambar = $final_name;
+
+        $row_data->judul = $request->judul;
+        $row_data->berita_category_id = $request->berita_category_id;
+        $row_data->penulis = $request->penulis;
+        $row_data->tanggal = $request->tanggal;
+        $row_data->deskripsi = $request->deskripsi;
+        $row_data->update();
+
+        return redirect()->route('news_show')->with('success', 'Data inserted successfully!');
+    }
+
     public function news_edit($id){
         $row_data = Berita::with('rCategory')->where('id', $id)->first();
         return view('admin.news.edit_news', compact('row_data'));
     }
+
+    public function news_delete($id) {
+        $row_data = Berita::where('id', $id)->first();
+        $row_data->delete();
+
+        return redirect()->back()->with('success', 'Data is deleted successfully!');
+     }
 
     public function all_news_categories(Request $request)  {
         $search = $request->input('search');

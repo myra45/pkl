@@ -28,7 +28,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="berita_category" class="form-label">Berita Category</label>
-                            <select name="nilai" class="form-control">
+                            <select name="berita_category_id" class="form-control">
                               <option value="{{ $row_data->rCategory->id}}" 
                                 @if ( $row_data->rCategory->name) 
                                 selected 
