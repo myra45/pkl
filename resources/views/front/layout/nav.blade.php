@@ -20,7 +20,7 @@
         >
       </li>
       <li class="dropdown">
-        <a class="a-color" href="#tentang"
+        <a class="a-color" href="{{ route('home') . '#tentang' }}"
           >Tentang</a
         >
       </li>
@@ -29,7 +29,7 @@
           >Berita</a
         >
       </li>
-      <li class=""><a class="a-color" href="#kontak">Kontak</a></li>
+      <li class=""><a class="a-color" href="{{ route('home') . '#kontak' }}">Kontak</a></li>
       <li class=""><a class="a-color" href="{{ route('login') }}">Masuk</a></li>
       <li class="">
         <a class="a-color" href="{{ route('sign_up') }}"

@@ -2,23 +2,29 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Event;
-use App\Models\Presensi;
 use App\Models\User;
 use App\Models\Eskul;
+use App\Models\Event;
+use App\Models\Presensi;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PresensiController extends Controller
 {
     public function index()
     {
-        return view('admin_eskul.presensi_show');
+        $eskul_id = Auth::user()->eskul_id;
+        $status_hadir = Presensi::where('eskul_id', $eskul_id)->where('status', 'Hadir')->count();
+        $status_sakit = Presensi::where('eskul_id', $eskul_id)->where('status', 'Sakit')->count();
+        $status_izin = Presensi::where('eskul_id', $eskul_id)->where('status', 'Izin')->count();
+        $status_tanpa_keterangan = Presensi::where('eskul_id', $eskul_id)->where('status', 'Tanpa Keterangan')->count();
+        return view('admin_eskul.presensi_show', compact('status_hadir', 'status_sakit', 'status_izin', 'status_tanpa_keterangan'));
     }
 
-    public function create() {
+    public function create()
+    {
         $user = Auth::user();
         $admin_data = User::with('Extracurricular')->findOrFail($user->id);
         return view('admin_eskul.presensi_create', compact('admin_data'));
@@ -62,17 +68,33 @@ class PresensiController extends Controller
     }
 
 
-    public function presensi($id)
+    public function presensi(Request $request, $id)
     {
+        $search = $request->input('search'); // Ambil input pencarian
+
+        // Mengambil event berdasarkan id
         $event = Event::where('id', $id)->first();
-        $presensi = Presensi::where('event_id', $id)
+
+        // Query presensi berdasarkan event dan filter role sebagai Member
+        $presensi = Presensi::where('event_id', $id) // Batasi berdasarkan event_id yang sesuai
             ->whereHas('user', function ($query) {
                 $query->where('role', 'Member');
             })
+            ->when($search, function ($query) use ($search, $id) {
+                // Filter pencarian berdasarkan nama user atau status untuk event_id yang spesifik
+                $query->whereHas('user', function ($subQuery) use ($search) {
+                    $subQuery->where('name', 'like', "%{$search}%"); // Cari berdasarkan nama
+                })
+                    ->orWhere(function ($q) use ($search, $id) {
+                        // Cari berdasarkan status, dan pastikan hanya presensi dari event ini
+                        $q->where('status', 'like', "%{$search}%")
+                            ->where('event_id', $id); // Pastikan hanya event_id yang sesuai
+                    });
+            })
             ->with(['eskul', 'event', 'user'])
-            ->get();
-        // dd($presensi);
-        return view('admin_eskul.presensi_table', compact('event', 'presensi'));
+            ->paginate(10); // Menggunakan paginate dengan 10 hasil per halaman
+
+        return view('admin_eskul.presensi_table', compact('event', 'presensi', 'search'));
     }
 
 
@@ -96,38 +118,90 @@ class PresensiController extends Controller
         return redirect()->route('admin_extracurricular_presensi_show', $event->id)->with('success', 'Presensi has been saved');
     }
 
-    public function history()
+    public function history(Request $request)
     {
+        $search = $request->input('search');
+
+        // Mendapatkan eskul yang sesuai dengan admin yang login
         $eskul = Eskul::where('id', auth()->user()->eskul_id)->first();
-        $event_data = $eskul ? $eskul->events : collect();
-        return view('admin_eskul.presensi_history', compact('event_data'));
+
+        // Mengambil event yang berhubungan dengan eskul dan menerapkan pencarian
+        $events = Event::where('eskul_id', $eskul->id) // Pastikan filter eskul_id tetap ada
+            ->when($search, function ($query, $search) {
+                // Menjaga agar pencarian tetap dalam scope eskul_id
+                $query->where(function ($query) use ($search) {
+                    $query->where('nama_event', 'like', "%{$search}%")
+                        ->orWhere('tanggal', 'like', "%{$search}%")
+                        ->orWhere('tempat', 'like', "%{$search}%");
+                });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('admin_eskul.presensi_history', compact('search', 'events'));
     }
 
 
-    public function preview_report()
+
+
+    public function preview_report($event_id = null)
     {
         // Mendapatkan admin yang sedang login
         $admin = Auth::guard('web')->user();
 
-        // Mengambil semua event dan data presensi yang terkait dengan kondisi eskul_id yang sesuai
-        $events = Event::with(['presensis' => function ($query) use ($admin) {
-            $query->whereHas('user', function ($query) use ($admin) {
-                $query->where('eskul_id', $admin->eskul_id);
-            });
-        }, 'presensis.user', 'eskuls'])
-            ->where('eskul_id', $admin->eskul_id) // Tambahkan kondisi untuk memastikan hanya event dari eskul admin yang ditampilkan
-            ->get();
+        // Cek apakah ada event_id yang dikirim untuk mengekspor satu event atau semua event
+        if ($event_id) {
+            // Jika ada event_id, hanya ambil event dan presensi terkait event itu
+            $events = Event::with(['presensis' => function ($query) use ($admin) {
+                $query->whereHas('user', function ($query) use ($admin) {
+                    $query->where('eskul_id', $admin->eskul_id);
+                });
+            }, 'presensis.user', 'eskuls'])
+                ->where('id', $event_id) // Batasi hanya pada event tertentu
+                ->where('eskul_id', $admin->eskul_id) 
+                ->orderBy('created_at', 'desc')// Pastikan admin hanya bisa melihat event dari eskulnya
+                ->get();
+        } else {
+            // Jika tidak ada event_id, ambil semua event yang terkait dengan eskul admin
+            $events = Event::with(['presensis' => function ($query) use ($admin) {
+                $query->whereHas('user', function ($query) use ($admin) {
+                    $query->where('eskul_id', $admin->eskul_id);
+                });
+            }, 'presensis.user', 'eskuls'])
+                ->where('eskul_id', $admin->eskul_id) 
+                ->orderBy('created_at', 'desc')// Hanya event dari eskul admin yang ditampilkan
+                ->get();
+        }
 
-        // Data ini akan dioper ke view untuk dijadikan laporan
+        // Data yang akan dikirim ke view
         $data = [
             'events' => $events,
         ];
 
-        // Render PDF
+        // Render PDF menggunakan view yang sesuai
         $pdf = PDF::loadView('admin_eskul.presensi_laporan', $data);
 
         // Tampilkan pratinjau PDF di browser
         return $pdf->stream('laporan_presensi.pdf');
     }
 
+    public function delete($id) {
+        // Cari event berdasarkan ID
+        $event = Event::find($id);
+    
+        if ($event) {
+            // Hapus semua presensi terkait dengan event ini
+            $event->presensis()->delete();
+    
+            // Hapus event itu sendiri
+            $event->delete();
+    
+            return redirect()->back()->with('success', 'Data is deleted successfully!');
+        }
+
+        dd($event);
+    
+        return redirect()->back()->with('error', 'Event not found.');
+    }
+    
 }
