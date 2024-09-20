@@ -148,32 +148,35 @@
                 <section class="module">
                     <div class="container">
                         <div class="row multi-columns-row post-columns">
+                            @foreach ($beritas as $item)
                             <div class="col-sm-6 col-md-4 col-lg-4">
                                 <div class="post">
                                     <div class="" style="overflow: hidden;">
                                         <div class="post-thumbnail gambar-badag">
                                             <a>
                                                 <img class=""
-                                                    src="{{ asset('dist_front/assets/images/Berita-1.jpg') }}"
+                                                    src="{{ asset('uploads/'.$item->gambar) }}"
                                                     alt="Blog-post Thumbnail" />
                                             </a>
                                         </div>
                                     </div>
                                     <div class="post-header   ">
-                                        <h2 class="post-title"><a href="#">Mengikuti Perlombaan</a></h2>
-                                        <div class="post-meta">By&nbsp;<a href="#">SMK BBC</a>&nbsp;| 23 November |
+                                        <h2 class="post-title"><a href="#">{{ $item->judul }}</a></h2>
+                                        <div class="post-meta">By&nbsp;<a href="#">{{ $item->penulis }}</a>&nbsp;| 23 November |
                                             3 Comments
                                         </div>
                                     </div>
                                     <div class="post-entry">
-                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet
-                                            mornings of spring which I enjoy with my whole heart.</p>
+                                        <p>{{ $item->deskripsi }}</p>
                                     </div>
-                                    <div class="post-more"><a class="more-link" href="#">Baca Selengkapnya</a>
+                                    <div class="post-more"><a class="more-link" href="{{ route('detail_berita', $item->id) }}">Baca Selengkapnya</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
+                            </div>                              
+                            @endforeach
+
+                            <a href="{{ route('berita') }}">Lihat lainnya</a>
+                            {{-- <div class="col-sm-6 col-md-4 col-lg-4">
                                 <div class="post">
                                     <div class="" style="overflow: hidden; transition: all 10s;"></div>
                                     <div class="post-thumbnail gambar-badag"><a><img
@@ -212,7 +215,8 @@
                                     <div class="post-more"><a class="more-link" href="{{ route('detail_berita') }}">Baca
                                             Selengkapnya</a></div>
                                 </div>
-                            </div>
+                            </div> --}}
+                        </div>
                 </section>
                 {{-- <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial"
                     data-background="{{ asset('uploads/' . $page_data->bg_testi) }}">

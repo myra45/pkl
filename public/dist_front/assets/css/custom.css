@@ -24,12 +24,12 @@ padding-bottom: 1.5rem;
 }
 
 .icon-list a{
-color: #000000 !important;
+color: rgb(255, 255, 255) !important;
 }
 
 
 .icon-list a:hover{
-color:black!important;
+color:#c5c5c5!important;
 }
 
 .gambar-badag{

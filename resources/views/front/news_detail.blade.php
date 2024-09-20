@@ -20,59 +20,52 @@
                     <div class="post">
                         <div class="post-video embed-responsive embed-responsive-16by9">
                             <img class="embed-responsive-item object-fit-cover"
-                                src="{{ asset('dist_front/assets/images/berita/berita1.jpg') }}"></img>
+                                src="{{ asset('uploads/'.$beritas->gambar) }}"></img>
                         </div>
                         <div class="post-header font-alt">
-                            <h2 class="post-title"><a href="#">Kegiatan Perkemahan</a></h2>
-                            <div class="post-meta">By&nbsp;<a href="#">Mark Stone</a>| 23 November | 3 Comments | <a
-                                    href="#">Marketing, </a><a href="#">Web Design</a>
+                            <h2 class="post-title"><a href="#">{{ $beritas->judul }}</a></h2>
+                            <div class="post-meta">By&nbsp;<a href="#">{{ $beritas->penulis }}</a>| 23 November | 3 Comments | <a
+                                    href="#">{{ $beritas->rCategory->name }}</a>
                             </div>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A ad quos, iure eaque tenetur ullam
-                            iste, tempore laudantium harum laborum voluptatem. Aliquid id cumque adipisci quas deserunt ad
-                            enim inventore iusto distinctio aliquam velit officia quaerat omnis, nihil beatae eius, numquam
-                            perferendis rerum. Nesciunt laudantium, facere delectus sapiente vitae amet a eligendi at
-                            aperiam autem aut. </p>
-                            
-                           <p> Dolorum deleniti est consectetur rem sunt, tempore modi minima voluptatem
-                            fugiat quia? Eaque ducimus atque exercitationem similique consequuntur. Cumque libero eaque
-                            incidunt fuga quam nulla fugit quod recusandae fugiat, quidem labore possimus, dignissimos alias
-                            quia impedit magni deleniti veritatis. Rerum voluptatum incidunt impedit ipsa!</p>
+                        <p>{!! nl2br($beritas->deskripsi) !!}</p>
+                    </div>                       
+                    <div class="comment">
+                        {{-- Menampilkan komentar terkait berita ini --}}
+                        <h4>Komentar</h4>
+                        <div class="list-group mb-4">
+                                <div class="list-group-item">
+                                    <h5>Dio Tri Gana</h5> {{-- Misalnya jika ada field user_name --}}
+                                    <p>Kapan Kegiatan ini dilakukan?</p> {{-- Field isi dari komentar --}}
+                                    <small class="text-muted">9 Juli 2023</small>
+                                </div>
+                        </div>
+
+                        {{-- Form untuk menambah komentar baru --}}
+                        <h5>Tambah Komentar</h5>
+                        <form action="" method="POST">
+                            @csrf
+                            @if (session()->get('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session()->get('success') }}
+                            </div>
+                            @endif
+                            {{-- <div class="mb-3">
+                                <label for="isi" class="form-label">Komentar</label>
+                                <textarea class="form-control @error('isi') is-invalid @enderror" id="isi" name="isi" rows="3" required>{{ old('isi') }}</textarea>
+                                @error('isi')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div> --}}
+                            <input type="hidden" name="berita_id" value="">
+                            <input type="hidden" name="user_id" value="">
+                            <div class="mb-3">
+                                <label for="isi_komentar" class="form-label">Komentar</label>
+                                <textarea name="isi_komentar" id="" cols="30" rows="5" class="form-control"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-top: 10px">Kirim Komentar</button>
+                        </form>
                     </div>
-                    {{-- <div class="komentar">
-                        <div class="btn-group">   
-                            <button class="btn btn.default"><i class="lnr lnr-thumbs-up"></i> Suka</button>
-                            <button class="btn btn.default"><i class="lnr lnr-bubble"></i> Komentar</button>
-                        </div>
-                        <div class="col-md-12">
-                            <textarea name="Komentar" class="from-control" id="Komentar-Utama" cols="40" rows="10" placeholder="komentar"></textarea>
-                        </div>
-                    </div> --}}
-                    {{-- <form action="" method="post">
-                        <label for="nama">Nama:</label>
-                        <input type="text" id="nama" name="nama" required>
-                    
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    
-                        <label for="komentar">Komentar:</label>
-                        <textarea id="komentar" name="komentar" rows="4" required></textarea>
-                    
-                        <button type="submit">Kirim</button>
-                    </form> --}}
-                    <div class="comment" style="margin-top: -50px, display:none">
-                        <h5 class="widget widget-title font-alt mb-3">Komentar : </h5>
-                        <div class="form-group col-md-6" style="padding-right: 0;padding-left: 0;">
-                          <input type="text" Name="" id="" class="form-control" placeholder="Nama">
-                        </div>
-                        <div class="form-group col-md-6" style="padding-right: 0;">
-                          <input type="text" Name="" id="" class="form-control" placeholder="Emaiil">
-                        </div>
-                        <div class="form-group">
-                          <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="Pesan : "></textarea>
-                        </div>
-                        <button class="btn btn-primary btn-block">Kirim</button>
-                      </div>
                 </div>
                 <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
                     <div class="widget">
@@ -86,11 +79,9 @@
                     <div class="widget">
                         <h5 class="widget-title font-alt">Kategori Blog</h5>
                         <ul class="icon-list" style="color: #000 !important">
-                            <li><a href="#">Paskibra</a></li>
-                            <li><a href="#">PMR</a></li>
-                            <li><a href="#">Pramuka</a></li>
-                            <li><a href="#">WJLRC</a></li>
-                            <li><a href="#">Kepal</a></li>
+                            @foreach ($berita_categories as $item)
+                            <li>{{ $item->rCategory->name }}</li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="widget">
@@ -102,7 +93,7 @@
                                             alt="Post Thumbnail" /></a></div>
                                 <div class="widget-posts-body">
                                     <div class="widget-posts-title"><a href="#">Mengikuti Perlombaan</a></div>
-                                    <div class="widget-posts-meta">23 january</div>
+                                    <div class="widget-posts-meta">30 Juni 2024</div>
                                 </div>
                             </li>
                             <li class="clearfix">
@@ -115,18 +106,6 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
-                    <div class="widget">
-                        <h5 class="widget-title font-alt">Tag</h5>
-                        <div class="tags font-serif"><a href="#" rel="tag">OSIS</a><a href="#"
-                                rel="tag">MPK</a><a href="#" rel="tag">WJLRC</a><a href="#"
-                                rel="tag">PASKIBRA</a><a href="#" rel="tag">PMR</a><a href="#"
-                                rel="tag">PRAMUKA</a><a href="#" rel="tag">KEPAL</a><a href="#"
-                                rel="tag">SENI</a><a href="#" rel="tag">VOLLY</a><a href="#"
-                                rel="tag">FUTSAL</a><a href="#" rel="tag">BULU TANGKIS</a><a href="#"
-                                rel="tag">BASKET</a><a href="#" rel="tag">IT</a></a><a href="#"
-                                rel="tag">KARATE</a><a href="#" rel="tag">SILAT</a>
-                        </div>
                     </div>
                     <div class="widget">
                         <h5 class="widget-title font-alt">Text</h5>Website ini di buat agar manajemen organisasi yang ada di

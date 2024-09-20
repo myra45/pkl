@@ -9,13 +9,12 @@ class BeritaController extends Controller
 {
     public function index()
     {
-        $beritas = Berita::get();
+        $beritas = Berita::with('rCategory')->get();
         return view('front.news', compact('beritas'));
     }
 
     public function show()
-     {
-        
+     {    
          return view('front.news_detail');
      }
 }
