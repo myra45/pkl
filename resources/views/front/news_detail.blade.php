@@ -20,51 +20,55 @@
                     <div class="post">
                         <div class="post-video embed-responsive embed-responsive-16by9">
                             <img class="embed-responsive-item object-fit-cover"
-                                src="{{ asset('uploads/'.$beritas->gambar) }}"></img>
+                                src="{{ asset('uploads/' . $detail_berita->gambar) }}"></img>
                         </div>
                         <div class="post-header font-alt">
-                            <h2 class="post-title"><a href="#">{{ $beritas->judul }}</a></h2>
-                            <div class="post-meta">By&nbsp;<a href="#">{{ $beritas->penulis }}</a>| 23 November | 3 Comments | <a
-                                    href="#">{{ $beritas->rCategory->name }}</a>
+                            <h2 class="post-title">{{ $detail_berita->judul }}</h2>
+                            <div class="post-meta">By&nbsp;<a href="#">{{ $detail_berita->penulis }}</a>|
+                                {{ \Carbon\Carbon::parse($detail_berita->tanggal)->translatedFormat('d F') }} | {{ $jlm_komentar }}
+                                Komentar | <a href="#">{{ $detail_berita->rCategory->name }}</a>
                             </div>
                         </div>
-                        <p>{!! nl2br($beritas->deskripsi) !!}</p>
-                    </div>                       
+                        <p>{!! nl2br($detail_berita->deskripsi) !!}</p>
+                    </div>
                     <div class="comment">
-                        {{-- Menampilkan komentar terkait berita ini --}}
                         <h4>Komentar</h4>
                         <div class="list-group mb-4">
+                            @forelse ($komentar as $item)
                                 <div class="list-group-item">
-                                    <h5>Dio Tri Gana</h5> {{-- Misalnya jika ada field user_name --}}
-                                    <p>Kapan Kegiatan ini dilakukan?</p> {{-- Field isi dari komentar --}}
-                                    <small class="text-muted">9 Juli 2023</small>
+                                    <h5>{{ $item->user->name }}</h5>
+                                    <p>{!! nl2br(e($item->isi_komentar)) !!}</p>
+                                    <small class="text-muted">{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</small>
                                 </div>
+                            @empty
+                                <div class="list-group-item">
+                                    <p>Belum ada Komentar</p>
+                                </div>
+                            @endforelse
                         </div>
 
-                        {{-- Form untuk menambah komentar baru --}}
-                        <h5>Tambah Komentar</h5>
-                        <form action="" method="POST">
-                            @csrf
-                            @if (session()->get('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session()->get('success') }}
+                        @if (auth()->check() && auth()->user()->role == 'Member')
+                            <h5>Tambah Komentar</h5>
+                            <form action="{{ route('send_comentar') }}" method="POST">
+                                @csrf
+                                @if (session()->get('success'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session()->get('success') }}
+                                    </div>
+                                @endif
+                                <input type="hidden" name="berita_id" value="{{ $detail_berita->id }}">
+                                <div class="mb-3">
+                                    <label for="isi_komentar" class="form-label">Komentar</label>
+                                    <textarea name="isi_komentar" id="" cols="30" rows="5" class="form-control"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="margin-top: 10px">Kirim
+                                    Komentar</button>
+                            </form>
+                        @else
+                            <p>Anda harus login untuk berkomentar.</p>
+                            <div class="btn btn-sm btn-primary"><a href="{{ route('login') }}" style="color: #fff">login</a>
                             </div>
-                            @endif
-                            {{-- <div class="mb-3">
-                                <label for="isi" class="form-label">Komentar</label>
-                                <textarea class="form-control @error('isi') is-invalid @enderror" id="isi" name="isi" rows="3" required>{{ old('isi') }}</textarea>
-                                @error('isi')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div> --}}
-                            <input type="hidden" name="berita_id" value="">
-                            <input type="hidden" name="user_id" value="">
-                            <div class="mb-3">
-                                <label for="isi_komentar" class="form-label">Komentar</label>
-                                <textarea name="isi_komentar" id="" cols="30" rows="5" class="form-control"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary" style="margin-top: 10px">Kirim Komentar</button>
-                        </form>
+                        @endif
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
@@ -80,43 +84,27 @@
                         <h5 class="widget-title font-alt">Kategori Blog</h5>
                         <ul class="icon-list" style="color: #000 !important">
                             @foreach ($berita_categories as $item)
-                            <li>{{ $item->rCategory->name }}</li>
+                                <li>{{ $item->name }}</li>
                             @endforeach
                         </ul>
                     </div>
                     <div class="widget">
-                        <h5 class="widget-title font-alt">Postingan Populer</h5>
+                        <h5 class="widget-title font-alt">Postingan Terbaru</h5>
                         <ul class="widget-posts">
-                            <li class="clearfix">
-                                <div class="widget-posts-image"><a href="#"><img
-                                            src="{{ asset('dist_front/assets/images/Berita-1.jpg') }}"
-                                            alt="Post Thumbnail" /></a></div>
-                                <div class="widget-posts-body">
-                                    <div class="widget-posts-title"><a href="#">Mengikuti Perlombaan</a></div>
-                                    <div class="widget-posts-meta">30 Juni 2024</div>
-                                </div>
-                            </li>
-                            <li class="clearfix">
-                                <div class="widget-posts-image"><a href="#"><img
-                                            src="{{ asset('dist_front/assets/images/Berita-2.jpg') }}"
-                                            alt="Post Thumbnail" /></a></div>
-                                <div class="widget-posts-body">
-                                    <div class="widget-posts-title"><a href="#">Sholat Duha Bersama</a></div>
-                                    <div class="widget-posts-meta">15 February</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="widget">
-                        <h5 class="widget-title font-alt">Text</h5>Website ini di buat agar manajemen organisasi yang ada di
-                        sekolah dapat berubah dengan Era Digital yang sudah berubah di beberapa tahun kebelakang.
-                    </div>
-                    <div class="widget">
-                        <h5 class="widget-title font-alt">Komentar Terakhir</h5>
-                        <ul class="icon-list">
-                            <li>Muhammad Rifan Herdiansyah <a href="#">Paskibra SMK Budi Bakti Ciwidey KEREN</a></li>
-                            <li>Azlia Nur Afifah <a href="#">Ayo join WJLRC sekarang!</a></li>
-                            <li>Muhammad Abyan Ma'ruf <a href="#">Eskul kita Masyaallah</a></li>
+                            @foreach ($beritas as $item)
+                                <li class="clearfix">
+                                    <div class="widget-posts-image"><a href="{{ route('detail_berita', $item->id) }}"><img
+                                                src="{{ asset('uploads/' . $item->gambar) }}" alt="Post Thumbnail" /></a>
+                                    </div>
+                                    <div class="widget-posts-body">
+                                        <div class="widget-posts-title"><a
+                                                href="{{ route('detail_berita', $item->id) }}">{{ $item->judul }}</a>
+                                        </div>
+                                        <div class="widget-posts-meta">
+                                            {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}</div>
+                                    </div>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -127,11 +115,10 @@
 
 @section('footer')
     <Script>
-        $(document).ready(function(){
-            $('#btn-pesan-utama').click(function(){
+        $(document).ready(function() {
+            $('#btn-pesan-utama').click(function() {
                 alert(0);
             });
         });
     </Script>
 @endsection
-

@@ -81,7 +81,7 @@ class AdminHomePageController extends Controller
             $request->validate([
               'about_photo' => 'image|mimes:jpg,jpeg,png,gif'
             ]);
-           unlink(public_path('uploads/'.$page_data->about_photo));
+            unlink(public_path('uploads/'.$page_data->about_photo));
            
            $ext = $request->file('about_photo')->extension();
            $final_name = 'about_photo'.'.'.$ext;

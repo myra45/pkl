@@ -13,11 +13,12 @@
     Favicons
     =============================================
     -->
-    <link
+    {{-- <link
       rel="apple-touch-icon"
       sizes="57x57"
       href="{{asset('dist_front/assets/images/favicons/logo.png')}}"
-    />
+    /> --}}
+    <link rel="shortcut icon" type="image/png" href="{{ asset('dist/images/logos/favicon.png') }}" />
     <meta name="theme-color" content="#ffffff" />
     @include('front.layout.styles')
   </head>

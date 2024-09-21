@@ -42,26 +42,13 @@
                                 </thead>
 
                                 <tbody>
-                                    {{-- @foreach ($all_data as $item)
-                                        <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->nama_eskul }}</td>
-                                            <td>{{ $item->rall_data?->name  }}</td>
-                                            <td class="pt_10 pb_10">
-                                                <a href="{{ route('eskul_edit', $item->id) }}"
-                                                    class="btn btn-primary">Edit</a>
-                                                <a href="{{ route('eskul_delete', $item->id) }}" class="btn btn-danger"
-                                                    onClick="return confirm('Are you sure?');">Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach --}}
 
                                     @if ($all_data->count() > 0)
                                         @foreach ($all_data as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->nama_eskul }}</td>
-                                                <td>{{ $item->rUsers->name }}</td>
+                                                <td>{{ $item->rUsers?->name }}</td>
                                                 <td>
                                                     <a href="{{ route('eskul_edit', $item->id) }}"
                                                         class="btn btn-primary">Edit</a>
