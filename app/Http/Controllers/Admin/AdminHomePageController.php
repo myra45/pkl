@@ -32,7 +32,7 @@ class AdminHomePageController extends Controller
             $request->validate([
                 'banner_photo' => 'image|mimes:jpg,jpeg,png,gif'
             ]);
-            unlink(public_path('uploads/'.$page_data->banner_photo));
+            // unlink(public_path('uploads/'.$page_data->banner_photo));
 
             $ext = $request->file('banner_photo')->extension();
             $final_name = 'home_banner'.'.'.$ext;

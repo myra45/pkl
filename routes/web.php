@@ -4,7 +4,7 @@ use App\Http\Controllers\BeritaController;
 
 use App\Http\Controllers\Admin\TaskController;
 // Front
-use App\Http\Controllers\BeritaController;
+
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\NilaiController;
@@ -179,10 +179,7 @@ Route::prefix('admin')->group(function () {
     });
 });
 
-        });
-    });
 
-});
 // User
 Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
 Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');

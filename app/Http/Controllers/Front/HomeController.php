@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Testimonial;
-use App\Models\Berita
+use App\Models\Berita;
 use App\Models\HomePageItem;
 use Illuminate\Http\Request;
 use App\Models\KontakDeveloper;
@@ -17,7 +17,7 @@ class HomeController extends Controller
         // dd($testimonial);
         $page_data = HomePageItem::where('id', 1)->first();
         $beritas = Berita::with('rCategory')->get();
-        return view('front.home', compact('page_data', 'beritas', 'testimonial));
+        return view('front.home', compact('page_data', 'beritas', 'testimonial'));
     }
     public function berita() {
         $page_data = HomePageItem::where('id', 1)->first();
