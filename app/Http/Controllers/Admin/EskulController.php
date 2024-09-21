@@ -30,7 +30,7 @@ class EskulController extends Controller
             ->with('rUsers')
             ->paginate(5);
     
-        return view('admin.eskul_show', compact('all_data'));
+        return view('admin.eskul_show', compact('all_data', 'search'));
     }
 
     public function add()
