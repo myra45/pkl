@@ -15,7 +15,7 @@
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_2}}</h5>
                   <ul class="icon-list">
                     <li>Muhammad Rifan Herdiansyah <a href="#">Paskibra SMK Budi Bakti Ciwidey KEREN</a></li>
-                    <li>Azlia Nur Afifah <a href="#">Ayo join WJLRC sekarang!</a></li>
+                    <li>Azlia Nisrina Afifah  <a href="#">Ayo join WJLRC sekarang!</a></li>
                     <li>Muhammad Abyan Ma'ruf <a href="#">Eskul kita Masyaallah</a></li>
                   </ul>
                 </div>
@@ -37,7 +37,7 @@
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_4}}</h5>
                   <ul class="widget-posts">
                     <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="{{ asset('dist_front/assets/images/Berita-1.jpg') }}" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-image"><a href="lb#"><img src="{{ asset('dist_front/assets/images/Berita-1.jpg') }}" alt="Post Thumbnail"/></a></div>
                       <div class="widget-posts-body">
                         <div class="widget-posts-title"><a href="#">Mengikuti Perlombaan</a></div>
                         <div class="widget-posts-meta">23 january</div>
@@ -62,11 +62,8 @@
         <div class="row">
             <div class="col-sm-6">
             </div>
-            <div class="col-sm-6">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a
-                        href="#"><i class="fa fa-twitter"></i></a><a href="#"><i
-                            class="fa fa-dribbble"></i></a>
-                </div>
+            <div class="col-sm-6" style="margin-right: 15v 0px"> &copy copyright 2024
+              <a href="{{route('kontak_developer')}}">Kontak Developer</a>
             </div>
         </div>
     </div>

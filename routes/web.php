@@ -1,7 +1,10 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\TaskController;
+use App\Http\Controllers\BeritaController;
 
+use App\Http\Controllers\Admin\TaskController;
+// Front
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\NilaiController;
@@ -13,16 +16,19 @@ use App\Http\Controllers\User\UserTaskController;
 use App\Http\Controllers\Admin\PresensiController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminEskulController;
+// User
 use App\Http\Controllers\Admin\AdminLoginController;
-
 use App\Http\Controllers\User\UserProfileController;
 use App\Http\Controllers\Admin\AdminBeritaController;
+use App\Http\Controllers\Admin\AdminKontakController;
 use App\Http\Controllers\Admin\AdminMemberController;
 use App\Http\Controllers\User\UserPresensiController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminHomePageController;
 use App\Http\Controllers\Admin\AdminPenilaianController;
 use App\Http\Controllers\Admin\AdminNilaiAkhirController;
+use App\Http\Controllers\Front\KomentarController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +46,10 @@ use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
-Route::get('/detail-berita', [HomeController::class, 'detail_berita'])->name('detail_berita');
+Route::get('/detail-berita/{id}', [HomeController::class, 'detail_berita'])->name('detail_berita');
 Route::post('/send-contact', [ContactController::class, 'send_messagee'])->name('send_contact');
+Route::get('/kontak_developer', [HomeController::class, 'kontak'])->name('kontak_developer');
+Route::post('/send-comentar', [KomentarController::class, 'store'])->name('send_comentar')->middleware('user');
 
 
 // Admin
@@ -52,6 +60,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/forget-password-submit', [AdminLoginController::class, 'forget_password_submit'])->name('admin_forget_password_submit');
     Route::get('/reset-password/{token}/{email}', [AdminLoginController::class, 'reset_password'])->name('admin_reset_password');
     Route::post('/reset-password-submit', [AdminLoginController::class, 'reset_password_submit'])->name('admin_reset_password_submit');
+
+
     Route::middleware('auth')->group(function () {
     Route::get('/logout', [AdminLoginController::class, 'logout'])->name('admin_logout');
       
@@ -93,9 +103,28 @@ Route::prefix('admin')->group(function () {
             Route::post('/berita-category/update/{id}', [AdminBeritaController::class, 'news_categories_update'])->name('news_category_update');
             Route::get('/berita-category/delete/{id}', [AdminBeritaController::class, 'news_categories_delete'])->name('news_category_delete');
             Route::get('/berita/show', [AdminBeritaController::class, 'all_news'])->name('news_show');
+            // Konten Manajemen
+            Route::get('/home-banner', [AdminHomePageController::class, 'banner'])->name('home_banner_show');
+            Route::post('home-banner-submit', [AdminHomePageController::class, 'banner_submit'])->name('home_banner_submit');
+            Route::get('/service-section', [AdminHomePageController::class, 'service'])->name('home_service_show');
+            Route::post('home-service-submit', [AdminHomePageController::class, 'service_submit'])->name('home_service_submit'); 
+            Route::get('/about/show',[AdminHomePageController::class,'about'])->name('about_show');
+            Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
+            Route::get('/testimonial-section', [AdminTestimonialController::class, 'index'])->name('home_testimonial_show');
+            Route::get('/testimonial-add', [AdminTestimonialController::class, 'add'])->name('home_testimonial_add');
+            Route::post('/testimonial-add-submit', [AdminTestimonialController::class, 'store'])->name('home_testimonial_submit');
+            Route::get('/testimonial-edit/{id}', [AdminTestimonialController::class, 'edit'])->name('home_testimonial_edit');
+            Route::post('/testimonial-update/{id}', [AdminTestimonialController::class, 'update'])->name('home_testimonial_update');
+            Route::get('/testimonial-delete/{id}', [AdminTestimonialController::class, 'delete'])->name('home_testimonial_delete');
+            Route::get('/footer-section', [AdminHomePageController::class, 'footer'])->name('home_footer_show');
+            Route::post('home-footer-submit', [AdminHomePageController::class, 'footer_submit'])->name('home_footer_submit'); 
             Route::get('/berita/add',[AdminBeritaController::class,'add'])->name('admin_news_add');
             Route::post('/berita-submit',[AdminBeritaController::class,'store_news'])->name('admin_news_submit');
             Route::get('/berita/edit/{id}',[AdminBeritaController::class, 'news_edit'])->name ('admin_news_edit');
+            Route::post('/berita/update/{id}',[AdminBeritaController::class, 'news_update'])->name ('admin_news_update');
+            Route::get('/berita/delete/{id}', [AdminBeritaController::class, 'news_delete'])->name('admin_news_delete');
+            Route::get('/berita/komentars', [AdminKomentarController::class, 'index'])->name('admin_komentar');
+            
             // Konten Manajemen 
             Route::get('/home-banner', [AdminHomePageController::class, 'banner'])->name('home_banner_show');
             Route::post('home-banner-submit', [AdminHomePageController::class, 'banner_submit'])->name('home_banner_submit');
@@ -103,11 +132,14 @@ Route::prefix('admin')->group(function () {
             Route::post('/about-submit', [AdminHomePageController::class, 'about_submit'])->name('about_submit');
             Route::get('/home-service-section', [AdminHomePageController::class, 'service'])->name('home_service_show');
             Route::post('home-service-submit', [AdminHomePageController::class, 'service_submit'])->name('home_service_submit');
-            Route::get('/testimonial-section', [AdminHomePageController::class, 'testimonial'])->name('home_testimonial_show');
-            Route::post('home-testimonial-submit', [AdminHomePageController::class, 'testimonial_submit'])->name('home_testimonial_submit'); 
             Route::get('/footer-section', [AdminHomePageController::class, 'footer'])->name('home_footer_show');
             Route::post('home-footer-submit', [AdminHomePageController::class, 'footer_submit'])->name('home_footer_submit'); 
-
+            Route::get('home/kontak-section', [AdminKontakController::class, 'index'])->name('home_kontak_show');
+            Route::get('home/kontak-edit/{id}', [AdminKontakController::class, 'edit'])->name('home_kontak_edit'); 
+            Route::post('home/kontak-update/{id}', [AdminKontakController::class, 'update'])->name('home_kontak_update'); 
+            Route::get('home/kontak-add', [AdminKontakController::class, 'add'])->name('home_kontak_add'); 
+            Route::get('home/kontak-delete/{id}', [AdminKontakController::class, 'delete'])->name('home_kontak_delete'); 
+            Route::post('home/kontak-add-submit', [AdminKontakController::class, 'store'])->name('home_kontak_add_submit'); 
         });
 
         Route::middleware('role')->group(function () {
@@ -147,7 +179,10 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+        });
+    });
 
+});
 // User
 Route::get('/sign_up', [SignUpController::class, 'index'])->name('sign_up');
 Route::post('/sign_up-submit', [SignUpController::class, 'sign_up_submit'])->name('sign_up_submit');
@@ -169,9 +204,6 @@ Route::post('/reset-password-submit', [LoginController::class, 'reset_password_s
     });
 });
     
-
-    
-
 
 
 
