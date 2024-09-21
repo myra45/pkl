@@ -6,7 +6,7 @@
                 <span class="icon-bar"></span><span class="icon-bar"></span>
                 <span class="icon-bar"></span></button><a class="navbar-brand d-flex" href="#"
                 style="padding-bottom: 5.5rem;">
-                <img class="logo" src="{{ asset('dist_front/assets/images/favicons/navbar2.png') }}" alt="" />
+                <img class="logo" src="{{asset('dist_front//assets/images/navbar.png')}}" alt="" />
                 <img class="second-logo" src="{{ asset('dist_front/assets/images/favicons/navbar1.png') }}"
                     alt="" />
             </a>
