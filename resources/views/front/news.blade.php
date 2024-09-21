@@ -31,18 +31,22 @@
                             </div>
                             <div class="post-header   ">
                                 <h2 class="post-title"><a href="#">{{ $item->judul }}</a></h2>
-                                <div class="post-meta">By&nbsp;<a href="#">{{ $item->penulis }}</a>&nbsp;| 23 November |
-                                    3 Comments
+                                <div class="post-meta">By&nbsp;<a href="#">{{ $item->penulis }}</a>&nbsp;| {{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F') }} |
+                                    {{ $item->komentar->count() }} Komentar
                                 </div>
                             </div>
                             <div class="post-entry">
-                                <p>{{ $item->deskripsi }}</p>
+                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->deskripsi), 100, '...') }}</p>
                             </div>
                             <div class="post-more"><a class="more-link" href="{{ route('detail_berita', $item->id) }}">Baca Selengkapnya</a>
                             </div>
                         </div>
                     </div>                              
                     @endforeach
+                </div>
+                {{-- Pembungkus Pagination --}}
+                <div class="paginate-wrapper mt-4">
+                    {{ $beritas->links('pagination::bootstrap-4') }}
                 </div>
         </section>
 

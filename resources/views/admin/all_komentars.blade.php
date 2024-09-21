@@ -18,26 +18,28 @@
                           <thead>
                               <tr>
                                   <th>SL</th>
-                                  <th>Berita Id</th>
-                                  <th>User Id</th>
-                                  <th>Isi Komentar</th>
+                                  <th>News Title</th>
+                                  <th>Name</th>
+                                  {{-- <th>Coments</th> --}}
                                   <th>Created</th>
                                   <th>Action</th>
                               </tr>
                           </thead>
 
                           <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>2</td>
-                                      <td>9</td>
-                                      <td>kj</td>
-                                      <td>2006</td>
-                                      <td class="pt_10 pb_10">
-                                        <a href="" class="btn btn-danger"
-                                            onClick="return confirm('Are you sure?');">Delete</a>
-                                    </td>
-                                  </tr>
+                            @foreach ($all_komen as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->berita->judul }}</td>
+                                <td>{{ $item->user->name }}</td>
+                                {{-- <td>{{ $item->isi_komentar }}</td> --}}
+                                <td>{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</td>
+                                <td class="pt_10 pb_10">
+                                  <a href="{{route('admin_komentar_delete', $item->id)}}" class="btn btn-danger"
+                                      onClick="return confirm('Are you sure?');">Delete</a>
+                              </td>
+                            </tr>
+                            @endforeach
                           </tbody>
                       </table>
                   </div>
