@@ -16,7 +16,7 @@
     <link
       rel="apple-touch-icon"
       sizes="57x57"
-      href="{{ asset('dist_front/assets/images/favicons/favicon-1.png') }}"
+      href="{{asset('dist_front/assets/images/favicons/logo.png')}}"
     />
     <meta name="theme-color" content="#ffffff" />
     @include('front.layout.styles')
