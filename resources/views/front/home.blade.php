@@ -144,7 +144,7 @@
             </section>
         <section class="module pt-0 pb-0" id="news">
             <div class="row position-relative m-0">
-                <h2 class="module-title" style="margin-bottom: -120px ;">BERITA</h2>
+                <h2 class="module-title" style="margin-bottom: -10px ;">BERITA</h2>
                 <section class="module">
                     <div class="container">
                         <div class="row multi-columns-row post-columns">
@@ -154,7 +154,7 @@
                                     <div class="" style="overflow: hidden;">
                                         <div class="post-thumbnail gambar-badag">
                                             <a>
-                                                <img class=""
+                                                <img class="object-fit-cover"  style="width: 400px; height: 250px"
                                                     src="{{ asset('uploads/'.$item->gambar) }}"
                                                     alt="Blog-post Thumbnail" />
                                             </a>
@@ -162,7 +162,7 @@
                                     </div>
                                     <div class="post-header   ">
                                         <h2 class="post-title"><a href="{{ route('detail_berita', $item->id) }}">{{ $item->judul }}</a></h2>
-                                        <div class="post-meta">By&nbsp;{{ $item->penulis }}</a>&nbsp;| {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F') }} |
+                                        <div class="post-meta">By&nbsp;{{ $item->penulis }}&nbsp;| {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F') }} |
                                             {{ $item->komentar->count() }} Komentar
                                         </div>
                                     </div>
@@ -174,7 +174,7 @@
                                 </div>
                             </div>                              
                             @endforeach
-                            <div class="col-sm-6 col-md-4 col-lg-4 text-center">
+                            <div class="text-center">
                             <a href="{{ route('berita') }}">Lihat lainnya</a>
                             </div>
                         </div>

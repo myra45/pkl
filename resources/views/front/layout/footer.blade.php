@@ -25,7 +25,7 @@
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_3}}</h5>
                   <ul class="icon-list">
                     @foreach ($berita_categories as $item)
-                    <li><a href="#">{{ $item->name }}</a></li>
+                    <li><a href="{{ route('filterCategory', $item->id) }}">{{ $item->name }}</a></li>
                     @endforeach
                   </ul>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="widget">
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_4}}</h5>
                   <ul class="widget-posts">
-                    @foreach ($beritas as $item)
+                    @foreach ($last_post as $item)
                             <li class="clearfix">
                                 <div class="widget-posts-image"><a href="{{ route('detail_berita', $item->id) }}"><img
                                             src="{{ asset('uploads/'.$item->gambar) }}"

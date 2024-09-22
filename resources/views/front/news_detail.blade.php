@@ -1,19 +1,20 @@
 @extends('front.layout.app')
 @section('main_content')
-    <section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home"
-        data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
-        <div class="titan-caption home-caption">
-            <div class="caption-content">
-                <div class="mb-30 titan-title-size-2 a-color">
-                    SMK Budi Bakti Ciwidey
-                </div>
-                <div class="mb-40 titan-title-size-3" style="text-transform: uppercase;">
-                    <span class="rotate">Berita</span>
-                </div>
-            </div>
+<section class="home-section home-parallax home-fade home-full-height bg-dark-60 agency-page-header" id="home"
+data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
+<div class="titan-caption home-caption">
+    <div class="caption-content">
+        <div class="mb-30 titan-title-size-2 a-color">
+            SMK Budi Bakti Ciwidey
         </div>
-    </section>
-    <section class="module" style="margin-top: 200px">
+        <div class="mb-40 titan-title-size-3" style="text-transform: uppercase;">
+            <span class="rotate">Berita</span>
+        </div>
+    </div>
+</div>
+</section>
+<div class="main">
+    <section class="module">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
@@ -73,14 +74,6 @@
                 </div>
                 <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
                     <div class="widget">
-                        <form role="form">
-                            <div class="search-box">
-                                <input class="form-control" type="text" placeholder="Mencari..." />
-                                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="widget">
                         <h5 class="widget-title font-alt">Kategori Blog</h5>
                         <ul class="icon-list" style="color: #000 !important">
                             @foreach ($berita_categories as $item)
@@ -111,6 +104,7 @@
             </div>
         </div>
     </section>
+</div>
 @endsection
 
 @section('footer')

@@ -104,8 +104,8 @@
                               <span class="hide-menu">Create an Assessment</span>
                             </a>
                           </li>
-                          <li class="sidebar-item {{ Request::is('admin/event-nilai*') ? 'active' : ' '}} ">
-                            <a href="{{ route('event_nilai_all') }}" class="sidebar-link {{ Request::is('admin/event-nilai*') ? 'active' : ' '}}">
+                          <li class="sidebar-item {{ Request::is('admin/event-nilai/all*') ? 'active' : ' '}} ">
+                            <a href="{{ route('event_nilai_all') }}" class="sidebar-link {{ Request::is('admin/event-nilai/all*') ? 'active' : ' '}}">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
@@ -124,15 +124,15 @@
                           <span class="hide-menu">Content Management</span>
                         </a>
                         <ul aria-expanded="false" class="collapse first-level">
-                          <li class="sidebar-item ">
-                            <a href="{{ route('home_banner_show') }}" class="sidebar-link">
+                          <li class="sidebar-item {{ Request::is('home/banner*') ? 'active' : ' ' }}">
+                            <a href="{{ route('home_banner_show') }}" class="sidebar-link ">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>
                               <span class="hide-menu">Home Section</span>
                             </a>
                           </li>
-                          <li class="sidebar-item">
+                          <li class="sidebar-item {{ Request::is('about/show*') ? 'active' : ' ' }}">
                             <a href="{{route('about_show')}}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
@@ -148,8 +148,8 @@
                               <span class="hide-menu">Service Section</an>
                             </a>
                           </li>
-                          <li class="sidebar-item ">
-                            <a href="{{ route('home_testimonial_show') }}" class="sidebar-link">
+                          <li class="sidebar-item {{ Request::is('admin/home/testimonial*') ? 'active' : ' ' }}">
+                            <a href="{{ route('home_testimonial_show') }}" class="sidebar-link {{ Request::is('admin/home/testimonial*') ? 'active' : ' ' }} ">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>  
@@ -199,8 +199,8 @@
                               <span class="hide-menu">Category News</span>
                             </a>
                           </li>
-                          <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ route('admin_komentar') }}">
+                          <li class="sidebar-item {{ Request::is('admin/berita-komentars*') ? 'active' : ' '}}">
+                            <a class="sidebar-link {{ Request::is('admin/berita-komentars*') ? 'active' : ' '}}" href="{{ route('admin_komentar') }}">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                 <i class="ti ti-circle"></i>
                               </div>

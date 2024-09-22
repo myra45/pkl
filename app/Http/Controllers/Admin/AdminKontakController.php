@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\KontakDeveloper;
+use App\Models\Berita;
+use App\Models\Komentar;
 use Illuminate\Http\Request;
+use App\Models\BeritaCategory;
+use App\Models\KontakDeveloper;
+use App\Http\Controllers\Controller;
 
 class AdminKontakController extends Controller
 {
-    public function index() {
-        $kontak = KontakDeveloper::get();
-        return view('admin.home_kontak_show', compact('kontak'));
+    public function index(Request $request) {
+        $search = $request->input('search');
+        $kontak = KontakDeveloper::where( function ($query) use ($search) {
+            if ($search) {
+                $query->where('nama_developer', 'like', "%{$search}%")
+                      ->orWhere('kelas_developer', 'like', "%{$search}%");
+            }
+        })->paginate(10);
+        return view('admin.home_kontak_show', compact('kontak', 'search'));
     }
 
     public function edit($id) {
