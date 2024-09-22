@@ -17,15 +17,17 @@
         <section class="module">
             <div class="container">
                 <div class="row multi-columns-row post-columns">
+                    {{-- <h2 class="post-title"></h2> --}}
+                    @if ($beritas->count())
                     @foreach ($beritas as $item)
                     <div class="col-sm-6 col-md-4 col-lg-4">
                         <div class="post">
                             <div class="" style="overflow: hidden;">
                                 <div class="post-thumbnail gambar-badag">
                                     <a>
-                                        <img class="object-fit-cover"
+                                        <img class="object-fit-cover"  style="width: 400px; height: 250px"
                                             src="{{ asset('uploads/'.$item->gambar) }}"
-                                            alt="Blog-post Thumbnail"  style="width: 400px; height: 250px"/>
+                                            alt="Blog-post Thumbnail" />
                                     </a>
                                 </div>
                             </div>
@@ -43,6 +45,11 @@
                         </div>
                     </div>                              
                     @endforeach
+                    @else
+                    <div class="col-sm-6 col-md-4 col-lg-4">
+                        <p>Tidak ada berita dalam Kategori ini </p>
+                    </div>               
+                    @endif
                 </div>
                 {{-- Pembungkus Pagination --}}
                 <div class="paginate-wrapper mt-4">

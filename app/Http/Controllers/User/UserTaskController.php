@@ -12,6 +12,7 @@ class UserTaskController extends Controller
     public function index() {
         $eskul = Auth::user()->eskul_id;
         $user_tasks = Tugas::where('eskul_id', $eskul)->get();
+        // dd($user_tasks);
         return view('user.user_task', compact('user_tasks'));
     }
 }
