@@ -14,21 +14,21 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="mb-3">
-                            <label for="name" class="form-label">Tanggal</label>
+                            <label for="name" class="form-label">Date</label>
                             <input type="date" class="form-control" id="name" name="tanggal"
                                 value="{{ $row_data->tanggal }}" disabled>
                         </div>
                         <div class="mb-3">
-                            <label for="text" class="form-label">Judul Tugas</label>
+                            <label for="text" class="form-label"> Title</label>
                             <input type="text" class="form-control" id="judul" name="judul"
                                 value="{{ $row_data->judul_tugas }}" disabled>
                         </div>
                         <div class="mb-4">
                             <label for="eskul" class="form-label">Status</label>
                             <select name="status" class="form-control">
-                                <option value="belum selesai" {{ $row_data->status == 'Belum Selesai' ? 'selected' : '' }}>
+                                <option value="Belum Selesai" {{ $row_data->status == 'Belum Selesai' ? 'selected' : '' }}>
                                     Belum Selesai</option>
-                                <option value="selesai" {{ $row_data->status == 'Selesai' ? 'selected' : '' }}>Selesai
+                                <option value="Selesai" {{ $row_data->status == 'Selesai' ? 'selected' : '' }}>Selesai
                                 </option>
                             </select>
                         </div>

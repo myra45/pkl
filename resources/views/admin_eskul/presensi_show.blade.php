@@ -14,7 +14,7 @@
                         </div>
                         <div class="align-self-center">
                             <h4 class="card-title mb-1">Hadir</h4>
-                            <p class="card-subtitle">34</p>
+                            <p class="card-subtitle">{{ $status_hadir }}</p>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="align-self-center">
                             <h4 class="card-title mb-1">Sakit</h4>
-                            <p class="card-subtitle">5</p>
+                            <p class="card-subtitle">{{ $status_sakit }}</p>
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="align-self-center">
                             <h4 class="card-title mb-1">Izin</h4>
-                            <p class="card-subtitle">3</p>
+                            <p class="card-subtitle">{{ $status_izin }}</p>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="align-self-center">
                             <h4 class="card-title mb-1">Absen</h4>
-                            <p class="card-subtitle">3</p>
+                            <p class="card-subtitle">{{ $status_tanpa_keterangan }}</p>
                         </div>
                     </div>
                 </div>

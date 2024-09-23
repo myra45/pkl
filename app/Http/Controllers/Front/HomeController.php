@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Models\Testimonial;
+use App\Models\Berita
 use App\Models\HomePageItem;
 use Illuminate\Http\Request;
 use App\Models\KontakDeveloper;
 use App\Http\Controllers\Controller;
 
-;
 
 class HomeController extends Controller
 {
@@ -16,15 +16,19 @@ class HomeController extends Controller
         $testimonial=Testimonial::limit(2)->get();
         // dd($testimonial);
         $page_data = HomePageItem::where('id', 1)->first();
-        return view('front.home', compact('page_data', 'testimonial'));
+        $beritas = Berita::with('rCategory')->get();
+        return view('front.home', compact('page_data', 'beritas', 'testimonial));
     }
     public function berita() {
         $page_data = HomePageItem::where('id', 1)->first();
-        return view('front.news', compact('page_data'));
+        $beritas = Berita::with('rCategory')->get();
+        return view('front.news', compact('page_data', 'beritas'));
     }
-    public function detail_berita() {
+    public function detail_berita($id) {
         $page_data = HomePageItem::where('id', 1)->first();
-        return view('front.news_detail', compact('page_data'));
+        $beritas = Berita::with('rCategory')->where('id', $id)->first();
+        $berita_categories= Berita::with('rCategory')->get();
+        return view('front.news_detail', compact('page_data', 'beritas', 'berita_categories'));
     }
     
     public function kontak() {

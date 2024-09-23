@@ -18,7 +18,7 @@
                                 <input type="file" name="gambar" id="gambar" class="form-control">
                             </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Judul</label>
+                            <label for="name" class="form-label">Title</label>
                             <input type="text" class="form-control" id="name" name="judul" autofocus>
                         </div>
                         <div class="mb-3">
@@ -31,18 +31,18 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Penulis</label>
+                            <label for="name" class="form-label">Writer</label>
                             <input type="text" class="form-control" id="name" name="penulis" autofocus>
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Tanggal</label>
+                            <label for="name" class="form-label">Date</label>
                             <input type="date" class="form-control" id="name" name="tanggal" autofocus>
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Deskripsi</label>
+                            <label for="name" class="form-label">Description</label>
                             <textarea name="deskripsi" class="form-control note" id="" cols="30" rows="10"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
             </form>
         </div>
