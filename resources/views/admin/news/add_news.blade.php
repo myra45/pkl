@@ -39,10 +39,10 @@
                             <input type="date" class="form-control" id="name" name="tanggal" autofocus>
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Description</label>
-                            <textarea name="deskripsi" class="form-control note" id="" cols="30" rows="10"></textarea>
+                            <label class="form-label">Description </label>
+                                    <textarea name="deskripsi" id="" class="form-control snote" cols="30" rows="10"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
             </form>
         </div>

@@ -9,7 +9,7 @@
 @section('main_content')
     <div class="card">
         <div class="card-body">
-            <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('admin_news_update', $row_data->id) }}" enctype="multipart/form-data">
               @csrf
                 <div class="row">
                     <div class="col-md-12">
@@ -43,12 +43,12 @@
                       </div>
                       <div class="mb-3">
                         <label for="tanggal" class="form-label">Tanggal</label>
-                        <input type="tanggal"
+                        <input type="date"
                             class="form-control" id="tanggal" name="tanggal" value="{{ $row_data->tanggal }}" autofocus>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
-                        <textarea name="deskripsi" class="form-control" cols="30" rows="10">{{ $row_data->deskripsi }}</textarea>
+                        <textarea name="deskripsi" class="form-control snote" cols="30" rows="10">{{ $row_data->deskripsi }}</textarea>
                     </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>

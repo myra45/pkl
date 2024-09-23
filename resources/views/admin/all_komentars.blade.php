@@ -4,6 +4,20 @@
 
 @section('button_section')
 
+<div class="d-flex">
+    <form action="{{ route('admin_komentar') }}" method="GET" class="d-flex">
+        <div class="form-group">
+            <input type="text" name="search" id="search" class="form-control" value="{{ request()->input('search') }}"
+                placeholder="Cari...">
+        </div>
+        <button type="submit" class="btn btn-secondary ms-2"><i class="ti ti-search"></i></button>
+    </form>
+
+    {{-- Tombol Kembali akan muncul jika ada pencarian --}}
+    @if (request()->input('search'))
+        <a href="{{ route('admin_komentar') }}" class="btn btn-warning ms-2">Back <i class="ti ti-arrow-left"></i></a>
+    @endif
+</div>
 
 @endsection
 
@@ -18,28 +32,40 @@
                           <thead>
                               <tr>
                                   <th>SL</th>
-                                  <th>Berita Id</th>
-                                  <th>User Id</th>
-                                  <th>Isi Komentar</th>
+                                  <th>News Title</th>
+                                  <th>Name</th>
+                                  {{-- <th>Coments</th> --}}
                                   <th>Created</th>
                                   <th>Action</th>
                               </tr>
                           </thead>
 
                           <tbody>
-                                  <tr>
-                                      <td>1</td>
-                                      <td>2</td>
-                                      <td>9</td>
-                                      <td>kj</td>
-                                      <td>2006</td>
-                                      <td class="pt_10 pb_10">
-                                        <a href="" class="btn btn-danger"
-                                            onClick="return confirm('Are you sure?');">Delete</a>
-                                    </td>
-                                  </tr>
+                            @if ($all_komen->count() > 0)
+                            @foreach ($all_komen as $item)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->berita->judul }}</td>
+                                <td>{{ $item->user->name }}</td>
+                                {{-- <td>{{ $item->isi_komentar }}</td> --}}
+                                <td>{{ ($item->created_at) }}</td>
+                                <td class="pt_10 pb_10">
+                                  <a href="{{route('admin_komentar_delete', $item->id)}}" class="btn btn-danger"
+                                      onClick="return confirm('Are you sure?');">Delete</a>
+                              </td>
+                            </tr>
+                            @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="5" class="text-center">No data found for '{{ $search }}'</td>
+                                </tr>
+                            @endif
                           </tbody>
                       </table>
+                      {{-- Pembungkus Pagination --}}
+                    <div class="paginate-wrapper mt-4">
+                        {{ $all_komen->links('pagination::bootstrap-5') }}
+                    </div>
                   </div>
               </div>
           </div>

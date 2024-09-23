@@ -70,10 +70,18 @@ class AdminBeritaController extends Controller
         ]);
 
 
+        if ($request->hasFile('photo')) {
+            $request->validate([
+                'photo' => 'image|mimes:jpg,jpeg,png,gif'
+            ]);
+            unlink(public_path('uploads/'.$row_data->gambar));
+
         $ext = $request->file('gambar')->extension();
         $final_name = 'Berita_'.time().'.'.$ext;
         $request->file('gambar')->move(public_path('uploads/'),$final_name);
         $row_data->gambar = $final_name;
+
+        }
 
         $row_data->judul = $request->judul;
         $row_data->berita_category_id = $request->berita_category_id;
@@ -82,7 +90,7 @@ class AdminBeritaController extends Controller
         $row_data->deskripsi = $request->deskripsi;
         $row_data->update();
 
-        return redirect()->route('news_show')->with('success', 'Data inserted successfully!');
+        return redirect()->route('news_show')->with('success', 'Data Updated successfully!');
     }
 
     public function news_edit($id){

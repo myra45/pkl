@@ -144,7 +144,7 @@
             </section>
         <section class="module pt-0 pb-0" id="news">
             <div class="row position-relative m-0">
-                <h2 class="module-title" style="margin: 0 ;">BERITA</h2>
+                <h2 class="module-title" style="margin-bottom: -10px ;">BERITA</h2>
                 <section class="module">
                     <div class="container">
                         <div class="row multi-columns-row post-columns">
@@ -154,101 +154,32 @@
                                     <div class="" style="overflow: hidden;">
                                         <div class="post-thumbnail gambar-badag">
                                             <a>
-                                                <img class=""
+                                                <img class="object-fit-cover"  style="width: 400px; height: 250px"
                                                     src="{{ asset('uploads/'.$item->gambar) }}"
                                                     alt="Blog-post Thumbnail" />
                                             </a>
                                         </div>
                                     </div>
                                     <div class="post-header   ">
-                                        <h2 class="post-title"><a href="#">{{ $item->judul }}</a></h2>
-                                        <div class="post-meta">By&nbsp;<a href="#">{{ $item->penulis }}</a>&nbsp;| 23 November |
-                                            3 Comments
+                                        <h2 class="post-title"><a href="{{ route('detail_berita', $item->id) }}">{{ $item->judul }}</a></h2>
+                                        <div class="post-meta">By&nbsp;{{ $item->penulis }}&nbsp;| {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F') }} |
+                                            {{ $item->komentar->count() }} Komentar
                                         </div>
                                     </div>
                                     <div class="post-entry">
-                                        <p>{{ $item->deskripsi }}</p>
+                                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->deskripsi), 100, '...') }}</p>
                                     </div>
                                     <div class="post-more"><a class="more-link" href="{{ route('detail_berita', $item->id) }}">Baca Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>                              
                             @endforeach
-
+                            <div class="text-center">
                             <a href="{{ route('berita') }}">Lihat lainnya</a>
-                            {{-- <div class="col-sm-6 col-md-4 col-lg-4">
-                                <div class="post">
-                                    <div class="" style="overflow: hidden; transition: all 10s;"></div>
-                                    <div class="post-thumbnail gambar-badag"><a><img
-                                                src="{{ asset('dist_front/assets/images/Berita-2.jpg') }}"
-                                                alt="Blog-post Thumbnail" /></a></div>
-                                    <div class="post-header   ">
-                                        <h2 class="post-title"><a href="#">Sholat Dhuha Bersama</a></h2>
-                                        <div class="post-meta">By&nbsp;<a href="#">SMK BBC</a>&nbsp;| 11 November |
-                                            4 Comments
-                                        </div>
-                                    </div>
-                                    <div class="post-entry">
-                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet
-                                            mornings of spring which I enjoy with my whole heart.</p>
-                                    </div>
-                                    <div class="post-more"><a class="more-link" href="{{ route('detail_berita') }}">Baca Selengkapnya</a>
-                                    </div>
-                                </div>
                             </div>
-                            <div class="col-sm-6 col-md-4 col-lg-4">
-                                <div class="post">
-                                    <div class="" style="overflow: hidden; transition: all 10s;"></div>
-                                    <div class="post-thumbnail gambar-badag"><a><img
-                                                src="{{ asset('dist_front/assets/images/Berita-3.jpg') }}"
-                                                alt="Blog-post Thumbnail" /></a></div>
-                                    <div class="post-header   ">
-                                        <h2 class="post-title"><a href="#">Taman Baca</a></h2>
-                                        <div class="post-meta">By&nbsp;<a href="{{ route('detail_berita') }}">SMK BBC</a>&nbsp;| 5 November |
-                                            15 Comments
-                                        </div>
-                                    </div>
-                                    <div class="post-entry">
-                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet
-                                            mornings of spring which I enjoy with my whole heart.</p>
-                                    </div>
-                                    <div class="post-more"><a class="more-link" href="{{ route('detail_berita') }}">Baca
-                                            Selengkapnya</a></div>
-                                </div>
-                            </div> --}}
                         </div>
                 </section>
-                {{-- <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial"
-                    data-background="{{ asset('uploads/' . $page_data->bg_testi) }}">
-                    <div class="testimonials-slider pt-140 pb-140">
-                        <ul class="slides">
-                            <li>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="module-icon"><span class="icon-quote"></span></div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-8 col-sm-offset-2">
-                                            <blockquote class="testimonial-text font-alt">{{$page_data->desc_testi}}</blockquote>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4 col-sm-offset-4">
-                                            <div class="testimonial-author">
-                                                <div class="testimonial-caption font-alt">
-                                                    <div class="testimonial-title">{{$page_data->nama_testi}}</div>
-                                                    <div class="testimonial-descr">{{$page_data->eskul_testi}}</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </section> --}}
+
                 <hr class="divider-w">
        
                 <section class="module bg-dark-60 pt-0 pb-0 parallax-bg testimonial" data-background="{{ asset('uploads/' . $page_data->bg_testi) }}">
@@ -326,7 +257,6 @@
                                         </button>
                                     </div>
                                 </form>
-                                {{-- <div class="ajax-response   " id="contactFormResponse"></div> --}}
                             </div>
                         </div>
                     </div>

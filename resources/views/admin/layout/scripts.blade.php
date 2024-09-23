@@ -8,3 +8,10 @@
 <script src="{{ asset('dist/js/owl.carousel.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 <script src="{{ asset('dist/js/iziToast.min.js') }}"></script>
+<script src="{{ asset('dist/js/summernote-bs4.js') }}"></script>
+<script src="{{ asset('dist/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('dist/js/bootstrap-timepicker.min.js') }}"></script>
+<script src="{{ asset('dist/js/bootstrap-tagsinput.min.js') }}"></script>
+<script src="{{ asset('dist/js/fontawesome-iconpicker.js') }}"></script>
+<script src="{{ asset('dist/js/fontawesome-iconpicker.min.js') }}"></script>
+<script src="{{ asset('dist/js/custom.js') }}"></script>

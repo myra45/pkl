@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Komentar extends Model
 {
-    public function berita()
-    {
+    use HasFactory;
+
+    public function berita() {
         return $this->belongsTo(Berita::class);
     }
-    use HasFactory;
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
