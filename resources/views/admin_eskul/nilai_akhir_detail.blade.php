@@ -79,7 +79,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="4">Tidak ada data ditemukan.</td>
+                                    <td colspan="5" class="text-center">No data found for '{{ $search }}'</td>
                                 </tr>
                             @endif
                         </tbody>

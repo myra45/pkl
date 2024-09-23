@@ -10,10 +10,10 @@
                 <h5 class="text-white">My Task:</h5>
             </div>
             <div class="card-body">
-                        @if($user_tasks->count() > 0)
+                    @if($user_tasks->count() > 0)
                     <ul class="list-group list-group-flush">
                         @foreach($user_tasks as $task)
-                        @if ($task->status == ' Belum Selesai')
+                        @if ($task->status == 'Belum Selesai')
                         <li class="list-group-item mb-2  list-group-item-warning rounded p-3">
                             <ul class="h5 d-flex justify-content-between">
                                 <div>

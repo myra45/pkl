@@ -81,7 +81,7 @@ class AdminHomePageController extends Controller
             $request->validate([
               'about_photo' => 'image|mimes:jpg,jpeg,png,gif'
             ]);
-           unlink(public_path('uploads/'.$page_data->about_photo));
+            unlink(public_path('uploads/'.$page_data->about_photo));
            
            $ext = $request->file('about_photo')->extension();
            $final_name = 'about_photo'.'.'.$ext;
@@ -150,40 +150,6 @@ class AdminHomePageController extends Controller
         return redirect()->back()->with('success','data is updated successfully');
     }
 
-    public function testimonial() { 
-        $page_data = HomePageItem::where('id',1)->first();
-        $testimonial = Testimonial::get();
-        return view('admin.home_testimonial_show',compact('page_data'));
-    }
-    public function testimonial_submit(Request $request) {
-        $page_data = HomePageItem::where('id',1)->first();
-        $request->validate([
-            'desc_testi'=>'required',
-            'nama_testi'=>'required',
-            'eskul_testi'=>'required'
-        ]);
-
-        if($request->hasFile('bg_testi')) {
-            $request->validate([
-                'bg_testi' => 'image|mimes:jpg,jpeg,png,gif'
-            ]);
-            unlink(public_path('uploads/'.$page_data->bg_testi));
-
-            $ext = $request->file('bg_testi')->extension();
-            $final_name = 'home_testimonial'.'.'.$ext;
-
-            $request->file('bg_testi')->move(public_path('uploads/'),$final_name);
-
-            $page_data->bg_testi =$final_name;
-        }
-
-         $page_data->desc_testi = $request->desc_testi;
-         $page_data->nama_testi = $request->nama_testi;
-         $page_data->eskul_testi = $request->eskul_testi;
-         $page_data->update();
-        
-        return redirect()->back()->with('success','data is updated successfully');
-    }
 
     public function footer() {
         $page_data = HomePageItem::where('id',1)->first();

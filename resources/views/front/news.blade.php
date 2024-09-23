@@ -23,26 +23,30 @@
                             <div class="" style="overflow: hidden;">
                                 <div class="post-thumbnail gambar-badag">
                                     <a>
-                                        <img class=""
+                                        <img class="object-fit-cover"
                                             src="{{ asset('uploads/'.$item->gambar) }}"
-                                            alt="Blog-post Thumbnail" />
+                                            alt="Blog-post Thumbnail"  style="width: 400px; height: 250px"/>
                                     </a>
                                 </div>
                             </div>
                             <div class="post-header   ">
-                                <h2 class="post-title"><a href="#">{{ $item->judul }}</a></h2>
-                                <div class="post-meta">By&nbsp;<a href="#">{{ $item->penulis }}</a>&nbsp;| 23 November |
-                                    3 Comments
+                                <h2 class="post-title"><a href="{{ route('detail_berita', $item->id) }}">{{ $item->judul }}</a></h2>
+                                <div class="post-meta">By&nbsp;{{ $item->penulis }}&nbsp;| {{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F') }} |
+                                    {{ $item->komentar->count() }} Komentar
                                 </div>
                             </div>
                             <div class="post-entry">
-                                <p>{{ $item->deskripsi }}</p>
+                                <p>{{ \Illuminate\Support\Str::limit(strip_tags($item->deskripsi), 100, '...') }}</p>
                             </div>
                             <div class="post-more"><a class="more-link" href="{{ route('detail_berita', $item->id) }}">Baca Selengkapnya</a>
                             </div>
                         </div>
                     </div>                              
                     @endforeach
+                </div>
+                {{-- Pembungkus Pagination --}}
+                <div class="paginate-wrapper mt-4">
+                    {{ $beritas->links('pagination::bootstrap-4') }}
                 </div>
         </section>
 

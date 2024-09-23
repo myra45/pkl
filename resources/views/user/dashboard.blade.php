@@ -12,6 +12,12 @@
                         <h5 class="text-white">Quick Links</h5>
                     </div>
                     <div class="card-body d-flex justify-content-around">
+                        <!-- Beranda -->
+                        <div class="text-center">
+                            <a href="{{ route('home') }}" class="btn btn-outline-primary">
+                                <p>Home</p>
+                            </a>
+                        </div>
                         <!-- Profile -->
                         <div class="text-center">
                             <a href="{{ route('user_profile') }}" class="btn btn-outline-primary">
