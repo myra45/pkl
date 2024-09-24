@@ -8,7 +8,7 @@
     <form action="{{ route('admin_komentar') }}" method="GET" class="d-flex">
         <div class="form-group">
             <input type="text" name="search" id="search" class="form-control" value="{{ request()->input('search') }}"
-                placeholder="Cari...">
+                placeholder="Search...">
         </div>
         <button type="submit" class="btn btn-secondary ms-2"><i class="ti ti-search"></i></button>
     </form>

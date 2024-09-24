@@ -47,7 +47,7 @@
                                             value="{{ Auth::user()->email }}">
                                     </div>
                                     <div class="mb-4">
-                                        <label class="form-label">Ekstrakulikuler</label>
+                                        <label class="form-label">Extracurricular</label>
                                         <input type="text" name="extracurricular_name" class="form-control"
                                             id="" value="{{ Auth::user()->Extracurricular->nama_eskul }}" disabled>
                                     </div>

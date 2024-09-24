@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\AdminPenilaianController;
 use App\Http\Controllers\Admin\AdminNilaiAkhirController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\UserKomentarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -193,6 +194,8 @@ Route::post('/reset-password-submit', [LoginController::class, 'reset_password_s
             Route::get('/task',[UserTaskController::class, 'index'])->name('user_task');
             Route::get('/presensi/history',[UserPresensiController::class, 'presensi_history'])->name('user_presensi_history');
             Route::get('/nilai-akhir',[NilaiController::class, 'index'])->name('user_nilai_akhir');
+            Route::get('/komentar',[UserKomentarController::class, 'index'])->name('user_komentar');
+            Route::delete('/komentar-delete/{id}',[UserKomentarController::class, 'delete'])->name('user_komentar_delete');
     });
 });
     

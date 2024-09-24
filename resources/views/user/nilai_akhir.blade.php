@@ -7,13 +7,13 @@
         <form action="{{ route('user_nilai_akhir') }}" method="GET" class="d-flex">
             <div class="form-group">
                 <input type="text" name="search" id="search" class="form-control" value="{{ request()->input('search') }}"
-                    placeholder="Cari...">
+                    placeholder="Search...">
             </div>
             <button type="submit" class="btn btn-secondary ms-2"><i class="ti ti-search"></i></button>
         </form>
 
         @if (request()->input('search'))
-            <a href="{{ route('user_nilai_akhir') }}" class="btn btn-warning ms-2">Kembali <i
+            <a href="{{ route('user_nilai_akhir') }}" class="btn btn-warning ms-2">Back <i
                     class="ti ti-arrow-left"></i></a>
         @endif
     </div>
@@ -31,7 +31,7 @@
                                 <th>SL</th>
                                 <th>Event Name</th>
                                 <th>Member Name</th>
-                                <th>extracurricular</th>
+                                <th>Extracurricular</th>
                                 <th>Final Scorer</th>
                             </tr>
                         </thead>

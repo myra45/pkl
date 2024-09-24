@@ -7,7 +7,7 @@
         <form action="{{ route('user_presensi_history') }}" method="GET" class="d-flex">
             <div class="form-group">
                 <input type="text" name="search" id="search" class="form-control" value="{{ request()->input('search') }}"
-                    placeholder="Cari...">
+                    placeholder="Search...">
             </div>
             <button type="submit" class="btn btn-secondary ms-2"><i class="ti ti-search"></i></button>
         </form>
@@ -28,8 +28,8 @@
                         <thead>
                             <tr>
                                 <th>SL</th>
-                                <th>Nama Event</th>
-                                <th>Tanggal</th>
+                                <th>Event Name</th>
+                                <th>Date</th>
                                 <th>Status</th>
                             </tr>
                         </thead>

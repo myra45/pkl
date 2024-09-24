@@ -57,6 +57,14 @@
                             <span class="hide-menu">Final Score</span>
                         </a>
                     </li>
+                    <li class="sidebar-item {{ Request::is('user/komentar*') ? 'active' : ' ' }}">
+                        <a class="sidebar-link {{ Request::is('user/komentar*') ? 'active' : ' ' }}" href="{{route('user_komentar')}}">
+                            <span>
+                                <i class="ti ti-article"></i>
+                            </span>
+                            <span class="hide-menu">My Comments</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item {{ Request::is('/logout') ? 'active' : ' ' }}">
                         <a class="sidebar-link" href="{{route('logout')}}">
                             <span>
