@@ -1,7 +1,7 @@
 
         <div class="module-small bg-dark" style="background-color: #5271ff; color: #fff">
           <div class="container"> 
-            <div class="row">
+            <div class="row justify-content-center">
               <div class="col-sm-3">
                 <div class="widget">
                   <h5 class="widget-title font-alt">{{$page_data->footer_judul_1}}</h5>
@@ -56,9 +56,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-            </div>
-            <div class="col-sm-6" style="margin-right: 15v 0px"> &copy copyright 2024
-              <a href="{{route('kontak_developer')}}">Kontak Developer</a>
+              &copy copyright 2024 <a href="{{route('kontak_developer')}}">Kontak Developer</a>
             </div>
         </div>
     </div>

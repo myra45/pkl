@@ -41,6 +41,10 @@
                                         <input type="text" class="form-control" name="nama_developer" placeholder="Admin" value="{{ $row_data->nama_developer }}">
                                     </div>
                                     <div class="mb-4">
+                                        <label class="form-label">Link</label>
+                                        <input type="text" class="form-control" name="link" placeholder="github.io" value="{{ $row_data->link }}">
+                                    </div>
+                                    <div class="mb-4">
                                         <label class="form-label">Kelas</label>
                                         <input type="text" class="form-control" name="kelas_developer" placeholder="XII RPL 1" value="{{ $row_data->kelas_developer }}">
                                     </div>

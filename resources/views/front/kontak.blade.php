@@ -36,7 +36,7 @@ data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
             />
           </div>
           <div class="work-caption font-alt">
-            <h3 class="work-title">{{$item->nama_developer}}</h3>
+            <h3 class="work-title"><a href="{{ $item->link }}" target="blank">{{$item->nama_developer}}</a></h3>
             <div class="work-descr">{{$item->kelas_developer}}</div>
             <div class="work-descr" style="display: flex !important; justify-content: center; margin-top: 10px">
                 <div class="work-descr"><a href="{{ $item->wa_developer}}">

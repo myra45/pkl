@@ -12,13 +12,13 @@
             </div>
             <button type="submit" class="btn btn-secondary ms-2"><i class="ti ti-search"></i></button>
         </form>
-        <a href="{{ route('home_kontak_add') }}" class="btn btn-primary ms-2" data-bs-toggle="tooltip"
-            data-bs-placement="top" title="Add New"><span class="ti ti-plus"></span></a>
+        {{-- <a href="{{ route('home_kontak_add') }}" class="btn btn-primary ms-2" data-bs-toggle="tooltip"
+            data-bs-placement="top" title="Add New"><span class="ti ti-plus"></span></a> --}}
 
 
         {{-- Tombol Kembali akan muncul jika ada pencarian --}}
         @if (request()->input('search'))
-            <a href="{{ route('home_kontak_show') }}" class="btn btn-warning ms-2">Kembali <i
+            <a href="{{ route('home_kontak_show') }}" class="btn btn-warning ms-2">Back <i
                     class="ti ti-arrow-left"></i></a>
         @endif
     </div>
