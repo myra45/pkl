@@ -31,6 +31,7 @@ class AdminKontakController extends Controller
         $row_data = KontakDeveloper::where('id',$id)->first();
         $request->validate([
             'nama_developer'=>'required',
+            'link'=>'required',
             'kelas_developer'=>'required',
             'wa_developer'=>'required',
             'ig_developer'=>'required',
@@ -52,6 +53,7 @@ class AdminKontakController extends Controller
         }
 
          $row_data->nama_developer = $request->nama_developer;
+         $row_data->link = $request->link;
          $row_data->kelas_developer = $request->kelas_developer;
          $row_data->wa_developer = $request->wa_developer;
          $row_data->ig_developer = $request->ig_developer;

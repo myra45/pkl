@@ -25,9 +25,9 @@ data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
                         </div>
                         <div class="post-header font-alt">
                             <h2 class="post-title">{{ $detail_berita->judul }}</h2>
-                            <div class="post-meta">By&nbsp;<a href="#">{{ $detail_berita->penulis }}</a>|
+                            <div class="post-meta">By&nbsp;{{ $detail_berita->penulis }}|
                                 {{ \Carbon\Carbon::parse($detail_berita->tanggal)->translatedFormat('d F') }} | {{ $jlm_komentar }}
-                                Komentar | <a href="#">{{ $detail_berita->rCategory->name }}</a>
+                                Komentar | <a href="{{ route('filterCategory', $detail_berita->rCategory->id) }}">{{ $detail_berita->rCategory->name }}</a>
                             </div>
                         </div>
                         <p>{!! nl2br($detail_berita->deskripsi) !!}</p>
@@ -75,9 +75,9 @@ data-background="{{ asset('dist_front/assets/images/agency/Background.jpg') }}">
                 <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
                     <div class="widget">
                         <h5 class="widget-title font-alt">Kategori Blog</h5>
-                        <ul class="icon-list" style="color: #000 !important">
+                        <ul class="icon-list">
                             @foreach ($berita_categories as $item)
-                                <li>{{ $item->name }}</li>
+                                <li><a  style="color: #000 !important" href="{{ route('filterCategory', $item->id) }}">{{ $item->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

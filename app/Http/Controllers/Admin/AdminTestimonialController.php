@@ -75,7 +75,7 @@ class AdminTestimonialController extends Controller
         $row_data = Testimonial::where('id', $id)->first();
         $row_data->delete();
 
-        return redirect()->back()->with('success', 'Data updated successfully!');
+        return redirect()->back()->with('success', 'Data deleted successfully!');
     }
 
     public function bg()
