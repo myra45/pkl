@@ -34,10 +34,10 @@
                     <li class="list-group-item mb-2  list-group-item-warning rounded p-3">
                         <ul class="h5">
                             <div class="d-flex justify-content-between">
-                                {{ $item->berita->judul }} <span><p class="fw-normal fs-3">{{ $item->created_at->format('d M Y') }}</p></span>
+                                Judul Artikel : {{ $item->berita->judul }} <span><p class="fw-normal fs-3">Tanggal : {{ $item->created_at->format('d M Y') }}</p></span>
                             </div>
                         </ul>
-                        <p>{!! nl2br(e($item->isi_komentar)) !!}</p>
+                        <p>Isi Komentar : {!! nl2br(e($item->isi_komentar)) !!}</p>
                         <form action="{{ route('user_komentar_delete', $item->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
                         @csrf
                         @method('DELETE')

@@ -11,6 +11,7 @@ use App\Models\Berita;
 use App\Models\Presensi;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\EventPenilian;
 use Illuminate\Support\Facades\Auth;
 
 class AdminHomeController extends Controller
@@ -33,7 +34,7 @@ class AdminHomeController extends Controller
         $all_presensi = Event::where('eskul_id', $eskul_id)->count();
         $all_task = Tugas::where('eskul_id', $eskul_id)->count();
         $all_member = User::where('role', 'Member')->where('eskul_id', $eskul_id)->count();
-        $all_nilai = Nilai::where('eskul_id', $eskul_id)->count();
+        $all_nilai = EventPenilian::count();
         // dd($all_nilai);
         // Mendapatkan data kehadiran member
         $attendanceData = Presensi::where('eskul_id', $eskul_id)->selectRaw('DATE(created_at) as date, COUNT(*) as total_attendance')
