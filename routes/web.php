@@ -70,7 +70,7 @@ Route::prefix('admin')->group(function () {
       
         Route::middleware('admin')->group(function () {
             Route::get('/home', [AdminHomeController::class, 'index'])->name('admin_home');
-            // Admin  
+            // Admin  Eskul
             Route::get('/show', [AdminEskulController::class, 'index'])->name('admin_show');
             Route::get('/add', [AdminEskulController::class, 'add'])->name('add_admin');
             Route::post('-submit', [AdminEskulController::class, 'store'])->name('add_admin_submit');

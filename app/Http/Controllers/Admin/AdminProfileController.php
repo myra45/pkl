@@ -65,10 +65,6 @@ class AdminProfileController extends Controller
                 'email' => $request->email,
                 'profile_img' => $admin_photo,
             ]);
-        // $admin_data->name = $request->name;
-        // $admin_data->email = $request->email;
-        // $admin_photo->photo = $admin_photo;
-        // $admin_data->save();
 
         return redirect()->back()->with('success', 'Profile information is saved succesfully');
     }

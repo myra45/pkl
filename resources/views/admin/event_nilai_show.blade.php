@@ -37,7 +37,7 @@
                         <div class="col-md-4 col-sm-4">
               <div class="card p-4 me-3">
                     <p class="fw-bold fs-5 mb-3">
-                      All Task
+                      All Event
                     </p>
                     <a href="{{ route('event_nilai_all') }}" class="btn btn-sm btn-primary">View All</a>
               </div>
@@ -45,7 +45,7 @@
             <div class="col-md-4 col-sm-4">
               <div class="card p-4 me-3">
                     <p class="fw-bold fs-5 mb-3">
-                      Create Task
+                      Create Event
                     </p>
                     <a href="{{ route('event_nilai_create') }}" class="btn btn-sm btn-primary">Create</a>
               </div>

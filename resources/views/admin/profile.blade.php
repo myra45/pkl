@@ -2,13 +2,6 @@
 
 @section('heading', 'Profile')
 
-@section('button_section')
-
-
-
-@endsection
-
-
 @section('main_content')
     <div class="section-body">
         <div class="row">
